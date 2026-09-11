@@ -41,39 +41,39 @@ export function Hero() {
       <span className="visually-hidden">{copy.imageAlt}</span>
 
       <div className="hero__content">
-        <div className="hero__copy">
-          <h1 id="hero-title" className="hero__title">
-            <motion.span
-              className="hero__title-line"
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease, delay: 0.12 }}
-            >
-              {copy.headlineLead}
-              <em className="accent-script">{copy.headlineAccent}</em>
-            </motion.span>
-          </h1>
-        </div>
+        <div className="hero__stack">
+          <div className="hero__copy">
+            <h1 id="hero-title" className="hero__title">
+              <motion.span
+                className="hero__title-line"
+                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease, delay: 0.12 }}
+              >
+                {copy.headlineLead}
+                <em className="accent-script">{copy.headlineAccent}</em>
+              </motion.span>
+            </h1>
+          </div>
 
-        <motion.p
-          className="hero__subhead"
-          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease, delay: 0.28 }}
-        >
-          {copy.subhead}
-        </motion.p>
+          <motion.p
+            className="hero__subhead"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease, delay: 0.28 }}
+          >
+            {copy.subhead}
+          </motion.p>
 
-        <motion.div
-          className="hero__actions"
-          initial={reduce ? { opacity: 0 } : { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease, delay: 0.38 }}
-        >
-          <WhatsAppButton variant="hero" label={t.cta.personalized} />
-        </motion.div>
+          <motion.div
+            className="hero__actions"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease, delay: 0.38 }}
+          >
+            <WhatsAppButton variant="hero" label={t.cta.personalized} />
+          </motion.div>
 
-        <div className="hero__meta">
           <motion.p
             className="hero__tagline"
             initial={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
@@ -82,7 +82,9 @@ export function Hero() {
           >
             {copy.tagline}
           </motion.p>
+        </div>
 
+        <div className="hero__meta">
           <ul className="hero__facts">
             {copy.facts.map((fact, index) => {
               const valueDelay = 0.5 + index * 0.22;

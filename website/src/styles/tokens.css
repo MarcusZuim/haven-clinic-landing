@@ -39,10 +39,10 @@
   --hero-veil-mobile:
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--color-white-rock) 28%, transparent) 0%,
-      transparent 34%,
-      color-mix(in srgb, var(--color-cashmere) 18%, transparent) 58%,
-      color-mix(in srgb, var(--color-puce) 42%, transparent) 100%
+      color-mix(in srgb, var(--color-puce-dark) 18%, transparent) 0%,
+      transparent 28%,
+      color-mix(in srgb, var(--color-puce) 22%, transparent) 52%,
+      color-mix(in srgb, var(--color-puce-dark) 72%, transparent) 100%
     );
   --hero-veil-desktop:
     linear-gradient(

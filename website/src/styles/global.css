@@ -518,7 +518,7 @@ blockquote {
 
 .hero__frame img {
   object-fit: cover;
-  object-position: center 42%;
+  object-position: center 18%;
 }
 
 .hero__veil {
@@ -533,20 +533,31 @@ blockquote {
   max-width: none;
   margin: 0;
   min-height: calc(100svh - var(--banner-offset));
-  padding: calc(var(--header-height) + 28px) 20px 96px;
+  padding: calc(var(--header-height) + 12px) 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 22px;
+}
+
+.hero__stack {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  max-width: 32ch;
 }
 
 .hero__copy {
-  max-width: 14ch;
+  max-width: 12ch;
 }
 
 .hero__title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.6rem, 11vw, 3.8rem);
-  line-height: 1.08;
+  font-size: clamp(2.15rem, 9vw, 2.9rem);
+  line-height: 1.06;
   color: var(--color-white);
-  max-width: 13ch;
+  max-width: 12ch;
   text-shadow: 0 2px 18px color-mix(in srgb, var(--color-puce) 28%, transparent);
 }
 
@@ -556,10 +567,10 @@ blockquote {
 
 .hero__subhead {
   font-weight: 400;
-  font-size: 1.08rem;
-  line-height: 1.5;
-  max-width: 34ch;
-  margin: 18px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  max-width: 32ch;
+  margin: 0;
   color: color-mix(in srgb, var(--color-white) 96%, transparent);
   text-shadow: 0 1px 12px color-mix(in srgb, var(--color-puce) 40%, transparent);
 }
@@ -568,20 +579,22 @@ blockquote {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
-  margin-top: 22px;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 2px;
 }
 
 .hero__meta {
-  margin-top: 36px;
+  margin-top: 0;
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .hero__tagline {
-  font-weight: 700;
-  font-size: 0.95rem;
+  font-weight: 400;
+  font-size: 0.88rem;
   letter-spacing: 0.01em;
+  margin: 2px 0 0;
   text-shadow: 0 1px 10px color-mix(in srgb, var(--color-puce) 30%, transparent);
 }
 
@@ -589,7 +602,7 @@ blockquote {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  padding-top: 4px;
+  padding-top: 0;
 }
 
 .hero__fact-value {
@@ -1044,6 +1057,12 @@ blockquote {
   .hero__content {
     min-height: calc(100svh - var(--banner-offset));
     padding: calc(var(--header-height) + 5vh) 32px 40px;
+    display: block;
+  }
+
+  .hero__stack {
+    display: contents;
+    max-width: none;
   }
 
   .hero__copy {
@@ -1082,6 +1101,13 @@ blockquote {
   .hero__tagline {
     text-shadow: none;
     color: var(--color-puce-dark);
+  }
+
+  .hero__tagline {
+    position: absolute;
+    left: 32px;
+    bottom: 148px;
+    font-weight: 700;
   }
 
   .hero__meta {
@@ -1241,6 +1267,10 @@ blockquote {
   }
 
   .hero__meta {
+    left: 48px;
+  }
+
+  .hero__tagline {
     left: 48px;
   }
 
