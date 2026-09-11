@@ -1,0 +1,39 @@
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+auth.json
+.mcp.json
+
+# Sessões e ferramentas pessoais
+.codex/
+.claude/settings.local.json
+.claude/worktrees/
+
+# Dependências e ambientes
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Builds e caches regeneráveis
+.next/
+.cache/
+.tmp/
+tmp/
+dist/
+coverage/
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Arquivos temporários de escritório
+~$*.pptx
+~$*.docx
+~$*.xlsx

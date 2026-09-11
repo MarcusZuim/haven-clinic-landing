@@ -1,0 +1,66 @@
+:root {
+  --color-white-rock: #eae7df;
+  --color-puce: #7e5b51;
+  --color-cashmere: #e6d0bc;
+  --color-clam-shell: #c5b4af;
+  --color-dusty-grey: #988e8e;
+  --color-puce-dark: color-mix(in srgb, var(--color-puce) 78%, #1c100e);
+  --color-white: #fbf8f3;
+  --color-text: var(--color-puce);
+  --color-text-soft: var(--color-dusty-grey);
+
+  --font-display: "The Seasons", Georgia, "Times New Roman", serif;
+  --font-body: "Open Sans", Helvetica, Arial, sans-serif;
+  --font-accent: "Abramo", "Brush Script MT", cursive;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+
+  --radius-cta: 6px;
+  --radius-card: 12px;
+  --radius-image: 4px;
+
+  --shadow-card: 0 18px 40px color-mix(in srgb, var(--color-puce) 14%, transparent);
+  --shadow-soft: 0 8px 24px color-mix(in srgb, var(--color-puce) 10%, transparent);
+
+  --header-height: 72px;
+  --banner-height: 36px;
+  --banner-offset: 0px;
+  --max-width: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --hero-veil-mobile:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-white-rock) 28%, transparent) 0%,
+      transparent 34%,
+      color-mix(in srgb, var(--color-cashmere) 18%, transparent) 58%,
+      color-mix(in srgb, var(--color-puce) 42%, transparent) 100%
+    );
+  --hero-veil-desktop:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-white-rock) 48%, transparent) 0%,
+      color-mix(in srgb, var(--color-white-rock) 10%, transparent) 46%,
+      color-mix(in srgb, var(--color-cashmere) 8%, transparent) 100%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-white-rock) 16%, transparent) 0%,
+      transparent 42%,
+      color-mix(in srgb, var(--color-puce) 18%, transparent) 100%
+    );
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 80px;
+  }
+}

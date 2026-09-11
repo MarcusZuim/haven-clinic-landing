@@ -1,0 +1,10 @@
+---
+description: Regras universais do AI Design Studio
+alwaysApply: true
+---
+
+# Regra permanente do projeto
+
+Leia e cumpra `AGENTS.md` antes de planejar, criar, pesquisar, editar ou revisar qualquer entrega.
+
+Use `brand/`, `PRODUCT_FACTS.md`, `PROJECT_BRIEF.md` e `research/SOURCES.md` como fontes de verdade. Não invente fatos nem exponha credenciais. Siga o workflow numerado e conclua os checklists de `qa/` antes de considerar o trabalho pronto.
