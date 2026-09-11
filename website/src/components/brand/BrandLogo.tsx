@@ -1,3 +1,5 @@
+import { assetUrl } from "../../lib/assets";
+
 type BrandLogoProps = {
   variant: "isotipo" | "isologo";
   className?: string;
@@ -6,12 +8,12 @@ type BrandLogoProps = {
 
 const ASSETS = {
   isotipo: {
-    src: "/images/brand/isotipo01-web.png",
+    src: assetUrl("images/brand/isotipo01-web.png"),
     width: 256,
     height: 256,
   },
   isologo: {
-    src: "/images/brand/isologo01-web.png",
+    src: assetUrl("images/brand/isologo01-web.png"),
     width: 512,
     height: 512,
   },

@@ -1,3 +1,5 @@
+import { assetUrl } from "../lib/assets";
+
 export const site = {
   name: "Haven Clinic",
   city: "São José do Rio Preto",
@@ -9,12 +11,12 @@ export const site = {
   ] as const,
   hero: {
     image: {
-      src: "/images/hero/haven-hero-9x16.png",
+      src: assetUrl("images/hero/haven-hero-9x16.png"),
       width: 720,
       height: 1280,
     },
     imageDesktop: {
-      src: "/images/hero/haven-hero-16x9.png",
+      src: assetUrl("images/hero/haven-hero-16x9.png"),
       width: 1280,
       height: 720,
     },
@@ -22,7 +24,7 @@ export const site = {
   why: {
     id: "clinica",
     image: {
-      src: "/images/placeholders/why.webp",
+      src: assetUrl("images/placeholders/why.webp"),
       width: 1400,
       height: 1750,
     },
@@ -35,7 +37,7 @@ export const site = {
     featured: {
       name: "Drª Nayara",
       image: {
-        src: "/images/placeholders/team.webp",
+        src: assetUrl("images/placeholders/team.webp"),
         width: 900,
         height: 1125,
       },
