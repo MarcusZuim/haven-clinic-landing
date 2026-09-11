@@ -36,27 +36,8 @@
   --max-width: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --hero-veil-mobile:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-puce-dark) 18%, transparent) 0%,
-      transparent 28%,
-      color-mix(in srgb, var(--color-puce) 22%, transparent) 52%,
-      color-mix(in srgb, var(--color-puce-dark) 72%, transparent) 100%
-    );
-  --hero-veil-desktop:
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--color-white-rock) 48%, transparent) 0%,
-      color-mix(in srgb, var(--color-white-rock) 10%, transparent) 46%,
-      color-mix(in srgb, var(--color-cashmere) 8%, transparent) 100%
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--color-white-rock) 16%, transparent) 0%,
-      transparent 42%,
-      color-mix(in srgb, var(--color-puce) 18%, transparent) 100%
-    );
+  --hero-veil-mobile: none;
+  --hero-veil-desktop: none;
 }
 
 @media (min-width: 768px) {

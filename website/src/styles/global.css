@@ -518,7 +518,7 @@ blockquote {
 
 .hero__frame img {
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 22%;
 }
 
 .hero__veil {
@@ -1066,41 +1066,43 @@ blockquote {
   }
 
   .hero__copy {
-    padding-left: clamp(4.5rem, 16vw, 12rem);
-    padding-top: 5vh;
+    padding-left: clamp(2rem, 6vw, 5rem);
+    padding-top: 8vh;
     max-width: none;
   }
 
   .hero__title {
     font-size: clamp(3.6rem, 5.8vw, 5.5rem);
-    color: var(--color-puce-dark);
-    text-shadow: none;
+    color: var(--color-white);
+    text-shadow: 0 2px 22px color-mix(in srgb, var(--color-puce-dark) 55%, transparent);
     max-width: 12ch;
   }
 
   .hero__subhead {
     position: absolute;
-    right: clamp(16px, 3vw, 40px);
-    top: 26%;
-    width: min(28ch, 26vw);
+    left: clamp(2rem, 6vw, 5rem);
+    top: 42%;
+    right: auto;
+    bottom: auto;
+    width: min(34ch, 34vw);
     margin: 0;
     text-align: left;
     font-size: clamp(1.18rem, 1.6vw, 1.48rem);
     font-weight: 400;
     line-height: 1.45;
-    color: var(--color-white);
-    text-shadow: 0 2px 18px color-mix(in srgb, var(--color-puce) 58%, transparent);
+    color: color-mix(in srgb, var(--color-white) 94%, transparent);
+    text-shadow: 0 2px 18px color-mix(in srgb, var(--color-puce-dark) 58%, transparent);
   }
 
   .hero {
-    color: var(--color-puce-dark);
+    color: var(--color-white);
   }
 
   .hero__fact-label,
   .hero__fact-value,
   .hero__tagline {
-    text-shadow: none;
-    color: var(--color-puce-dark);
+    text-shadow: 0 1px 14px color-mix(in srgb, var(--color-puce-dark) 50%, transparent);
+    color: var(--color-white);
   }
 
   .hero__tagline {
@@ -1143,7 +1145,7 @@ blockquote {
   }
 
   .hero__frame img {
-    object-position: 72% 40%;
+    object-position: 78% 42%;
   }
 
   .why__layout {

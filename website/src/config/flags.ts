@@ -2,4 +2,4 @@
 export const SHOW_TESTIMONIALS_PROTOTYPE = true;
 
 /** Remover após a Drª Nayara aprovar e as fotos reais substituírem as ilustrativas. */
-export const SHOW_PROTOTYPE_BANNER = true;
+export const SHOW_PROTOTYPE_BANNER = false;
