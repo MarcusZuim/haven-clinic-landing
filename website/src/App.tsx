@@ -1,5 +1,6 @@
 import { FloatingWhatsApp } from "./components/cta/FloatingWhatsApp";
 import { Header } from "./components/layout/Header";
+import { PageRail } from "./components/layout/PageRail";
 import { PrototypeBanner } from "./components/layout/PrototypeBanner";
 import { Contact } from "./components/sections/Contact";
 import { Hero } from "./components/sections/Hero";
@@ -35,6 +36,7 @@ export default function App() {
 
       <PrototypeBanner />
       <Header />
+      <PageRail />
 
       <main>
         <Hero />

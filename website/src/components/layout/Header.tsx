@@ -42,9 +42,6 @@ export function Header() {
           onClick={close}
         >
           <BrandLogo variant="isotipo" decorative />
-          <span className="brand-lockup__name" aria-hidden="true">
-            {site.name}
-          </span>
         </a>
 
         <nav className="site-nav" aria-label={t.a11y.nav}>

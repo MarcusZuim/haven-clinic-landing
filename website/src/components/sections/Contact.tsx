@@ -1,33 +1,53 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { site } from "../../content/site";
 import { buildWhatsAppUrl } from "../../config/whatsapp";
 import { useLanguage } from "../../i18n/LanguageProvider";
-import { WhatsAppButton } from "../cta/WhatsAppButton";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
+
+const INSTAGRAM_URL = "https://www.instagram.com/havenclinicoficial/";
+const TIKTOK_URL = "https://www.tiktok.com/@havenclinicoficial";
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=R.+Luiz+Ant%C3%B4nio+da+Silveira,+334+-+Boa+Vista,+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+-+SP,+15025-020";
 
 export function Contact() {
   const { contact } = site;
   const { t } = useLanguage();
   const copy = t.contact;
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
 
-  const leadMessage = useMemo(() => {
-    const trimmedName = name.trim();
-    if (!trimmedName) return t.whatsapp.message;
+  const detailByKey = useMemo(() => {
+    return Object.fromEntries(copy.details.map((item) => [item.key, item]));
+  }, [copy.details]);
 
-    const parts = [copy.leadMessage.replace("{name}", trimmedName)];
-    const trimmedEmail = email.trim();
-    if (trimmedEmail) {
-      parts.push(copy.leadEmail.replace("{email}", trimmedEmail));
-    }
-    return parts.join(" ");
-  }, [copy, email, name, t.whatsapp.message]);
+  const renderDetail = (key: string) => {
+    const item = detailByKey[key];
+    if (!item) return null;
 
-  const whatsappHref = buildWhatsAppUrl(leadMessage);
-
-  const openWhatsApp = () => {
-    window.open(whatsappHref, "_blank", "noopener,noreferrer");
+    return (
+      <div className="closing__detail" key={item.key}>
+        <dt>{item.label}</dt>
+        <dd>
+          {item.key === "whatsapp" ? (
+            <a
+              href={buildWhatsAppUrl(t.whatsapp.message)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.value}
+            </a>
+          ) : item.key === "address" ? (
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+              {item.value.split("\n").map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </a>
+          ) : item.key === "email" ? (
+            <a href={`mailto:${item.value}`}>{item.value}</a>
+          ) : (
+            item.value.split("\n").map((line) => <span key={line}>{line}</span>)
+          )}
+        </dd>
+      </div>
+    );
   };
 
   return (
@@ -40,26 +60,17 @@ export function Contact() {
           </h2>
 
           <dl className="closing__details">
-            {copy.details.map((item) => (
-              <div key={item.key}>
-                <dt>{item.label}</dt>
-                <dd>
-                  {item.key === "whatsapp" ? (
-                    <a href={buildWhatsAppUrl(t.whatsapp.message)} target="_blank" rel="noopener noreferrer">
-                      {item.value}
-                    </a>
-                  ) : (
-                    item.value.split("\n").map((line) => (
-                      <span key={line}>{line}</span>
-                    ))
-                  )}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </RevealItem>
+            <div className="closing__details-col">
+              {renderDetail("address")}
+              {renderDetail("whatsapp")}
+            </div>
 
-        <RevealItem className="closing__panel">
+            <div className="closing__details-col">
+              {renderDetail("hours")}
+              {renderDetail("email")}
+            </div>
+          </dl>
+
           <div className="closing__social" aria-label={copy.social}>
             <a
               className="closing__social-link"
@@ -70,59 +81,29 @@ export function Contact() {
             >
               <WhatsAppIcon />
             </a>
-            <span
-              className="closing__social-link is-pending"
-              title={copy.instagramPending}
-              aria-label={copy.instagramPending}
+            <a
+              className="closing__social-link"
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
             >
               <InstagramIcon />
-            </span>
+            </a>
+            <a
+              className="closing__social-link"
+              href={TIKTOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <TikTokIcon />
+            </a>
           </div>
-
-          <p className="closing__hint">{copy.hint}</p>
-
-          <form
-            className="closing__form"
-            onSubmit={(event) => {
-              event.preventDefault();
-              openWhatsApp();
-            }}
-          >
-            <label className="closing__field">
-              <span className="visually-hidden">{copy.nameLabel}</span>
-              <input
-                type="text"
-                name="name"
-                autoComplete="name"
-                placeholder={copy.nameLabel}
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-              />
-            </label>
-            <label className="closing__field">
-              <span className="visually-hidden">{copy.emailLabel}</span>
-              <input
-                type="email"
-                name="email"
-                autoComplete="email"
-                placeholder={copy.emailLabel}
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-            </label>
-
-            <WhatsAppButton
-              className="closing__cta"
-              variant="solid"
-              label={copy.cta}
-              message={leadMessage}
-            />
-          </form>
         </RevealItem>
       </div>
 
       <RevealItem className="closing__foot">
-        <p className="closing__wordmark">{site.name}</p>
         <p className="closing__legal">{t.footer.legalNote}</p>
       </RevealItem>
     </SectionReveal>
@@ -143,9 +124,29 @@ function WhatsAppIcon() {
 function InstagramIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
       <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" />
       <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M14.2 3c.4 2.5 1.9 4.2 4.3 4.5v2.3c-1.5 0-2.8-.4-4-1.2v6.2c0 3.5-2.8 6.2-6.3 6.2S1.9 18.3 1.9 14.8 4.7 8.6 8.2 8.6c.3 0 .7 0 1 .1v2.5c-.3-.1-.6-.2-1-.2-2.1 0-3.8 1.7-3.8 3.8s1.7 3.8 3.8 3.8 3.8-1.7 3.8-3.8V3h2.2Z"
+      />
     </svg>
   );
 }

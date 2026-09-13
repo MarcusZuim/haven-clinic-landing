@@ -37,9 +37,9 @@ export const site = {
     featured: {
       name: "Drª Nayara",
       image: {
-        src: assetUrl("images/placeholders/team.webp"),
-        width: 900,
-        height: 1125,
+        src: assetUrl("images/team/nayara.jpg"),
+        width: 960,
+        height: 1104,
       },
     },
   },

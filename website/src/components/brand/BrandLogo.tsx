@@ -14,8 +14,8 @@ const ASSETS = {
   },
   isologo: {
     src: assetUrl("images/brand/isologo01-web.png"),
-    width: 512,
-    height: 512,
+    width: 1024,
+    height: 1280,
   },
 } as const;
 

@@ -25,13 +25,13 @@ export function SectionReveal({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.22 }}
+      viewport={{ once: true, amount: 0.05, margin: "0px 0px 18% 0px" }}
       variants={{
         hidden: {},
         show: {
           transition: {
-            staggerChildren: reduce ? 0 : 0.16,
-            delayChildren: reduce ? 0 : 0.08,
+            staggerChildren: reduce ? 0 : 0.05,
+            delayChildren: 0,
           },
         },
       }}
@@ -59,11 +59,11 @@ export function RevealItem({
     <Tag
       className={className}
       variants={{
-        hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 24 },
+        hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 12 },
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: reduce ? 0.35 : 0.6, ease },
+          transition: { duration: reduce ? 0.2 : 0.32, ease },
         },
       }}
     >

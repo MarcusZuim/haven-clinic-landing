@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { SHOW_TESTIMONIALS_PROTOTYPE } from "../../config/flags";
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
+
+const GOOGLE_REVIEW_URL = "https://share.google/PzCsjfkHdW52BNDLy";
 
 export function Testimonials() {
   const reduce = useReducedMotion();
@@ -11,10 +12,7 @@ export function Testimonials() {
   const { t } = useLanguage();
   const copy = t.testimonials;
   const { testimonials } = site;
-
-  if (!SHOW_TESTIMONIALS_PROTOTYPE) return null;
-
-  const quote = copy.items[index];
+  const review = copy.items[index];
   const total = copy.items.length;
 
   const go = (direction: -1 | 1) => {
@@ -32,19 +30,23 @@ export function Testimonials() {
       </RevealItem>
 
       <RevealItem className="quotes__stage">
-        <p className="example-badge">{copy.exampleLabel}</p>
-
         <AnimatePresence mode="wait">
-          <motion.blockquote
-            key={quote}
-            className="quotes__quote"
+          <motion.figure
+            key={review.author}
+            className="quotes__card"
             initial={reduce ? { opacity: 0 } : { opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, x: -24 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            {quote}
-          </motion.blockquote>
+            <div className="quotes__meta">
+              <p className="quotes__author">{review.author}</p>
+              <p className="quotes__stars" aria-label={copy.ratingLabel}>
+                {"★★★★★"}
+              </p>
+            </div>
+            <blockquote className="quotes__quote">{review.text}</blockquote>
+          </motion.figure>
         </AnimatePresence>
 
         <div className="quotes__nav">
@@ -58,6 +60,13 @@ export function Testimonials() {
             →
           </button>
         </div>
+
+        <p className="quotes__source">
+          {copy.googleNote}{" "}
+          <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer">
+            {copy.googleCta}
+          </a>
+        </p>
       </RevealItem>
     </SectionReveal>
   );

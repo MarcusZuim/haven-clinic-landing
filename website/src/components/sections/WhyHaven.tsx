@@ -4,7 +4,7 @@ import { WhatsAppButton } from "../cta/WhatsAppButton";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
 
 export function WhyHaven() {
-  const { why, team } = site;
+  const { why } = site;
   const { t } = useLanguage();
   const copy = t.why;
 
@@ -46,14 +46,6 @@ export function WhyHaven() {
             <p>{copy.aside.body}</p>
             <WhatsAppButton variant="solid" label={t.cta.howItWorks} />
           </div>
-          <img
-            className="why__portrait"
-            src={team.featured.image.src}
-            alt={t.team.imageAlt}
-            width={team.featured.image.width}
-            height={team.featured.image.height}
-            loading="lazy"
-          />
         </RevealItem>
       </div>
     </SectionReveal>
