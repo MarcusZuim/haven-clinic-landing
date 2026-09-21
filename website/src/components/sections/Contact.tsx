@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { site } from "../../content/site";
 import { buildWhatsAppUrl } from "../../config/whatsapp";
 import { useLanguage } from "../../i18n/LanguageProvider";
+import { WhatsAppButton } from "../cta/WhatsAppButton";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
 
 const INSTAGRAM_URL = "https://www.instagram.com/havenclinicoficial/";
@@ -54,22 +55,25 @@ export function Contact() {
     <SectionReveal as="section" id={contact.id} className="section closing">
       <div className="closing__layout">
         <RevealItem className="closing__copy">
+          <p className="eyebrow">{copy.eyebrow}</p>
           <h2 className="closing__title">
             {copy.titleLead}
             <span>{copy.titleAccent}</span>
           </h2>
+          <p className="closing__intro">{copy.intro}</p>
+          <WhatsAppButton variant="solid" label={copy.cta} />
 
-          <dl className="closing__details">
-            <div className="closing__details-col">
+          <div className="closing__details">
+            <dl className="closing__details-col">
               {renderDetail("address")}
               {renderDetail("whatsapp")}
-            </div>
+            </dl>
 
-            <div className="closing__details-col">
+            <dl className="closing__details-col">
               {renderDetail("hours")}
               {renderDetail("email")}
-            </div>
-          </dl>
+            </dl>
+          </div>
 
           <div className="closing__social" aria-label={copy.social}>
             <a
@@ -104,6 +108,7 @@ export function Contact() {
       </div>
 
       <RevealItem className="closing__foot">
+        <p className="closing__brand">Haven Clinic</p>
         <p className="closing__legal">{t.footer.legalNote}</p>
       </RevealItem>
     </SectionReveal>

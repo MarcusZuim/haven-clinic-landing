@@ -1,9 +1,9 @@
 export const theme = {
-  whiteRock: "#EAE7DF",
-  puce: "#7E5B51",
-  cashmere: "#E6D0BC",
+  whiteRock: "#F1EEE7",
+  puce: "#79564D",
+  cashmere: "#DEC4AC",
   clamShell: "#C5B4AF",
-  dustyGrey: "#988E8E",
-  puceDark: "#5B423A",
-  white: "#FBF8F3",
+  dustyGrey: "#817775",
+  puceDark: "#392824",
+  white: "#FBFAF7",
 } as const;

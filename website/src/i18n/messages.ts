@@ -15,12 +15,35 @@ export function isLocale(value: string | null): value is Locale {
   return value === "pt" || value === "en" || value === "es";
 }
 
+const reviews = [
+  {
+    author: "Bruno Splendori",
+    text: "Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.",
+  },
+  {
+    author: "Brunna Calafati",
+    text: "Eu estou fazendo meu tratamento na clínica, o atendimento é sensacional, humanizado e com muita dedicação! Devido ao trabalho excepcional eu trouxe minha família toda para ser atendido aqui! Recomendo de olhos fechados!!!",
+  },
+  {
+    author: "Ana Leticia Franklin Silva",
+    text: "Profissionais excelentes, clinica muito bonita. Meu tratamento foi maravilhoso. Recomendo demais!!!",
+  },
+  {
+    author: "União Construtora",
+    text: "Excelente experiência! 👏 A Haven une odontologia e estética com muito profissionalismo, atendimento humanizado e uma equipe realmente atenciosa. Dá para perceber o cuidado em cada detalhe e a preocupação em oferecer segurança e qualidade aos pacientes. Recomendo a Reve para quem busca cuidar do sorriso, da estética e da autoestima em um só lugar! ⭐⭐⭐⭐⭐",
+  },
+  {
+    author: "Tayane Camargo",
+    text: "Atendimento excelente e resultados positivos ✨ Super recomendo!",
+  },
+] as const;
+
 export const messages = {
   pt: {
     meta: {
-      title: "Haven Clinic · São José do Rio Preto",
+      title: "Haven Clinic · Odontologia em São José do Rio Preto",
       description:
-        "Haven Clinic: clínica integrada de saúde, bem-estar e equilíbrio em São José do Rio Preto. Agende uma avaliação pelo WhatsApp.",
+        "Odontologia completa e estética facial em São José do Rio Preto. Agende uma avaliação na Haven Clinic pelo WhatsApp.",
     },
     a11y: {
       skip: "Ir para o conteúdo",
@@ -29,22 +52,19 @@ export const messages = {
       openMenu: "Abrir menu",
       closeMenu: "Fechar menu",
       language: "Idioma",
-      prevQuote: "Depoimento anterior",
-      nextQuote: "Próximo depoimento",
+      prevQuote: "Avaliação anterior",
+      nextQuote: "Próxima avaliação",
     },
-    banner:
-      "Protótipo visual: imagens ilustrativas, aguardando aprovação da Drª Nayara",
+    banner: "Protótipo visual: imagens ilustrativas aguardam validação final",
     nav: {
       clinic: "A clínica",
-      services: "Serviços",
-      team: "Equipe",
+      treatments: "Tratamentos",
+      reviews: "Avaliações",
       contact: "Contato",
     },
     cta: {
-      evaluation: "Agendar uma Avaliação",
-      personalized: "Avaliação personalizada",
-      howItWorks: "Ver como funciona",
-      team: "Falar com a Equipe",
+      evaluation: "Agendar uma avaliação",
+      treatments: "Conhecer tratamentos",
       whatsapp: "Falar no WhatsApp",
       footer: "WhatsApp",
     },
@@ -53,143 +73,135 @@ export const messages = {
       topicSuffix: "Gostaria de saber mais sobre: {topic}.",
     },
     hero: {
+      eyebrow: "Odontologia & estética facial",
       headlineLine1: "Sorrisos",
       headlineLine2: "com equilíbrio",
       headlineLine3: "e presença",
       subhead:
-        "Cada cuidado une saúde e estética, no seu ritmo, com a serenidade que a Haven carrega.",
-      tagline: "Cuidado integrado.",
-      quoteLead: "Saúde e estética em um só cuidado",
-      quoteTrail: "sereno, humano, feito para você.",
-      highlight: {
-        value: "+1.000",
-        label: "Sorrisos transformados",
-      },
-      facts: [
+        "Odontologia completa e estética facial em São José do Rio Preto.",
+      caption: "Haven Clinic · São José do Rio Preto",
+      imageAlt:
+        "Imagem ilustrativa de uma mulher sorrindo, na paleta quente da Haven Clinic",
+    },
+    trust: {
+      label: "Informações de confiança",
+      items: [
+        { title: "Clínica completa", body: "Cuidado em diferentes fases" },
+        { title: "São José do Rio Preto", body: "Atendimento local" },
+        { title: "Atendimento personalizado", body: "Escuta antes de cada plano" },
+        { title: "Avaliações no Google", body: "Experiências compartilhadas" },
+      ],
+    },
+    treatments: {
+      eyebrow: "Tratamentos",
+      title: "Encontre o cuidado que faz sentido para você.",
+      body:
+        "Uma visão clara das áreas atendidas pela Haven, para começar a conversa pelo que você procura.",
+      groups: [
         {
-          value: "+1.000",
-          label: "Sorrisos",
-          body: "Cuidado odontológico personalizado com expertise clínica e estética.",
+          title: "Odontologia",
+          items: [
+            "Odontopediatria",
+            "Clareamento",
+            "Facetas / lentes em resina",
+            "Ortodontia",
+            "Periodontia / gengiva",
+            "Endodontia / canal",
+            "Restauração / cárie",
+          ],
         },
         {
-          value: "98%",
-          label: "Satisfação",
-          body: "Cuidado em que os pacientes confiam e escolhem voltar.",
+          title: "Implantes e reabilitação",
+          items: ["Implantes", "Prótese protocolo"],
         },
         {
-          value: "3",
-          label: "Caminhos",
-          body: "Saúde bucal, estética e cuidado integrado.",
+          title: "Estética facial",
+          items: [
+            "CO₂ fracionado",
+            "Preenchimento labial",
+            "Toxina botulínica",
+            "Bioestimuladores",
+          ],
         },
       ],
-      featuredNote: "Foto ilustrativa",
-      imageAlt:
-        "Imagem ilustrativa gerada por IA: mulher sorrindo com os olhos fechados, fundo na paleta da Haven Clinic",
+      note: "Não sabe qual caminho escolher? A avaliação começa pela sua necessidade.",
+      cta: "Conversar sobre meu caso",
+      topic: "uma avaliação para entender qual tratamento é indicado",
+    },
+    pediatric: {
+      eyebrow: "Odontopediatria",
+      title: "Cuidado desde os primeiros sorrisos.",
+      body:
+        "Uma experiência acolhedora para crianças e famílias, com atenção ao tempo e às necessidades de cada fase.",
+      visualNote: "Pequenos começos. Cuidado que acompanha.",
+      cta: "Agendar atendimento infantil",
+      topic: "odontopediatria",
+    },
+    complete: {
+      eyebrow: "Um só endereço. Diferentes necessidades.",
+      title: "Clínica completa",
+      body:
+        "Tudo o que o seu cuidado precisa, reunido em uma experiência clara, integrada e próxima.",
+      areas: ["Odontologia", "Implantes e reabilitação", "Estética facial"],
     },
     why: {
-      eyebrow: "A clínica",
-      titleLead: "Cuidar é estar ",
-      titleAccent: "presente",
-      body: "A Haven Clinic nasce para oferecer um espaço de saúde, bem-estar e equilíbrio. A odontologia entra como uma das especialidades: a marca é o cuidado integrado.",
-      imageAlt: "Imagem ilustrativa: interior com madeira, tecidos e iluminação quente",
-      pillars: [
+      eyebrow: "A experiência Haven",
+      title: "Precisão clínica, com espaço para escutar.",
+      body:
+        "Na Haven, cada jornada começa pela compreensão do que você busca. O atendimento conecta planejamento, clareza e conforto — sem excessos e sem fórmulas prontas.",
+      cta: "Agendar uma conversa",
+      principles: [
         {
-          title: "Acolhimento",
-          body: "Você é recebido como alguém, não como um horário na agenda.",
+          title: "Escuta individual",
+          body: "A conversa orienta o começo de cada atendimento.",
         },
         {
-          title: "Saúde e estética juntas",
-          body: "O que se vê e o que se sente caminham no mesmo plano de cuidado.",
+          title: "Planejamento claro",
+          body: "Etapas e possibilidades apresentadas de forma compreensível.",
+        },
+        {
+          title: "Experiência integrada",
+          body: "Diferentes necessidades reunidas em uma mesma clínica.",
         },
       ],
-      aside: {
-        title: "Precisão com sensibilidade",
-        body: "Decisões clínicas traduzidas em linguagem humana, no seu tempo.",
-      },
     },
-    services: {
-      eyebrow: "O que oferecemos",
-      titleLead: "Três formas de ",
-      titleAccent: "começar",
-      note: "HIPÓTESE: lista oficial de tratamentos ainda será confirmada.",
-      items: [
+    structure: {
+      eyebrow: "Estrutura e confiança clínica",
+      title: "Um ambiente pensado para receber bem.",
+      body:
+        "Conforto, privacidade e organização fazem parte de uma experiência de cuidado mais tranquila — do primeiro contato ao acompanhamento.",
+      imageAlts: [
+        "Imagem ilustrativa de uma recepção clara e confortável",
+        "Imagem ilustrativa de um ambiente de espera acolhedor",
+      ],
+      principles: [
         {
-          id: "saude-bucal",
-          title: "Saúde bucal",
-          body: "Cuidado odontológico com a mesma serenidade do restante da jornada.",
-          topic: "saúde bucal",
-          cta: "Falar sobre saúde bucal",
+          title: "Atendimento personalizado",
+          body: "Uma jornada que considera necessidades e expectativas individuais.",
         },
         {
-          id: "estetica",
-          title: "Estética e bem-estar",
-          body: "Tratamentos que respeitam a naturalidade de cada rosto e cada história.",
-          topic: "estética e bem-estar",
-          cta: "Falar sobre estética",
+          title: "Ambiente confortável",
+          body: "Espaços acolhedores para uma experiência mais tranquila.",
         },
         {
-          id: "integrado",
           title: "Cuidado integrado",
-          body: "Um olhar conjunto para o que o corpo pede: saúde, equilíbrio e presença.",
-          topic: "cuidado integrado",
-          cta: "Falar sobre cuidado integrado",
+          body: "Continuidade entre descoberta, planejamento e acompanhamento.",
         },
       ],
-    },
-    team: {
-      titleLead: "Expertise em que você pode ",
-      titleAccent: "confiar",
-      kicker: "A pessoa por trás do seu cuidado",
-      intro:
-        "Uma profissional que une técnica e presença para acompanhar cada etapa com clareza e serenidade.",
-      tagsLabel: "Especialidades",
-      prev: "Membro anterior",
-      next: "Próximo membro",
-      members: [
-        {
-          role: "Fundadora e responsável clínica",
-          specialty: "Estética e odontologia restauradora",
-          experience: "Cuidado com presença e precisão",
-          quote:
-            "Foco em estética, design do sorriso e tratamentos restauradores com uma abordagem natural.",
-          tags: ["CRO", "Estética", "Restauradora"],
-          imageAlt: "Drª Nayara, foto ilustrativa da responsável pela Haven Clinic",
-        },
-      ],
+      imageNote: "Imagens ilustrativas · substituir por fotografias da clínica",
     },
     testimonials: {
-      eyebrow: "Google",
-      titleLead: "Avaliações ",
-      titleAccent: "reais",
-      ratingLabel: "5 de 5 estrelas",
-      googleNote: "Avaliações reais feitas por pessoas reais no Google.",
-      googleCta: "Faça uma avaliação você também",
-      items: [
-        {
-          author: "Bruno Splendori",
-          text: "Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.",
-        },
-        {
-          author: "Brunna Calafati",
-          text: "Eu estou fazendo meu tratamento na clínica, o atendimento é sensacional, humanizado e com muita dedicação! Devido ao trabalho excepcional eu trouxe minha família toda para ser atendido aqui! Recomendo de olhos fechados!!!",
-        },
-        {
-          author: "Ana Leticia Franklin Silva",
-          text: "Profissionais excelentes, clinica muito bonita. Meu tratamento foi maravilhoso. Recomendo demais!!!",
-        },
-        {
-          author: "União Construtora",
-          text: "Excelente experiência! 👏 A Haven une odontologia e estética com muito profissionalismo, atendimento humanizado e uma equipe realmente atenciosa. Dá para perceber o cuidado em cada detalhe e a preocupação em oferecer segurança e qualidade aos pacientes. Recomendo a Reve para quem busca cuidar do sorriso, da estética e da autoestima em um só lugar! ⭐⭐⭐⭐⭐",
-        },
-        {
-          author: "Tayane Camargo",
-          text: "Atendimento excelente e resultados positivos ✨ Super recomendo!",
-        },
-      ],
+      eyebrow: "Avaliações no Google",
+      title: "Quem vive a Haven, conta.",
+      googleNote: "Avaliações publicadas no Google.",
+      googleCta: "Ver e avaliar no Google",
+      items: reviews,
     },
     contact: {
+      eyebrow: "Próximo passo",
       titleLead: "O seu sorriso",
-      titleAccent: "começa aqui",
+      titleAccent: "começa aqui.",
+      intro: "Fale com a Haven e encontre o melhor ponto de partida para você.",
       details: [
         {
           key: "address",
@@ -197,44 +209,26 @@ export const messages = {
           value:
             "R. Luiz Antônio da Silveira, 334, Boa Vista\nSão José do Rio Preto, SP, 15025-020",
         },
-        {
-          key: "whatsapp",
-          label: "Fale conosco",
-          value: "+55 17 99629-3081",
-        },
+        { key: "whatsapp", label: "WhatsApp", value: "+55 17 99629-3081" },
         {
           key: "hours",
           label: "Horário",
           value: "Seg a Sex · 08h às 18h\nSáb · 08h às 12h\nDom · fechado",
         },
-        {
-          key: "email",
-          label: "E-mail",
-          value: "contato@havenclinic.com.br",
-        },
+        { key: "email", label: "E-mail", value: "contato@havenclinic.com.br" },
       ],
-      nameLabel: "Nome completo",
-      emailLabel: "E-mail",
-      phoneLabel: "Telefone",
-      dateLabel: "Data preferida",
-      hint: "Deixe seus dados e a equipe entra em contato pelo WhatsApp para agendar sua avaliação.",
-      leadMessage: "Olá, eu sou {name} e gostaria de conhecer seus serviços.",
-      leadEmail: "Meu e-mail é {email}.",
-      leadPhone: "Meu telefone é {phone}.",
-      leadDate: "Data preferida: {date}.",
       social: "Redes sociais",
-      cta: "Agendar avaliação",
+      cta: "Agendar pelo WhatsApp",
     },
     footer: {
-      blurb: "Clínica integrada de saúde, bem-estar e equilíbrio.",
-      legalNote: "© 2025 Clínica Odontológica. Todos os direitos reservados.",
+      legalNote: "© 2026 Haven Clinic. Todos os direitos reservados.",
     },
   },
   en: {
     meta: {
-      title: "Haven Clinic · São José do Rio Preto",
+      title: "Haven Clinic · Dentistry in São José do Rio Preto",
       description:
-        "Haven Clinic: an integrated clinic for health, wellbeing and balance in São José do Rio Preto. Book an evaluation on WhatsApp.",
+        "Complete dentistry and facial aesthetics in São José do Rio Preto. Book an evaluation at Haven Clinic on WhatsApp.",
     },
     a11y: {
       skip: "Skip to content",
@@ -243,22 +237,19 @@ export const messages = {
       openMenu: "Open menu",
       closeMenu: "Close menu",
       language: "Language",
-      prevQuote: "Previous testimonial",
-      nextQuote: "Next testimonial",
+      prevQuote: "Previous review",
+      nextQuote: "Next review",
     },
-    banner:
-      "Visual prototype: illustrative images, pending approval from Dr Nayara",
+    banner: "Visual prototype: illustrative images await final validation",
     nav: {
       clinic: "The clinic",
-      services: "Services",
-      team: "Team",
+      treatments: "Treatments",
+      reviews: "Reviews",
       contact: "Contact",
     },
     cta: {
-      evaluation: "Book an Evaluation",
-      personalized: "Personalised evaluation",
-      howItWorks: "See how it works",
-      team: "Talk to the Team",
+      evaluation: "Book an evaluation",
+      treatments: "Explore treatments",
       whatsapp: "Message on WhatsApp",
       footer: "WhatsApp",
     },
@@ -267,143 +258,135 @@ export const messages = {
       topicSuffix: "I would like to know more about: {topic}.",
     },
     hero: {
+      eyebrow: "Dentistry & facial aesthetics",
       headlineLine1: "Smiles",
       headlineLine2: "with balance",
       headlineLine3: "and presence",
       subhead:
-        "Every care joins health and aesthetics, at your pace, with the serenity Haven carries.",
-      tagline: "Integrated care.",
-      quoteLead: "Health and aesthetics in one care",
-      quoteTrail: "serene, human, made for you.",
-      highlight: {
-        value: "+1,000",
-        label: "Smiles transformed",
-      },
-      facts: [
+        "Complete dentistry and facial aesthetics in São José do Rio Preto.",
+      caption: "Haven Clinic · São José do Rio Preto",
+      imageAlt:
+        "Illustrative image of a smiling woman in Haven Clinic's warm palette",
+    },
+    trust: {
+      label: "Trust information",
+      items: [
+        { title: "Complete clinic", body: "Care for different life stages" },
+        { title: "São José do Rio Preto", body: "Local care" },
+        { title: "Personalised service", body: "Listening before each plan" },
+        { title: "Google reviews", body: "Shared experiences" },
+      ],
+    },
+    treatments: {
+      eyebrow: "Treatments",
+      title: "Find the care that makes sense for you.",
+      body:
+        "A clear view of Haven's areas of care, so the conversation can start with what you are looking for.",
+      groups: [
         {
-          value: "+1,000",
-          label: "Smiles",
-          body: "Personalised dental care built on clinical expertise and aesthetics.",
+          title: "Dentistry",
+          items: [
+            "Pediatric dentistry",
+            "Teeth whitening",
+            "Composite veneers",
+            "Orthodontics",
+            "Periodontics / gum care",
+            "Endodontics / root canal",
+            "Restorations / cavities",
+          ],
         },
         {
-          value: "98%",
-          label: "Satisfaction",
-          body: "Care that patients trust and choose to come back to.",
+          title: "Implants and rehabilitation",
+          items: ["Dental implants", "Full-arch fixed prosthesis"],
         },
         {
-          value: "3",
-          label: "Pathways",
-          body: "Oral health, aesthetics and integrated care.",
+          title: "Facial aesthetics",
+          items: [
+            "Fractional CO₂",
+            "Lip fillers",
+            "Botulinum toxin",
+            "Biostimulators",
+          ],
         },
       ],
-      featuredNote: "Illustrative photo",
-      imageAlt:
-        "AI-generated illustrative image: a woman smiling with her eyes closed, background in the Haven Clinic palette",
+      note: "Not sure where to begin? The evaluation starts with your needs.",
+      cta: "Talk about my needs",
+      topic: "an evaluation to understand the right treatment",
+    },
+    pediatric: {
+      eyebrow: "Pediatric dentistry",
+      title: "Care from the very first smiles.",
+      body:
+        "A welcoming experience for children and families, attentive to the pace and needs of each stage.",
+      visualNote: "Small beginnings. Care that grows with them.",
+      cta: "Book children's care",
+      topic: "pediatric dentistry",
+    },
+    complete: {
+      eyebrow: "One address. Different needs.",
+      title: "A complete clinic",
+      body:
+        "Everything your care needs, brought together in a clear, integrated and personal experience.",
+      areas: ["Dentistry", "Implants and rehabilitation", "Facial aesthetics"],
     },
     why: {
-      eyebrow: "The clinic",
-      titleLead: "Care is being ",
-      titleAccent: "present",
-      body: "Haven Clinic exists to offer a space for health, wellbeing and balance. Dentistry is one of the specialties: the brand is integrated care.",
-      imageAlt: "Illustrative image: interior with wood, textiles and warm light",
-      pillars: [
+      eyebrow: "The Haven experience",
+      title: "Clinical precision, with room to listen.",
+      body:
+        "At Haven, every journey starts by understanding what you are looking for. Care connects planning, clarity and comfort — without excess or ready-made formulas.",
+      cta: "Book a conversation",
+      principles: [
         {
-          title: "Welcome",
-          body: "You are received as a person, not as a slot in the diary.",
+          title: "Individual listening",
+          body: "The conversation guides the start of every appointment.",
         },
         {
-          title: "Health and aesthetics together",
-          body: "What is seen and what is felt belong to the same plan of care.",
+          title: "Clear planning",
+          body: "Steps and possibilities explained in an understandable way.",
+        },
+        {
+          title: "Integrated experience",
+          body: "Different needs brought together in the same clinic.",
         },
       ],
-      aside: {
-        title: "Precision with sensitivity",
-        body: "Clinical decisions translated into human language, at your pace.",
-      },
     },
-    services: {
-      eyebrow: "What we offer",
-      titleLead: "Three ways to ",
-      titleAccent: "begin",
-      note: "HYPOTHESIS: the official treatment list is still to be confirmed.",
-      items: [
+    structure: {
+      eyebrow: "Clinical structure and trust",
+      title: "An environment designed to welcome you.",
+      body:
+        "Comfort, privacy and organisation are part of a calmer care experience — from first contact to follow-up.",
+      imageAlts: [
+        "Illustrative image of a bright and comfortable reception area",
+        "Illustrative image of a welcoming waiting area",
+      ],
+      principles: [
         {
-          id: "saude-bucal",
-          title: "Oral health",
-          body: "Dental care with the same serenity as the rest of the journey.",
-          topic: "oral health",
-          cta: "Talk about oral health",
+          title: "Personalised service",
+          body: "A journey that considers individual needs and expectations.",
         },
         {
-          id: "estetica",
-          title: "Aesthetics and wellbeing",
-          body: "Treatments that respect the natural character of each face and each story.",
-          topic: "aesthetics and wellbeing",
-          cta: "Talk about aesthetics",
+          title: "Comfortable environment",
+          body: "Welcoming spaces for a calmer experience.",
         },
         {
-          id: "integrado",
           title: "Integrated care",
-          body: "A joined-up view of what the body asks for: health, balance and presence.",
-          topic: "integrated care",
-          cta: "Talk about integrated care",
+          body: "Continuity across discovery, planning and follow-up.",
         },
       ],
-    },
-    team: {
-      titleLead: "Expertise you can feel ",
-      titleAccent: "confident in",
-      kicker: "The person behind your care",
-      intro:
-        "A professional who combines technique and presence to guide each step with clarity and calm.",
-      tagsLabel: "Specialties",
-      prev: "Previous member",
-      next: "Next member",
-      members: [
-        {
-          role: "Founder and clinical lead",
-          specialty: "Cosmetic and restorative dentistry",
-          experience: "Care with presence and precision",
-          quote:
-            "Focused on aesthetics, smile design and restorative treatments with a natural approach.",
-          tags: ["DDS", "Cosmetic", "Restorative"],
-          imageAlt: "Dr Nayara, illustrative photo of Haven Clinic’s lead professional",
-        },
-      ],
+      imageNote: "Illustrative images · replace with clinic photography",
     },
     testimonials: {
-      eyebrow: "Google",
-      titleLead: "Real ",
-      titleAccent: "reviews",
-      ratingLabel: "5 out of 5 stars",
-      googleNote: "Real reviews written by real people on Google.",
-      googleCta: "Leave a review too",
-      items: [
-        {
-          author: "Bruno Splendori",
-          text: "Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.",
-        },
-        {
-          author: "Brunna Calafati",
-          text: "Eu estou fazendo meu tratamento na clínica, o atendimento é sensacional, humanizado e com muita dedicação! Devido ao trabalho excepcional eu trouxe minha família toda para ser atendido aqui! Recomendo de olhos fechados!!!",
-        },
-        {
-          author: "Ana Leticia Franklin Silva",
-          text: "Profissionais excelentes, clinica muito bonita. Meu tratamento foi maravilhoso. Recomendo demais!!!",
-        },
-        {
-          author: "União Construtora",
-          text: "Excelente experiência! 👏 A Haven une odontologia e estética com muito profissionalismo, atendimento humanizado e uma equipe realmente atenciosa. Dá para perceber o cuidado em cada detalhe e a preocupação em oferecer segurança e qualidade aos pacientes. Recomendo a Reve para quem busca cuidar do sorriso, da estética e da autoestima em um só lugar! ⭐⭐⭐⭐⭐",
-        },
-        {
-          author: "Tayane Camargo",
-          text: "Atendimento excelente e resultados positivos ✨ Super recomendo!",
-        },
-      ],
+      eyebrow: "Google reviews",
+      title: "People who experience Haven, share it.",
+      googleNote: "Reviews published on Google.",
+      googleCta: "View and review on Google",
+      items: reviews,
     },
     contact: {
+      eyebrow: "Next step",
       titleLead: "Your smile",
-      titleAccent: "starts here",
+      titleAccent: "starts here.",
+      intro: "Talk to Haven and find the best starting point for you.",
       details: [
         {
           key: "address",
@@ -411,44 +394,26 @@ export const messages = {
           value:
             "R. Luiz Antônio da Silveira, 334, Boa Vista\nSão José do Rio Preto, SP, 15025-020",
         },
-        {
-          key: "whatsapp",
-          label: "Call us",
-          value: "+55 17 99629-3081",
-        },
+        { key: "whatsapp", label: "WhatsApp", value: "+55 17 99629-3081" },
         {
           key: "hours",
           label: "Opening hours",
           value: "Mon to Fri · 08:00 to 18:00\nSat · 08:00 to 12:00\nSun · closed",
         },
-        {
-          key: "email",
-          label: "Email",
-          value: "contato@havenclinic.com.br",
-        },
+        { key: "email", label: "Email", value: "contato@havenclinic.com.br" },
       ],
-      nameLabel: "Full name",
-      emailLabel: "Email address",
-      phoneLabel: "Phone number",
-      dateLabel: "Preferred date",
-      hint: "Leave your details and our team will contact you on WhatsApp to arrange your consultation.",
-      leadMessage: "Hello, I am {name} and I would like to know your services.",
-      leadEmail: "My email is {email}.",
-      leadPhone: "My phone is {phone}.",
-      leadDate: "Preferred date: {date}.",
       social: "Social media",
-      cta: "Book consultation",
+      cta: "Book on WhatsApp",
     },
     footer: {
-      blurb: "Integrated clinic for health, wellbeing and balance.",
-      legalNote: "© 2025 Dental Clinic. All rights reserved.",
+      legalNote: "© 2026 Haven Clinic. All rights reserved.",
     },
   },
   es: {
     meta: {
-      title: "Haven Clinic · São José do Rio Preto",
+      title: "Haven Clinic · Odontología en São José do Rio Preto",
       description:
-        "Haven Clinic: clínica integrada de salud, bienestar y equilibrio en São José do Rio Preto. Agenda una evaluación por WhatsApp.",
+        "Odontología completa y estética facial en São José do Rio Preto. Agenda una evaluación en Haven Clinic por WhatsApp.",
     },
     a11y: {
       skip: "Ir al contenido",
@@ -457,22 +422,19 @@ export const messages = {
       openMenu: "Abrir menú",
       closeMenu: "Cerrar menú",
       language: "Idioma",
-      prevQuote: "Testimonio anterior",
-      nextQuote: "Siguiente testimonio",
+      prevQuote: "Reseña anterior",
+      nextQuote: "Siguiente reseña",
     },
-    banner:
-      "Prototipo visual: imágenes ilustrativas, pendientes de aprobación de la Dra. Nayara",
+    banner: "Prototipo visual: las imágenes ilustrativas esperan validación final",
     nav: {
       clinic: "La clínica",
-      services: "Servicios",
-      team: "Equipo",
+      treatments: "Tratamientos",
+      reviews: "Reseñas",
       contact: "Contacto",
     },
     cta: {
-      evaluation: "Agendar una Evaluación",
-      personalized: "Evaluación personalizada",
-      howItWorks: "Ver cómo funciona",
-      team: "Hablar con el Equipo",
+      evaluation: "Agendar una evaluación",
+      treatments: "Conocer tratamientos",
       whatsapp: "Hablar por WhatsApp",
       footer: "WhatsApp",
     },
@@ -481,143 +443,135 @@ export const messages = {
       topicSuffix: "Me gustaría saber más sobre: {topic}.",
     },
     hero: {
+      eyebrow: "Odontología y estética facial",
       headlineLine1: "Sonrisas",
       headlineLine2: "con equilibrio",
       headlineLine3: "y presencia",
       subhead:
-        "Cada cuidado une salud y estética, a tu ritmo, con la serenidad que Haven transmite.",
-      tagline: "Cuidado integrado.",
-      quoteLead: "Salud y estética en un solo cuidado",
-      quoteTrail: "sereno, humano, hecho para ti.",
-      highlight: {
-        value: "+1.000",
-        label: "Sonrisas transformadas",
-      },
-      facts: [
+        "Odontología completa y estética facial en São José do Rio Preto.",
+      caption: "Haven Clinic · São José do Rio Preto",
+      imageAlt:
+        "Imagen ilustrativa de una mujer sonriendo en la paleta cálida de Haven Clinic",
+    },
+    trust: {
+      label: "Información de confianza",
+      items: [
+        { title: "Clínica completa", body: "Cuidado para diferentes etapas" },
+        { title: "São José do Rio Preto", body: "Atención local" },
+        { title: "Atención personalizada", body: "Escucha antes de cada plan" },
+        { title: "Reseñas en Google", body: "Experiencias compartidas" },
+      ],
+    },
+    treatments: {
+      eyebrow: "Tratamientos",
+      title: "Encuentra el cuidado que tiene sentido para ti.",
+      body:
+        "Una visión clara de las áreas atendidas por Haven, para empezar la conversación por lo que buscas.",
+      groups: [
         {
-          value: "+1.000",
-          label: "Sonrisas",
-          body: "Cuidado odontológico personalizado con expertise clínica y estética.",
+          title: "Odontología",
+          items: [
+            "Odontopediatría",
+            "Blanqueamiento",
+            "Carillas / lentes de resina",
+            "Ortodoncia",
+            "Periodoncia / encías",
+            "Endodoncia / conducto",
+            "Restauración / caries",
+          ],
         },
         {
-          value: "98%",
-          label: "Satisfacción",
-          body: "Cuidado en el que los pacientes confían y eligen volver.",
+          title: "Implantes y rehabilitación",
+          items: ["Implantes", "Prótesis protocolo"],
         },
         {
-          value: "3",
-          label: "Caminos",
-          body: "Salud bucal, estética y cuidado integrado.",
+          title: "Estética facial",
+          items: [
+            "CO₂ fraccionado",
+            "Relleno labial",
+            "Toxina botulínica",
+            "Bioestimuladores",
+          ],
         },
       ],
-      featuredNote: "Foto ilustrativa",
-      imageAlt:
-        "Imagen ilustrativa generada por IA: mujer sonriendo con los ojos cerrados, fondo en la paleta de Haven Clinic",
+      note: "¿No sabes por dónde empezar? La evaluación comienza por tu necesidad.",
+      cta: "Hablar sobre mi caso",
+      topic: "una evaluación para entender el tratamiento indicado",
+    },
+    pediatric: {
+      eyebrow: "Odontopediatría",
+      title: "Cuidado desde las primeras sonrisas.",
+      body:
+        "Una experiencia acogedora para niños y familias, atenta al ritmo y a las necesidades de cada etapa.",
+      visualNote: "Pequeños comienzos. Cuidado que acompaña.",
+      cta: "Agendar atención infantil",
+      topic: "odontopediatría",
+    },
+    complete: {
+      eyebrow: "Una dirección. Diferentes necesidades.",
+      title: "Clínica completa",
+      body:
+        "Todo lo que tu cuidado necesita, reunido en una experiencia clara, integrada y cercana.",
+      areas: ["Odontología", "Implantes y rehabilitación", "Estética facial"],
     },
     why: {
-      eyebrow: "La clínica",
-      titleLead: "Cuidar es estar ",
-      titleAccent: "presente",
-      body: "Haven Clinic nace para ofrecer un espacio de salud, bienestar y equilibrio. La odontología entra como una de las especialidades: la marca es el cuidado integrado.",
-      imageAlt: "Imagen ilustrativa: interior con madera, tejidos e iluminación cálida",
-      pillars: [
+      eyebrow: "La experiencia Haven",
+      title: "Precisión clínica, con espacio para escuchar.",
+      body:
+        "En Haven, cada recorrido comienza por entender lo que buscas. La atención conecta planificación, claridad y comodidad — sin excesos ni fórmulas preparadas.",
+      cta: "Agendar una conversación",
+      principles: [
         {
-          title: "Acogida",
-          body: "Eres recibido como alguien, no como un horario en la agenda.",
+          title: "Escucha individual",
+          body: "La conversación orienta el inicio de cada atención.",
         },
         {
-          title: "Salud y estética juntas",
-          body: "Lo que se ve y lo que se siente caminan en el mismo plan de cuidado.",
+          title: "Planificación clara",
+          body: "Etapas y posibilidades presentadas de forma comprensible.",
+        },
+        {
+          title: "Experiencia integrada",
+          body: "Diferentes necesidades reunidas en una misma clínica.",
         },
       ],
-      aside: {
-        title: "Precisión con sensibilidad",
-        body: "Decisiones clínicas traducidas a un lenguaje humano, a tu ritmo.",
-      },
     },
-    services: {
-      eyebrow: "Lo que ofrecemos",
-      titleLead: "Tres formas de ",
-      titleAccent: "empezar",
-      note: "HIPÓTESIS: la lista oficial de tratamientos aún será confirmada.",
-      items: [
+    structure: {
+      eyebrow: "Estructura y confianza clínica",
+      title: "Un ambiente pensado para recibirte bien.",
+      body:
+        "Comodidad, privacidad y organización forman parte de una experiencia más tranquila — desde el primer contacto hasta el seguimiento.",
+      imageAlts: [
+        "Imagen ilustrativa de una recepción clara y cómoda",
+        "Imagen ilustrativa de una sala de espera acogedora",
+      ],
+      principles: [
         {
-          id: "saude-bucal",
-          title: "Salud bucal",
-          body: "Cuidado odontológico con la misma serenidad del resto del recorrido.",
-          topic: "salud bucal",
-          cta: "Hablar sobre salud bucal",
+          title: "Atención personalizada",
+          body: "Un recorrido que considera necesidades y expectativas individuales.",
         },
         {
-          id: "estetica",
-          title: "Estética y bienestar",
-          body: "Tratamientos que respetan la naturalidad de cada rostro y cada historia.",
-          topic: "estética y bienestar",
-          cta: "Hablar sobre estética",
+          title: "Ambiente cómodo",
+          body: "Espacios acogedores para una experiencia más tranquila.",
         },
         {
-          id: "integrado",
           title: "Cuidado integrado",
-          body: "Una mirada conjunta de lo que el cuerpo pide: salud, equilibrio y presencia.",
-          topic: "cuidado integrado",
-          cta: "Hablar sobre cuidado integrado",
+          body: "Continuidad entre descubrimiento, planificación y seguimiento.",
         },
       ],
-    },
-    team: {
-      titleLead: "Expertise en la que puedes ",
-      titleAccent: "confiar",
-      kicker: "La persona detrás de tu cuidado",
-      intro:
-        "Una profesional que une técnica y presencia para acompañar cada etapa con claridad y serenidad.",
-      tagsLabel: "Especialidades",
-      prev: "Miembro anterior",
-      next: "Siguiente miembro",
-      members: [
-        {
-          role: "Fundadora y responsable clínica",
-          specialty: "Estética y odontología restauradora",
-          experience: "Cuidado con presencia y precisión",
-          quote:
-            "Enfocada en estética, diseño de sonrisa y tratamientos restauradores con un enfoque natural.",
-          tags: ["CRO", "Estética", "Restauradora"],
-          imageAlt: "Dra. Nayara, foto ilustrativa de la responsable de Haven Clinic",
-        },
-      ],
+      imageNote: "Imágenes ilustrativas · sustituir por fotografías de la clínica",
     },
     testimonials: {
-      eyebrow: "Google",
-      titleLead: "Reseñas ",
-      titleAccent: "reales",
-      ratingLabel: "5 de 5 estrellas",
-      googleNote: "Reseñas reales hechas por personas reales en Google.",
-      googleCta: "Deja una reseña tú también",
-      items: [
-        {
-          author: "Bruno Splendori",
-          text: "Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.",
-        },
-        {
-          author: "Brunna Calafati",
-          text: "Eu estou fazendo meu tratamento na clínica, o atendimento é sensacional, humanizado e com muita dedicação! Devido ao trabalho excepcional eu trouxe minha família toda para ser atendido aqui! Recomendo de olhos fechados!!!",
-        },
-        {
-          author: "Ana Leticia Franklin Silva",
-          text: "Profissionais excelentes, clinica muito bonita. Meu tratamento foi maravilhoso. Recomendo demais!!!",
-        },
-        {
-          author: "União Construtora",
-          text: "Excelente experiência! 👏 A Haven une odontologia e estética com muito profissionalismo, atendimento humanizado e uma equipe realmente atenciosa. Dá para perceber o cuidado em cada detalhe e a preocupação em oferecer segurança e qualidade aos pacientes. Recomendo a Reve para quem busca cuidar do sorriso, da estética e da autoestima em um só lugar! ⭐⭐⭐⭐⭐",
-        },
-        {
-          author: "Tayane Camargo",
-          text: "Atendimento excelente e resultados positivos ✨ Super recomendo!",
-        },
-      ],
+      eyebrow: "Reseñas en Google",
+      title: "Quien vive Haven, lo cuenta.",
+      googleNote: "Reseñas publicadas en Google.",
+      googleCta: "Ver y evaluar en Google",
+      items: reviews,
     },
     contact: {
+      eyebrow: "Siguiente paso",
       titleLead: "Tu sonrisa",
-      titleAccent: "empieza aquí",
+      titleAccent: "empieza aquí.",
+      intro: "Habla con Haven y encuentra el mejor punto de partida para ti.",
       details: [
         {
           key: "address",
@@ -625,37 +579,19 @@ export const messages = {
           value:
             "R. Luiz Antônio da Silveira, 334, Boa Vista\nSão José do Rio Preto, SP, 15025-020",
         },
-        {
-          key: "whatsapp",
-          label: "Llámanos",
-          value: "+55 17 99629-3081",
-        },
+        { key: "whatsapp", label: "WhatsApp", value: "+55 17 99629-3081" },
         {
           key: "hours",
           label: "Horario",
           value: "Lun a Vie · 08h a 18h\nSáb · 08h a 12h\nDom · cerrado",
         },
-        {
-          key: "email",
-          label: "Correo",
-          value: "contato@havenclinic.com.br",
-        },
+        { key: "email", label: "Correo", value: "contato@havenclinic.com.br" },
       ],
-      nameLabel: "Nombre completo",
-      emailLabel: "Correo electrónico",
-      phoneLabel: "Teléfono",
-      dateLabel: "Fecha preferida",
-      hint: "Deja tus datos y el equipo te contactará por WhatsApp para agendar tu evaluación.",
-      leadMessage: "Hola, soy {name} y me gustaría conocer sus servicios.",
-      leadEmail: "Mi correo es {email}.",
-      leadPhone: "Mi teléfono es {phone}.",
-      leadDate: "Fecha preferida: {date}.",
       social: "Redes sociales",
-      cta: "Agendar evaluación",
+      cta: "Agendar por WhatsApp",
     },
     footer: {
-      blurb: "Clínica integrada de salud, bienestar y equilibrio.",
-      legalNote: "© 2025 Clínica Odontológica. Todos los derechos reservados.",
+      legalNote: "© 2026 Haven Clinic. Todos los derechos reservados.",
     },
   },
 } as const;

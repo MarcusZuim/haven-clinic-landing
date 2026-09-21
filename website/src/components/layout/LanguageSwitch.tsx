@@ -33,7 +33,7 @@ export function LanguageSwitch() {
       <button
         type="button"
         className="lang-switch__button"
-        aria-label={t.a11y.language}
+        aria-label={`${t.a11y.language}: ${localeMeta[locale].short}, ${localeMeta[locale].name}`}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={menuId}

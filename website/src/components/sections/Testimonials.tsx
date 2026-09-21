@@ -21,13 +21,13 @@ export function Testimonials() {
 
   return (
     <SectionReveal as="section" id={testimonials.id} className="section quotes">
-      <RevealItem className="section-intro">
-        <p className="eyebrow">{copy.eyebrow}</p>
-        <h2 className="section-title">
-          {copy.titleLead}
-          <span className="weight-semibold">{copy.titleAccent}</span>
-        </h2>
-      </RevealItem>
+      <div className="quotes__header">
+        <RevealItem>
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h2 className="section-title">{copy.title}</h2>
+        </RevealItem>
+        <RevealItem className="quotes__source-mark">G</RevealItem>
+      </div>
 
       <RevealItem className="quotes__stage">
         <AnimatePresence mode="wait">
@@ -39,13 +39,8 @@ export function Testimonials() {
             exit={reduce ? { opacity: 0 } : { opacity: 0, x: -24 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="quotes__meta">
-              <p className="quotes__author">{review.author}</p>
-              <p className="quotes__stars" aria-label={copy.ratingLabel}>
-                {"★★★★★"}
-              </p>
-            </div>
             <blockquote className="quotes__quote">{review.text}</blockquote>
+            <figcaption className="quotes__author">{review.author}</figcaption>
           </motion.figure>
         </AnimatePresence>
 

@@ -1,12 +1,14 @@
 import { FloatingWhatsApp } from "./components/cta/FloatingWhatsApp";
 import { Header } from "./components/layout/Header";
-import { PageRail } from "./components/layout/PageRail";
 import { PrototypeBanner } from "./components/layout/PrototypeBanner";
+import { ClinicStructure } from "./components/sections/ClinicStructure";
+import { CompleteClinic } from "./components/sections/CompleteClinic";
 import { Contact } from "./components/sections/Contact";
 import { Hero } from "./components/sections/Hero";
-import { Services } from "./components/sections/Services";
-import { Team } from "./components/sections/Team";
+import { PediatricFeature } from "./components/sections/PediatricFeature";
 import { Testimonials } from "./components/sections/Testimonials";
+import { Treatments } from "./components/sections/Treatments";
+import { TrustLayer } from "./components/sections/TrustLayer";
 import { WhyHaven } from "./components/sections/WhyHaven";
 import { SHOW_PROTOTYPE_BANNER } from "./config/flags";
 import { useLanguage } from "./i18n/LanguageProvider";
@@ -36,13 +38,15 @@ export default function App() {
 
       <PrototypeBanner />
       <Header />
-      <PageRail />
 
       <main>
         <Hero />
+        <TrustLayer />
+        <Treatments />
+        <PediatricFeature />
+        <CompleteClinic />
         <WhyHaven />
-        <Services />
-        <Team />
+        <ClinicStructure />
         <Testimonials />
         <Contact />
       </main>

@@ -1,47 +1,59 @@
 :root {
-  --color-white-rock: #eae7df;
-  --color-puce: #7e5b51;
-  --color-cashmere: #e6d0bc;
+  --color-white-rock: #f1eee7;
+  --color-puce: #79564d;
+  --color-cashmere: #dec4ac;
   --color-clam-shell: #c5b4af;
-  --color-dusty-grey: #988e8e;
-  --color-puce-dark: color-mix(in srgb, var(--color-puce) 78%, #1c100e);
-  --color-white: #fbf8f3;
-  --color-text: var(--color-puce);
-  --color-text-soft: var(--color-dusty-grey);
+  --color-dusty-grey: #817775;
+  --color-puce-dark: #392824;
+  --color-white: #fbfaf7;
+  --color-text: #392f2c;
+  --color-text-soft: #746966;
+  --color-line: color-mix(in srgb, var(--color-puce-dark) 16%, transparent);
+  --color-warm-surface: #e8e1d7;
 
   --font-display: "The Seasons", Georgia, "Times New Roman", serif;
   --font-body: "Open Sans", Helvetica, Arial, sans-serif;
   --font-accent: "Abramo", "Brush Script MT", cursive;
 
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 32px;
-  --space-5: 40px;
-  --space-6: 48px;
-  --space-8: 64px;
-  --space-10: 80px;
-  --space-12: 96px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 2.5rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-10: 5rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+  --space-20: 10rem;
 
   --radius-cta: 6px;
-  --radius-card: 12px;
-  --radius-image: 4px;
+  --radius-card: 8px;
+  --radius-image: 2px;
 
-  --shadow-card: 0 18px 40px color-mix(in srgb, var(--color-puce) 14%, transparent);
-  --shadow-soft: 0 8px 24px color-mix(in srgb, var(--color-puce) 10%, transparent);
+  --shadow-card: 0 24px 64px color-mix(in srgb, var(--color-puce-dark) 12%, transparent);
+  --shadow-soft: 0 10px 30px color-mix(in srgb, var(--color-puce-dark) 8%, transparent);
 
   --header-height: 72px;
   --banner-height: 36px;
   --banner-offset: 0px;
-  --max-width: 1200px;
+  --max-width: 1280px;
+  --page-gutter: 20px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --hero-veil-mobile: none;
-  --hero-veil-desktop: none;
+  --hero-veil-mobile: linear-gradient(180deg, rgba(24, 17, 15, 0.14) 0%, rgba(24, 17, 15, 0.05) 30%, rgba(24, 17, 15, 0.74) 100%);
+  --hero-veil-desktop: linear-gradient(90deg, rgba(30, 20, 17, 0.72) 0%, rgba(30, 20, 17, 0.38) 34%, rgba(30, 20, 17, 0.05) 68%), linear-gradient(180deg, rgba(20, 14, 12, 0.15), rgba(20, 14, 12, 0.38));
 }
 
 @media (min-width: 768px) {
   :root {
     --header-height: 80px;
+    --page-gutter: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --page-gutter: 64px;
   }
 }
