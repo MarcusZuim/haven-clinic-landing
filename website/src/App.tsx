@@ -2,6 +2,7 @@ import { FloatingWhatsApp } from "./components/cta/FloatingWhatsApp";
 import { Header } from "./components/layout/Header";
 import { PrototypeBanner } from "./components/layout/PrototypeBanner";
 import { ClinicStructure } from "./components/sections/ClinicStructure";
+import { ClinicalTeam } from "./components/sections/ClinicalTeam";
 import { CompleteClinic } from "./components/sections/CompleteClinic";
 import { Contact } from "./components/sections/Contact";
 import { Hero } from "./components/sections/Hero";
@@ -47,6 +48,7 @@ export default function App() {
         <CompleteClinic />
         <WhyHaven />
         <ClinicStructure />
+        <ClinicalTeam />
         <Testimonials />
         <Contact />
       </main>

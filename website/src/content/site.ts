@@ -35,17 +35,26 @@ export const site = {
   structure: {
     images: [
       {
-        src: assetUrl("images/placeholders/space-1.webp"),
-        width: 1600,
-        height: 1067,
+        src: assetUrl("images/clinic/reception.jpg"),
+        width: 1200,
+        height: 1600,
       },
       {
-        src: assetUrl("images/placeholders/space-2.webp"),
-        width: 900,
-        height: 1125,
+        src: assetUrl("images/clinic/operatory.jpg"),
+        width: 1200,
+        height: 1600,
       },
     ],
   },
+  team: [
+    { name: "Drª Nayara Melo", cro: "130.317" },
+    { name: "Drª Flávia Berton", cro: "98655" },
+    { name: "Dr. Leandro Mazer", cro: "112.721" },
+    { name: "Drª Isabela Camarim", cro: "130.745" },
+    { name: "Dr. Henrique Andrade", cro: "173.467" },
+    { name: "Dr. Gustavo Sbrolini", cro: "127.859" },
+    { name: "Maria Paniche" },
+  ] as const,
   complete: {
     image: {
       src: assetUrl("images/placeholders/why.webp"),

@@ -7,13 +7,16 @@ import { RevealItem, SectionReveal } from "../motion/SectionReveal";
 
 const INSTAGRAM_URL = "https://www.instagram.com/havenclinicoficial/";
 const TIKTOK_URL = "https://www.tiktok.com/@havenclinicoficial";
-const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=R.+Luiz+Ant%C3%B4nio+da+Silveira,+334+-+Boa+Vista,+S%C3%A3o+Jos%C3%A9+do+Rio+Preto+-+SP,+15025-020";
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61575883315598";
+const MAP_QUERY =
+  "R. Luiz Antônio da Silveira, 334, Boa Vista, São José do Rio Preto, SP, 15025-020";
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
 
 export function Contact() {
   const { contact } = site;
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
   const copy = t.contact;
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&hl=${locale}&z=16&output=embed`;
 
   const detailByKey = useMemo(() => {
     return Object.fromEntries(copy.details.map((item) => [item.key, item]));
@@ -28,13 +31,16 @@ export function Contact() {
         <dt>{item.label}</dt>
         <dd>
           {item.key === "whatsapp" ? (
-            <a
-              href={buildWhatsAppUrl(t.whatsapp.message)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {item.value}
-            </a>
+            <>
+              <a
+                href={buildWhatsAppUrl(t.whatsapp.message)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.value}
+              </a>
+              <span className="closing__urgency">{copy.urgency}</span>
+            </>
           ) : item.key === "address" ? (
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
               {item.value.split("\n").map((line) => (
@@ -103,8 +109,34 @@ export function Contact() {
             >
               <TikTokIcon />
             </a>
+            <a
+              className="closing__social-link"
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <FacebookIcon />
+            </a>
           </div>
         </RevealItem>
+      </div>
+
+      <div className="closing__map">
+        <div className="closing__map-frame">
+          <iframe
+            title={copy.mapTitle}
+            src={mapSrc}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+        <p className="closing__map-link">
+          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+            {copy.mapCta}
+          </a>
+        </p>
       </div>
 
       <RevealItem className="closing__foot">
@@ -141,6 +173,17 @@ function InstagramIcon() {
       />
       <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" />
       <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M14.2 8.2V6.7c0-.8.2-1.2 1.3-1.2H17V3h-2.2C12.2 3 11 4.3 11 6.6v1.6H9v2.6h2V21h3.2v-10.2h2.2l.3-2.6h-2.5Z"
+      />
     </svg>
   );
 }

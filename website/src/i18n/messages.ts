@@ -29,10 +29,6 @@ const reviews = [
     text: "Profissionais excelentes, clinica muito bonita. Meu tratamento foi maravilhoso. Recomendo demais!!!",
   },
   {
-    author: "União Construtora",
-    text: "Excelente experiência! 👏 A Haven une odontologia e estética com muito profissionalismo, atendimento humanizado e uma equipe realmente atenciosa. Dá para perceber o cuidado em cada detalhe e a preocupação em oferecer segurança e qualidade aos pacientes. Recomendo a Reve para quem busca cuidar do sorriso, da estética e da autoestima em um só lugar! ⭐⭐⭐⭐⭐",
-  },
-  {
     author: "Tayane Camargo",
     text: "Atendimento excelente e resultados positivos ✨ Super recomendo!",
   },
@@ -43,7 +39,7 @@ export const messages = {
     meta: {
       title: "Haven Clinic · Odontologia em São José do Rio Preto",
       description:
-        "Odontologia completa e estética facial em São José do Rio Preto. Agende uma avaliação na Haven Clinic pelo WhatsApp.",
+        "Odontologia completa e estética facial em São José do Rio Preto. Agende uma consulta na Haven Clinic pelo WhatsApp.",
     },
     a11y: {
       skip: "Ir para o conteúdo",
@@ -63,13 +59,13 @@ export const messages = {
       contact: "Contato",
     },
     cta: {
-      evaluation: "Agendar uma avaliação",
+      evaluation: "Agendar uma consulta",
       treatments: "Conhecer tratamentos",
       whatsapp: "Falar no WhatsApp",
       footer: "WhatsApp",
     },
     whatsapp: {
-      message: "Olá, gostaria de agendar uma avaliação na Haven Clinic.",
+      message: "Olá, gostaria de agendar uma consulta na Haven Clinic.",
       topicSuffix: "Gostaria de saber mais sobre: {topic}.",
     },
     hero: {
@@ -89,7 +85,7 @@ export const messages = {
         { title: "Clínica completa", body: "Cuidado em diferentes fases" },
         { title: "São José do Rio Preto", body: "Atendimento local" },
         { title: "Atendimento personalizado", body: "Escuta antes de cada plano" },
-        { title: "Avaliações no Google", body: "Experiências compartilhadas" },
+        { title: "Urgência 24h", body: "Para necessidades urgentes" },
       ],
     },
     treatments: {
@@ -101,32 +97,68 @@ export const messages = {
         {
           title: "Odontologia",
           items: [
-            "Odontopediatria",
-            "Clareamento",
-            "Facetas / lentes em resina",
-            "Ortodontia",
-            "Periodontia / gengiva",
-            "Endodontia / canal",
-            "Restauração / cárie",
+            { label: "Clínica Geral / Odontologia Preventiva" },
+            { label: "Odontopediatria" },
+            { label: "Ortodontia" },
+            { label: "Endodontia / tratamento de canal" },
+            { label: "Periodontia / gengiva e tecidos de suporte" },
+            { label: "Implantodontia / Implantes" },
+            {
+              label: "Prótese Dentária",
+              children: [
+                { label: "Prótese fixa" },
+                { label: "Prótese removível" },
+                { label: "Prótese total" },
+                { label: "Prótese sobre implantes" },
+                { label: "Prótese protocolo" },
+              ],
+            },
+            { label: "Dentística Restauradora" },
+            { label: "Restaurações em resina" },
+            { label: "Reabilitação Oral" },
+            {
+              label: "Cirurgia Oral / Bucomaxilofacial",
+              children: [
+                { label: "Extrações" },
+                { label: "Siso" },
+                { label: "Cirurgias menores" },
+              ],
+            },
+            { label: "Odontologia Digital" },
+            { label: "Disfunção Temporomandibular (DTM) e Dor Orofacial" },
+            { label: "Odontologia para pacientes com necessidades especiais" },
+            { label: "Toxina botulínica para bruxismo" },
           ],
         },
         {
-          title: "Implantes e reabilitação",
-          items: ["Implantes", "Prótese protocolo"],
+          title: "Estética odontológica",
+          items: [
+            { label: "Clareamento" },
+            { label: "Restaurações estéticas" },
+            { label: "Facetas em resina" },
+            { label: "Facetas em porcelana" },
+            { label: "Lentes de contato dental" },
+            { label: "Reabilitação estética" },
+          ],
         },
         {
-          title: "Estética facial",
+          title: "Harmonização orofacial",
           items: [
-            "CO₂ fracionado",
-            "Preenchimento labial",
-            "Toxina botulínica",
-            "Bioestimuladores",
+            { label: "Preenchimento facial" },
+            { label: "Preenchimento labial" },
+            { label: "Toxina botulínica / Botox estético" },
+            { label: "Bioestimuladores de colágeno" },
+            { label: "CO₂ fracionado" },
+            { label: "Ultrassom microfocado" },
+            { label: "Rinomodelação" },
+            { label: "Microagulhamento" },
+            { label: "Tratamentos / protocolos de rejuvenescimento facial" },
           ],
         },
       ],
-      note: "Não sabe qual caminho escolher? A avaliação começa pela sua necessidade.",
+      note: "Não sabe qual caminho escolher? A consulta começa pela sua necessidade.",
       cta: "Conversar sobre meu caso",
-      topic: "uma avaliação para entender qual tratamento é indicado",
+      topic: "uma consulta para entender qual tratamento é indicado",
     },
     pediatric: {
       eyebrow: "Odontopediatria",
@@ -142,7 +174,7 @@ export const messages = {
       title: "Clínica completa",
       body:
         "Tudo o que o seu cuidado precisa, reunido em uma experiência clara, integrada e próxima.",
-      areas: ["Odontologia", "Implantes e reabilitação", "Estética facial"],
+      areas: ["Odontologia", "Estética odontológica", "Harmonização orofacial"],
     },
     why: {
       eyebrow: "A experiência Haven",
@@ -171,8 +203,8 @@ export const messages = {
       body:
         "Conforto, privacidade e organização fazem parte de uma experiência de cuidado mais tranquila — do primeiro contato ao acompanhamento.",
       imageAlts: [
-        "Imagem ilustrativa de uma recepção clara e confortável",
-        "Imagem ilustrativa de um ambiente de espera acolhedor",
+        "Recepção da Haven Clinic, com o nome da clínica, sofá e iluminação pendente",
+        "Consultório da Haven Clinic, com cadeira odontológica e bancada",
       ],
       principles: [
         {
@@ -188,7 +220,12 @@ export const messages = {
           body: "Continuidade entre descoberta, planejamento e acompanhamento.",
         },
       ],
-      imageNote: "Imagens ilustrativas · substituir por fotografias da clínica",
+    },
+    team: {
+      eyebrow: "Quem cuida",
+      title: "Corpo Clínico",
+      body: "As pessoas que acompanham o atendimento na Haven.",
+      credential: "CRO",
     },
     testimonials: {
       eyebrow: "Avaliações no Google",
@@ -215,9 +252,12 @@ export const messages = {
           label: "Horário",
           value: "Seg a Sex · 08h às 18h\nSáb · 08h às 12h\nDom · fechado",
         },
-        { key: "email", label: "E-mail", value: "contato@havenclinic.com.br" },
+        { key: "email", label: "E-mail", value: "Havenclinic8@gmail.com" },
       ],
+      urgency: "Urgência 24h",
       social: "Redes sociais",
+      mapTitle: "Mapa da Haven Clinic em São José do Rio Preto",
+      mapCta: "Abrir no Google Maps",
       cta: "Agendar pelo WhatsApp",
     },
     footer: {
@@ -228,7 +268,7 @@ export const messages = {
     meta: {
       title: "Haven Clinic · Dentistry in São José do Rio Preto",
       description:
-        "Complete dentistry and facial aesthetics in São José do Rio Preto. Book an evaluation at Haven Clinic on WhatsApp.",
+        "Complete dentistry and facial aesthetics in São José do Rio Preto. Book a consultation at Haven Clinic on WhatsApp.",
     },
     a11y: {
       skip: "Skip to content",
@@ -248,13 +288,13 @@ export const messages = {
       contact: "Contact",
     },
     cta: {
-      evaluation: "Book an evaluation",
+      evaluation: "Book a consultation",
       treatments: "Explore treatments",
       whatsapp: "Message on WhatsApp",
       footer: "WhatsApp",
     },
     whatsapp: {
-      message: "Hello, I would like to book an evaluation at Haven Clinic.",
+      message: "Hello, I would like to book a consultation at Haven Clinic.",
       topicSuffix: "I would like to know more about: {topic}.",
     },
     hero: {
@@ -274,7 +314,7 @@ export const messages = {
         { title: "Complete clinic", body: "Care for different life stages" },
         { title: "São José do Rio Preto", body: "Local care" },
         { title: "Personalised service", body: "Listening before each plan" },
-        { title: "Google reviews", body: "Shared experiences" },
+        { title: "24h urgency", body: "For urgent needs" },
       ],
     },
     treatments: {
@@ -286,32 +326,68 @@ export const messages = {
         {
           title: "Dentistry",
           items: [
-            "Pediatric dentistry",
-            "Teeth whitening",
-            "Composite veneers",
-            "Orthodontics",
-            "Periodontics / gum care",
-            "Endodontics / root canal",
-            "Restorations / cavities",
+            { label: "General dentistry / Preventive dentistry" },
+            { label: "Pediatric dentistry" },
+            { label: "Orthodontics" },
+            { label: "Endodontics / root canal treatment" },
+            { label: "Periodontics / gums and supporting tissues" },
+            { label: "Implant dentistry / Implants" },
+            {
+              label: "Dental prosthetics",
+              children: [
+                { label: "Fixed prosthesis" },
+                { label: "Removable prosthesis" },
+                { label: "Complete denture" },
+                { label: "Implant-supported prosthesis" },
+                { label: "Protocol prosthesis" },
+              ],
+            },
+            { label: "Restorative dentistry" },
+            { label: "Resin restorations" },
+            { label: "Oral rehabilitation" },
+            {
+              label: "Oral and maxillofacial surgery",
+              children: [
+                { label: "Extractions" },
+                { label: "Wisdom teeth" },
+                { label: "Minor surgery" },
+              ],
+            },
+            { label: "Digital dentistry" },
+            { label: "Temporomandibular disorders (TMD) and orofacial pain" },
+            { label: "Dentistry for patients with special needs" },
+            { label: "Botulinum toxin for bruxism" },
           ],
         },
         {
-          title: "Implants and rehabilitation",
-          items: ["Dental implants", "Full-arch fixed prosthesis"],
+          title: "Aesthetic dentistry",
+          items: [
+            { label: "Whitening" },
+            { label: "Aesthetic restorations" },
+            { label: "Resin veneers" },
+            { label: "Porcelain veneers" },
+            { label: "Dental contact lenses" },
+            { label: "Aesthetic rehabilitation" },
+          ],
         },
         {
-          title: "Facial aesthetics",
+          title: "Orofacial harmonization",
           items: [
-            "Fractional CO₂",
-            "Lip fillers",
-            "Botulinum toxin",
-            "Biostimulators",
+            { label: "Facial filler" },
+            { label: "Lip filler" },
+            { label: "Botulinum toxin / aesthetic Botox" },
+            { label: "Collagen biostimulators" },
+            { label: "Fractional CO₂" },
+            { label: "Microfocused ultrasound" },
+            { label: "Rhinomodeling" },
+            { label: "Microneedling" },
+            { label: "Facial rejuvenation treatments and protocols" },
           ],
         },
       ],
-      note: "Not sure where to begin? The evaluation starts with your needs.",
+      note: "Not sure where to begin? The consultation starts with your needs.",
       cta: "Talk about my needs",
-      topic: "an evaluation to understand the right treatment",
+      topic: "a consultation to understand the right treatment",
     },
     pediatric: {
       eyebrow: "Pediatric dentistry",
@@ -327,7 +403,7 @@ export const messages = {
       title: "A complete clinic",
       body:
         "Everything your care needs, brought together in a clear, integrated and personal experience.",
-      areas: ["Dentistry", "Implants and rehabilitation", "Facial aesthetics"],
+      areas: ["Dentistry", "Aesthetic dentistry", "Orofacial harmonization"],
     },
     why: {
       eyebrow: "The Haven experience",
@@ -356,8 +432,8 @@ export const messages = {
       body:
         "Comfort, privacy and organisation are part of a calmer care experience — from first contact to follow-up.",
       imageAlts: [
-        "Illustrative image of a bright and comfortable reception area",
-        "Illustrative image of a welcoming waiting area",
+        "Haven Clinic reception, with the clinic name, sofa and pendant lighting",
+        "Haven Clinic treatment room, with a dental chair and cabinet",
       ],
       principles: [
         {
@@ -373,7 +449,12 @@ export const messages = {
           body: "Continuity across discovery, planning and follow-up.",
         },
       ],
-      imageNote: "Illustrative images · replace with clinic photography",
+    },
+    team: {
+      eyebrow: "Who provides care",
+      title: "Clinical team",
+      body: "The people who take part in care at Haven.",
+      credential: "CRO",
     },
     testimonials: {
       eyebrow: "Google reviews",
@@ -400,9 +481,12 @@ export const messages = {
           label: "Opening hours",
           value: "Mon to Fri · 08:00 to 18:00\nSat · 08:00 to 12:00\nSun · closed",
         },
-        { key: "email", label: "Email", value: "contato@havenclinic.com.br" },
+        { key: "email", label: "Email", value: "Havenclinic8@gmail.com" },
       ],
+      urgency: "24h urgency",
       social: "Social media",
+      mapTitle: "Map of Haven Clinic in São José do Rio Preto",
+      mapCta: "Open in Google Maps",
       cta: "Book on WhatsApp",
     },
     footer: {
@@ -413,7 +497,7 @@ export const messages = {
     meta: {
       title: "Haven Clinic · Odontología en São José do Rio Preto",
       description:
-        "Odontología completa y estética facial en São José do Rio Preto. Agenda una evaluación en Haven Clinic por WhatsApp.",
+        "Odontología completa y estética facial en São José do Rio Preto. Agenda una consulta en Haven Clinic por WhatsApp.",
     },
     a11y: {
       skip: "Ir al contenido",
@@ -433,13 +517,13 @@ export const messages = {
       contact: "Contacto",
     },
     cta: {
-      evaluation: "Agendar una evaluación",
+      evaluation: "Agendar una consulta",
       treatments: "Conocer tratamientos",
       whatsapp: "Hablar por WhatsApp",
       footer: "WhatsApp",
     },
     whatsapp: {
-      message: "Hola, me gustaría agendar una evaluación en Haven Clinic.",
+      message: "Hola, me gustaría agendar una consulta en Haven Clinic.",
       topicSuffix: "Me gustaría saber más sobre: {topic}.",
     },
     hero: {
@@ -459,7 +543,7 @@ export const messages = {
         { title: "Clínica completa", body: "Cuidado para diferentes etapas" },
         { title: "São José do Rio Preto", body: "Atención local" },
         { title: "Atención personalizada", body: "Escucha antes de cada plan" },
-        { title: "Reseñas en Google", body: "Experiencias compartidas" },
+        { title: "Urgencia 24h", body: "Para necesidades urgentes" },
       ],
     },
     treatments: {
@@ -471,32 +555,68 @@ export const messages = {
         {
           title: "Odontología",
           items: [
-            "Odontopediatría",
-            "Blanqueamiento",
-            "Carillas / lentes de resina",
-            "Ortodoncia",
-            "Periodoncia / encías",
-            "Endodoncia / conducto",
-            "Restauración / caries",
+            { label: "Clínica general / Odontología preventiva" },
+            { label: "Odontopediatría" },
+            { label: "Ortodoncia" },
+            { label: "Endodoncia / tratamiento de conducto" },
+            { label: "Periodoncia / encía y tejidos de soporte" },
+            { label: "Implantología / Implantes" },
+            {
+              label: "Prótesis dental",
+              children: [
+                { label: "Prótesis fija" },
+                { label: "Prótesis removible" },
+                { label: "Prótesis total" },
+                { label: "Prótesis sobre implantes" },
+                { label: "Prótesis protocolo" },
+              ],
+            },
+            { label: "Odontología restauradora" },
+            { label: "Restauraciones en resina" },
+            { label: "Rehabilitación oral" },
+            {
+              label: "Cirugía oral y bucomaxilofacial",
+              children: [
+                { label: "Extracciones" },
+                { label: "Muelas del juicio" },
+                { label: "Cirugías menores" },
+              ],
+            },
+            { label: "Odontología digital" },
+            { label: "Disfunción temporomandibular (DTM) y dolor orofacial" },
+            { label: "Odontología para pacientes con necesidades especiales" },
+            { label: "Toxina botulínica para bruxismo" },
           ],
         },
         {
-          title: "Implantes y rehabilitación",
-          items: ["Implantes", "Prótesis protocolo"],
+          title: "Estética odontológica",
+          items: [
+            { label: "Blanqueamiento" },
+            { label: "Restauraciones estéticas" },
+            { label: "Carillas de resina" },
+            { label: "Carillas de porcelana" },
+            { label: "Lentes de contacto dental" },
+            { label: "Rehabilitación estética" },
+          ],
         },
         {
-          title: "Estética facial",
+          title: "Armonización orofacial",
           items: [
-            "CO₂ fraccionado",
-            "Relleno labial",
-            "Toxina botulínica",
-            "Bioestimuladores",
+            { label: "Relleno facial" },
+            { label: "Relleno labial" },
+            { label: "Toxina botulínica / Botox estético" },
+            { label: "Bioestimuladores de colágeno" },
+            { label: "CO₂ fraccionado" },
+            { label: "Ultrasonido microfocalizado" },
+            { label: "Rinomodelación" },
+            { label: "Microagujas" },
+            { label: "Tratamientos y protocolos de rejuvenecimiento facial" },
           ],
         },
       ],
-      note: "¿No sabes por dónde empezar? La evaluación comienza por tu necesidad.",
+      note: "¿No sabes por dónde empezar? La consulta comienza por tu necesidad.",
       cta: "Hablar sobre mi caso",
-      topic: "una evaluación para entender el tratamiento indicado",
+      topic: "una consulta para entender el tratamiento indicado",
     },
     pediatric: {
       eyebrow: "Odontopediatría",
@@ -512,7 +632,7 @@ export const messages = {
       title: "Clínica completa",
       body:
         "Todo lo que tu cuidado necesita, reunido en una experiencia clara, integrada y cercana.",
-      areas: ["Odontología", "Implantes y rehabilitación", "Estética facial"],
+      areas: ["Odontología", "Estética odontológica", "Armonización orofacial"],
     },
     why: {
       eyebrow: "La experiencia Haven",
@@ -541,8 +661,8 @@ export const messages = {
       body:
         "Comodidad, privacidad y organización forman parte de una experiencia más tranquila — desde el primer contacto hasta el seguimiento.",
       imageAlts: [
-        "Imagen ilustrativa de una recepción clara y cómoda",
-        "Imagen ilustrativa de una sala de espera acogedora",
+        "Recepción de Haven Clinic, con el nombre de la clínica, sofá e iluminación colgante",
+        "Consultorio de Haven Clinic, con sillón odontológico y mueble",
       ],
       principles: [
         {
@@ -558,7 +678,12 @@ export const messages = {
           body: "Continuidad entre descubrimiento, planificación y seguimiento.",
         },
       ],
-      imageNote: "Imágenes ilustrativas · sustituir por fotografías de la clínica",
+    },
+    team: {
+      eyebrow: "Quién cuida",
+      title: "Cuerpo clínico",
+      body: "Las personas que acompañan la atención en Haven.",
+      credential: "CRO",
     },
     testimonials: {
       eyebrow: "Reseñas en Google",
@@ -585,9 +710,12 @@ export const messages = {
           label: "Horario",
           value: "Lun a Vie · 08h a 18h\nSáb · 08h a 12h\nDom · cerrado",
         },
-        { key: "email", label: "Correo", value: "contato@havenclinic.com.br" },
+        { key: "email", label: "Correo", value: "Havenclinic8@gmail.com" },
       ],
+      urgency: "Urgencia 24h",
       social: "Redes sociales",
+      mapTitle: "Mapa de Haven Clinic en São José do Rio Preto",
+      mapCta: "Abrir en Google Maps",
       cta: "Agendar por WhatsApp",
     },
     footer: {

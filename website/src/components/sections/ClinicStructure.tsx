@@ -18,7 +18,7 @@ export function ClinicStructure() {
       </div>
 
       <div className="structure__gallery">
-        <RevealItem className="structure__image structure__image--wide">
+        <RevealItem className="structure__image structure__image--wide structure__image--reception">
           <img
             src={site.structure.images[0].src}
             alt={t.structure.imageAlts[0]}
@@ -27,7 +27,7 @@ export function ClinicStructure() {
             loading="lazy"
           />
         </RevealItem>
-        <RevealItem className="structure__image structure__image--tall">
+        <RevealItem className="structure__image structure__image--tall structure__image--operatory">
           <img
             src={site.structure.images[1].src}
             alt={t.structure.imageAlts[1]}
@@ -48,7 +48,6 @@ export function ClinicStructure() {
               </li>
             ))}
           </ol>
-          <small>{t.structure.imageNote}</small>
         </RevealItem>
       </div>
     </SectionReveal>
