@@ -1137,6 +1137,14 @@ blockquote {
   line-height: 1.05;
 }
 
+.quotes__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 0.85rem;
+  max-width: 100%;
+}
+
 .quotes__origin {
   margin: 0;
   color: var(--color-dusty-grey);
@@ -1144,6 +1152,14 @@ blockquote {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.quotes__rating {
+  margin: 0;
+  color: var(--color-puce);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
 }
 
 .quotes__bubble {
@@ -1204,17 +1220,6 @@ blockquote {
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
   letter-spacing: -0.015em;
   line-height: 1.4;
-}
-
-.quotes__bubble--rating {
-  width: fit-content;
-  padding: 8px 12px;
-  border-radius: 14px 14px 14px 4px;
-  color: var(--color-puce);
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  line-height: 1;
 }
 
 .quotes__typing {
