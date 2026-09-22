@@ -1,48 +1,43 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
-import { ReviewConversation, ReviewTyping } from "./ReviewConversation";
+import { ReviewConversation } from "./ReviewConversation";
 
 const GOOGLE_REVIEW_URL = "https://share.google/PzCsjfkHdW52BNDLy";
-const settleEase = [0.22, 1, 0.36, 1] as const;
-const TYPING_MS = 860;
+const EXIT_MS = 300;
+const TYPING_MS = 420;
+const ENTER_MS = 860;
+
+type Phase = "idle" | "exiting" | "typing" | "entering";
+
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 export function Testimonials() {
-  const reduce = useReducedMotion();
   const { t } = useLanguage();
   const copy = t.testimonials;
   const items = copy.items;
   const total = items.length;
   const [index, setIndex] = useState(0);
   const [shown, setShown] = useState(0);
-  const [phase, setPhase] = useState<"review" | "typing">("review");
-  const [wellHeight, setWellHeight] = useState<number>();
+  const [phase, setPhase] = useState<Phase>("idle");
   const indexRef = useRef(0);
   const tokenRef = useRef(0);
   const timeoutRef = useRef<number | null>(null);
-  const measureRef = useRef<HTMLDivElement>(null);
+  const reduceRef = useRef(false);
   const review = items[shown];
 
-  useLayoutEffect(() => {
-    const node = measureRef.current;
-    if (!node) return;
-
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
-      const heights = [...node.querySelectorAll<HTMLElement>("[data-review-measure]")].map(
-        (item) => item.getBoundingClientRect().height,
-      );
-      if (heights.length === 0) return;
-      const next = Math.ceil(Math.max(...heights));
-      setWellHeight((current) => (current === next ? current : next));
+      reduceRef.current = query.matches;
     };
-
     update();
-    const observer = new ResizeObserver(update);
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [items, copy.source, copy.starsLabel]);
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
 
   useEffect(
     () => () => {
@@ -56,20 +51,31 @@ export function Testimonials() {
     indexRef.current = next;
     setIndex(next);
 
-    if (reduce) {
+    const token = ++tokenRef.current;
+    if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
+
+    if (reduceRef.current || prefersReducedMotion()) {
       setShown(next);
-      setPhase("review");
+      setPhase("idle");
       return;
     }
 
-    const token = ++tokenRef.current;
-    setPhase("typing");
-    if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
-    timeoutRef.current = window.setTimeout(() => {
-      if (tokenRef.current !== token) return;
-      setShown(indexRef.current);
-      setPhase("review");
-    }, TYPING_MS);
+    const step = (wait: number, run: () => void) => {
+      timeoutRef.current = window.setTimeout(() => {
+        if (tokenRef.current !== token) return;
+        run();
+      }, wait);
+    };
+
+    setPhase("exiting");
+    step(EXIT_MS, () => {
+      setPhase("typing");
+      step(TYPING_MS, () => {
+        setShown(indexRef.current);
+        setPhase("entering");
+        step(ENTER_MS, () => setPhase("idle"));
+      });
+    });
   };
 
   return (
@@ -86,52 +92,21 @@ export function Testimonials() {
 
       <RevealItem className="quotes__stage">
         <div className="quotes__well">
-          <div className="quotes__measure" ref={measureRef} aria-hidden="true">
-            {items.map((item) => (
-              <div data-review-measure key={item.author}>
-                <ReviewConversation
-                  review={item}
-                  source={copy.source}
-                  starsLabel={copy.starsLabel}
-                  animate={false}
-                />
-              </div>
-            ))}
-          </div>
-
-          <div
-            className="quotes__thread"
-            style={wellHeight ? { height: wellHeight } : undefined}
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            <AnimatePresence mode="wait">
-              {phase === "review" ? (
-                <motion.div
-                  key={review.author}
-                  initial={false}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={reduce ? { opacity: 1 } : { opacity: 0.62, y: -4 }}
-                  transition={{ duration: reduce ? 0.01 : 0.4, ease: settleEase }}
-                >
-                  <ReviewConversation
-                    review={review}
-                    source={copy.source}
-                    starsLabel={copy.starsLabel}
-                  />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="typing"
-                  initial={reduce ? false : { opacity: 0.75 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0.7 }}
-                  transition={{ duration: reduce ? 0.01 : 0.35, ease: settleEase }}
-                >
-                  <ReviewTyping label={copy.typing} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+          <div className="quotes__thread" data-phase={phase} aria-live="polite" aria-atomic="true">
+            <ReviewConversation
+              review={review}
+              source={copy.source}
+              starsLabel={copy.starsLabel}
+              hidden={phase === "typing"}
+            />
+            <div className="quotes__typing" role="status" aria-hidden={phase !== "typing"}>
+              <span className="quotes__typing-bubble">
+                <span className="quotes__dot" />
+                <span className="quotes__dot" />
+                <span className="quotes__dot" />
+              </span>
+              <span className="visually-hidden">{copy.typing}</span>
+            </div>
           </div>
         </div>
 
