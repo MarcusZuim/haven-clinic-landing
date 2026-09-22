@@ -927,11 +927,10 @@ blockquote {
   height: 100%;
 }
 
-.structure__image--wide { aspect-ratio: 4 / 3; }
+.structure__image--wide { aspect-ratio: 4 / 5; }
 .structure__image--tall { display: none; }
 .structure__image--reception img {
-  object-position: 52% 34%;
-  transform: scale(1.7);
+  object-position: 54% 46%;
 }
 .structure__image--operatory img { object-position: center 46%; }
 
@@ -1412,21 +1411,28 @@ blockquote {
   .structure__gallery {
     display: grid;
     grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
-    grid-template-rows: 300px auto;
+    grid-template-rows: 280px auto;
     gap: 20px;
   }
 
   .structure__image--wide {
     grid-row: 1 / 3;
+    position: relative;
     aspect-ratio: auto;
     min-height: 0;
+    height: auto;
+    align-self: stretch;
+  }
+
+  .structure__image--wide img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
     height: 100%;
   }
+
   .structure__image--tall { display: block; }
-  .structure__image--reception img {
-    object-position: 62% 48%;
-    transform: scale(1.5);
-  }
+  .structure__image--reception img { object-position: 58% 42%; }
   .structure__principles { padding-top: 0; }
 
   .team__feature {

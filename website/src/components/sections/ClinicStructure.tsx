@@ -1,24 +1,33 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
-import { RevealItem, SectionReveal } from "../motion/SectionReveal";
+import { ease } from "../../lib/motion";
 
 export function ClinicStructure() {
   const { t } = useLanguage();
+  const reduce = useReducedMotion();
 
   return (
-    <SectionReveal as="section" className="section structure">
+    <motion.section
+      className="section structure"
+      initial={reduce ? { opacity: 1 } : { opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.18 }}
+      transition={{
+        duration: reduce ? 0.01 : 0.9,
+        ease,
+      }}
+    >
       <div className="structure__intro">
-        <RevealItem>
+        <div>
           <p className="eyebrow">{t.structure.eyebrow}</p>
           <h2 className="section-title">{t.structure.title}</h2>
-        </RevealItem>
-        <RevealItem>
-          <p className="section-body">{t.structure.body}</p>
-        </RevealItem>
+        </div>
+        <p className="section-body">{t.structure.body}</p>
       </div>
 
       <div className="structure__gallery">
-        <RevealItem className="structure__image structure__image--wide structure__image--reception">
+        <div className="structure__image structure__image--wide structure__image--reception">
           <img
             src={site.structure.images[0].src}
             alt={t.structure.imageAlts[0]}
@@ -26,8 +35,8 @@ export function ClinicStructure() {
             height={site.structure.images[0].height}
             loading="lazy"
           />
-        </RevealItem>
-        <RevealItem className="structure__image structure__image--tall structure__image--operatory">
+        </div>
+        <div className="structure__image structure__image--tall structure__image--operatory">
           <img
             src={site.structure.images[1].src}
             alt={t.structure.imageAlts[1]}
@@ -35,8 +44,8 @@ export function ClinicStructure() {
             height={site.structure.images[1].height}
             loading="lazy"
           />
-        </RevealItem>
-        <RevealItem className="structure__principles">
+        </div>
+        <div className="structure__principles">
           <ol>
             {t.structure.principles.map((item, index) => (
               <li key={item.title}>
@@ -48,8 +57,8 @@ export function ClinicStructure() {
               </li>
             ))}
           </ol>
-        </RevealItem>
+        </div>
       </div>
-    </SectionReveal>
+    </motion.section>
   );
 }
