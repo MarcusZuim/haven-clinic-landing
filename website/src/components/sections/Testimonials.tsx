@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
@@ -7,10 +7,12 @@ import { RevealItem, SectionReveal } from "../motion/SectionReveal";
 import { ReviewConversation, reviewDisplayName } from "./ReviewConversation";
 
 const GOOGLE_REVIEW_URL = "https://share.google/PzCsjfkHdW52BNDLy";
-const EXIT_MS = 0.2;
-const ENTER_MS = 0.46;
-const ENTER_FADE_MS = 0.32;
-const HEIGHT_MS = 0.46;
+const EXIT_MS = 0.18;
+const ENTER_DELAY_MS = 0.44;
+const ENTER_MS = 0.38;
+const ENTER_FADE_MS = 0.3;
+const HEIGHT_MS = 0.42;
+const TYPING_MS = 360;
 
 function slideVariants(reduce: boolean) {
   return {
@@ -24,8 +26,8 @@ function slideVariants(reduce: boolean) {
       transition: reduce
         ? { duration: 0.01 }
         : {
-            x: { duration: ENTER_MS, ease },
-            opacity: { duration: ENTER_FADE_MS, ease },
+            x: { duration: ENTER_MS, delay: ENTER_DELAY_MS, ease },
+            opacity: { duration: ENTER_FADE_MS, delay: ENTER_DELAY_MS, ease },
           },
     },
     exit: (direction: number) => ({
@@ -43,11 +45,23 @@ export function Testimonials() {
   const items = copy.items;
   const total = items.length;
   const [[page, direction], setPage] = useState<[number, -1 | 1]>([0, 1]);
+  const [presenceKey, setPresenceKey] = useState(0);
+  const [typing, setTyping] = useState(false);
   const index = ((page % total) + total) % total;
   const review = items[index];
   const contentRef = useRef<HTMLDivElement>(null);
+  const pageRef = useRef(0);
+  const tokenRef = useRef(0);
+  const timerRef = useRef<number | null>(null);
   const [height, setHeight] = useState<number | "auto">("auto");
   const [animateHeight, setAnimateHeight] = useState(false);
+
+  useEffect(
+    () => () => {
+      if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    },
+    [],
+  );
 
   useLayoutEffect(() => {
     const el = contentRef.current;
@@ -55,6 +69,7 @@ export function Testimonials() {
 
     const measure = () => {
       const next = Math.ceil(el.getBoundingClientRect().height);
+      if (next <= 0) return;
       setHeight((current) => (current === next ? current : next));
     };
 
@@ -65,8 +80,25 @@ export function Testimonials() {
   }, [page, review.text, copy.source]);
 
   const go = (nextDirection: -1 | 1) => {
+    const next = pageRef.current + nextDirection;
+    pageRef.current = next;
+    const token = ++tokenRef.current;
     setAnimateHeight(true);
-    setPage(([current]) => [current + nextDirection, nextDirection]);
+    setPresenceKey((current) => current + 1);
+    setPage([next, nextDirection]);
+
+    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+
+    if (reduce) {
+      setTyping(false);
+      return;
+    }
+
+    setTyping(true);
+    timerRef.current = window.setTimeout(() => {
+      if (tokenRef.current !== token) return;
+      setTyping(false);
+    }, TYPING_MS);
   };
 
   return (
@@ -95,12 +127,14 @@ export function Testimonials() {
             }}
           >
             <p className="visually-hidden" aria-live="polite" aria-atomic="true">
-              {reviewDisplayName(review.author)}. {copy.source}. {review.text}. {copy.starsLabel}
+              {typing
+                ? copy.typing
+                : `${reviewDisplayName(review.author)}. ${copy.source}. ${review.text}. ${copy.starsLabel}`}
             </p>
             <div ref={contentRef} aria-hidden="true">
               <AnimatePresence mode="popLayout" initial={false} custom={direction}>
                 <motion.div
-                  key={page}
+                  key={presenceKey}
                   className="quotes__slide"
                   custom={direction}
                   variants={slideVariants(reduce)}
@@ -116,6 +150,9 @@ export function Testimonials() {
                 </motion.div>
               </AnimatePresence>
             </div>
+            <AnimatePresence>
+              {typing ? <TypingIndicator key="typing" /> : null}
+            </AnimatePresence>
           </motion.div>
         </div>
 
@@ -139,6 +176,28 @@ export function Testimonials() {
         </p>
       </RevealItem>
     </SectionReveal>
+  );
+}
+
+function TypingIndicator() {
+  return (
+    <motion.div
+      className="quotes__typing"
+      aria-hidden="true"
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+      variants={{
+        hidden: { opacity: 0, y: 4, transition: { duration: 0.14, ease } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.16, delay: 0.16, ease } },
+      }}
+    >
+      <span className="quotes__typing-bubble">
+        <span className="quotes__dot" />
+        <span className="quotes__dot" />
+        <span className="quotes__dot" />
+      </span>
+    </motion.div>
   );
 }
 
