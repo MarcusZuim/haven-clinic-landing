@@ -20,19 +20,17 @@ type ReviewConversationProps = {
   review: ReviewCopy;
   source: string;
   starsLabel: string;
-  hidden?: boolean;
 };
 
 export function ReviewConversation({
   review,
   source,
   starsLabel,
-  hidden = false,
 }: ReviewConversationProps) {
   const scale = reviewScale(review.text);
 
   return (
-    <div className="quotes__conversation" aria-hidden={hidden}>
+    <div className="quotes__conversation">
       <header className="quotes__identity">
         <p className="quotes__name">{reviewDisplayName(review.author)}</p>
         <p className="quotes__origin">{source}</p>

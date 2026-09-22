@@ -32,6 +32,26 @@ const reviews = [
     author: "Tayane Camargo",
     text: "Atendimento excelente e resultados positivos ✨ Super recomendo!",
   },
+  {
+    author: "Jessica Mingoni",
+    text: "Excelente profissional 🥰",
+  },
+  {
+    author: "Elisabete Ferreira",
+    text: "👏👏👏👏 dra Nayara é atenciosa, educada, super competente, presta atenção nos detalhes. Recomendo muito!!!",
+  },
+  {
+    author: "Kêmily Covizzi",
+    text: "Amei a clínica, o atendimento! A Dr. Nayara é uma graça e super competente.",
+  },
+  {
+    author: "Nayla Chiareto",
+    text: "Lugar maravilhoso, Profissional excelente. Parabéns aos envolvidos. 👏",
+  },
+  {
+    author: "Zanão Lourenço",
+    text: "A melhor clínica que já fui, a Dra Nayara é muito carinhosa cuida muito bem dos seus pacientes. Estou amando fazer os procedimentos com elas ❤️",
+  },
 ] as const;
 
 export const messages = {
@@ -246,7 +266,6 @@ export const messages = {
       googleNote: "Avaliações publicadas no Google.",
       googleCta: "Ver e avaliar no Google",
       source: "Avaliação no Google",
-      typing: "Digitando",
       starsLabel: "5 de 5 estrelas",
       items: reviews,
     },
@@ -491,7 +510,6 @@ export const messages = {
       googleNote: "Reviews published on Google.",
       googleCta: "View and review on Google",
       source: "Google review",
-      typing: "Typing",
       starsLabel: "5 out of 5 stars",
       items: reviews,
     },
@@ -736,7 +754,6 @@ export const messages = {
       googleNote: "Reseñas publicadas en Google.",
       googleCta: "Ver y evaluar en Google",
       source: "Reseña de Google",
-      typing: "Escribiendo",
       starsLabel: "5 de 5 estrellas",
       items: reviews,
     },

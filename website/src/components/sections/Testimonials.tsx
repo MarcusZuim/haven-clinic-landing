@@ -1,81 +1,72 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
+import { ease } from "../../lib/motion";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
-import { ReviewConversation } from "./ReviewConversation";
+import { ReviewConversation, reviewDisplayName } from "./ReviewConversation";
 
 const GOOGLE_REVIEW_URL = "https://share.google/PzCsjfkHdW52BNDLy";
-const EXIT_MS = 300;
-const TYPING_MS = 420;
-const ENTER_MS = 860;
+const EXIT_MS = 0.2;
+const ENTER_MS = 0.46;
+const ENTER_FADE_MS = 0.32;
+const HEIGHT_MS = 0.46;
 
-type Phase = "idle" | "exiting" | "typing" | "entering";
-
-function prefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function slideVariants(reduce: boolean) {
+  return {
+    enter: (direction: number) => ({
+      x: reduce ? 0 : direction > 0 ? 18 : -18,
+      opacity: reduce ? 1 : 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      transition: reduce
+        ? { duration: 0.01 }
+        : {
+            x: { duration: ENTER_MS, ease },
+            opacity: { duration: ENTER_FADE_MS, ease },
+          },
+    },
+    exit: (direction: number) => ({
+      x: reduce ? 0 : direction > 0 ? -16 : 16,
+      opacity: 0,
+      transition: { duration: reduce ? 0.01 : EXIT_MS, ease },
+    }),
+  };
 }
 
 export function Testimonials() {
   const { t } = useLanguage();
+  const reduce = useReducedMotion() === true;
   const copy = t.testimonials;
   const items = copy.items;
   const total = items.length;
-  const [index, setIndex] = useState(0);
-  const [shown, setShown] = useState(0);
-  const [phase, setPhase] = useState<Phase>("idle");
-  const indexRef = useRef(0);
-  const tokenRef = useRef(0);
-  const timeoutRef = useRef<number | null>(null);
-  const reduceRef = useRef(false);
-  const review = items[shown];
+  const [[page, direction], setPage] = useState<[number, -1 | 1]>([0, 1]);
+  const index = ((page % total) + total) % total;
+  const review = items[index];
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number | "auto">("auto");
+  const [animateHeight, setAnimateHeight] = useState(false);
 
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => {
-      reduceRef.current = query.matches;
-    };
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
+  useLayoutEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
 
-  useEffect(
-    () => () => {
-      if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
-    },
-    [],
-  );
-
-  const go = (direction: -1 | 1) => {
-    const next = (indexRef.current + direction + total) % total;
-    indexRef.current = next;
-    setIndex(next);
-
-    const token = ++tokenRef.current;
-    if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
-
-    if (reduceRef.current || prefersReducedMotion()) {
-      setShown(next);
-      setPhase("idle");
-      return;
-    }
-
-    const step = (wait: number, run: () => void) => {
-      timeoutRef.current = window.setTimeout(() => {
-        if (tokenRef.current !== token) return;
-        run();
-      }, wait);
+    const measure = () => {
+      const next = Math.ceil(el.getBoundingClientRect().height);
+      setHeight((current) => (current === next ? current : next));
     };
 
-    setPhase("exiting");
-    step(EXIT_MS, () => {
-      setPhase("typing");
-      step(TYPING_MS, () => {
-        setShown(indexRef.current);
-        setPhase("entering");
-        step(ENTER_MS, () => setPhase("idle"));
-      });
-    });
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [page, review.text, copy.source]);
+
+  const go = (nextDirection: -1 | 1) => {
+    setAnimateHeight(true);
+    setPage(([current]) => [current + nextDirection, nextDirection]);
   };
 
   return (
@@ -92,22 +83,40 @@ export function Testimonials() {
 
       <RevealItem className="quotes__stage">
         <div className="quotes__well">
-          <div className="quotes__thread" data-phase={phase} aria-live="polite" aria-atomic="true">
-            <ReviewConversation
-              review={review}
-              source={copy.source}
-              starsLabel={copy.starsLabel}
-              hidden={phase === "typing"}
-            />
-            <div className="quotes__typing" role="status" aria-hidden={phase !== "typing"}>
-              <span className="quotes__typing-bubble">
-                <span className="quotes__dot" />
-                <span className="quotes__dot" />
-                <span className="quotes__dot" />
-              </span>
-              <span className="visually-hidden">{copy.typing}</span>
+          <motion.div
+            className="quotes__thread"
+            initial={false}
+            animate={{ height }}
+            transition={{
+              height: {
+                duration: reduce || !animateHeight ? 0.01 : HEIGHT_MS,
+                ease,
+              },
+            }}
+          >
+            <p className="visually-hidden" aria-live="polite" aria-atomic="true">
+              {reviewDisplayName(review.author)}. {copy.source}. {review.text}. {copy.starsLabel}
+            </p>
+            <div ref={contentRef} aria-hidden="true">
+              <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+                <motion.div
+                  key={page}
+                  className="quotes__slide"
+                  custom={direction}
+                  variants={slideVariants(reduce)}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                >
+                  <ReviewConversation
+                    review={review}
+                    source={copy.source}
+                    starsLabel={copy.starsLabel}
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="quotes__nav">
