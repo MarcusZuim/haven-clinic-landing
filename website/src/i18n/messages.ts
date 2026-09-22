@@ -220,6 +220,14 @@ export const messages = {
           title: "Cuidado integrado",
           body: "Continuidade entre descoberta, planejamento e acompanhamento.",
         },
+        {
+          title: "Privacidade no atendimento",
+          body: "Ambientes pensados para oferecer mais tranquilidade e discrição durante o cuidado.",
+        },
+        {
+          title: "Organização em cada etapa",
+          body: "Uma experiência conduzida com clareza do primeiro contato ao acompanhamento.",
+        },
       ],
     },
     team: {
@@ -454,6 +462,14 @@ export const messages = {
           title: "Integrated care",
           body: "Continuity across discovery, planning and follow-up.",
         },
+        {
+          title: "Privacy during care",
+          body: "Spaces designed to provide greater comfort and discretion throughout care.",
+        },
+        {
+          title: "Organization at every stage",
+          body: "A clear, well-structured experience from the first contact through follow-up.",
+        },
       ],
     },
     team: {
@@ -687,6 +703,14 @@ export const messages = {
         {
           title: "Cuidado integrado",
           body: "Continuidad entre descubrimiento, planificación y seguimiento.",
+        },
+        {
+          title: "Privacidad durante la atención",
+          body: "Espacios pensados para ofrecer mayor tranquilidad y discreción durante el cuidado.",
+        },
+        {
+          title: "Organización en cada etapa",
+          body: "Una experiencia conducida con claridad desde el primer contacto hasta el seguimiento.",
         },
       ],
     },
