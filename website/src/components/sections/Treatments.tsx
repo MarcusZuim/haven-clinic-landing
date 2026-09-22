@@ -34,7 +34,7 @@ export function Treatments() {
           const panelId = `${baseId}-panel-${groupIndex}`;
 
           return (
-            <RevealItem className="treatment-group" key={group.title}>
+            <div className="treatment-group" key={group.title}>
               <h3 className="treatment-group__heading">
                 <button
                   type="button"
@@ -116,7 +116,7 @@ export function Treatments() {
                   </motion.div>
                 ) : null}
               </AnimatePresence>
-            </RevealItem>
+            </div>
           );
         })}
       </div>
