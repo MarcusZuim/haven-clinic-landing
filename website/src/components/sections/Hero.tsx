@@ -3,6 +3,7 @@ import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { softEase, softIn } from "../../lib/motion";
 import { WhatsAppButton } from "../cta/WhatsAppButton";
+import { ScrollDrift } from "../motion/ScrollDrift";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -14,25 +15,27 @@ export function Hero() {
       <div className="hero__media" aria-hidden="true">
         <motion.div
           className="hero__frame"
-          initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 1.025 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: reduce ? 0.3 : 1.25, ease: softEase }}
+          initial={reduce ? { opacity: 1 } : { opacity: 0.86 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: reduce ? 0.01 : 1.25, ease: softEase }}
         >
-          <picture>
-            <source
-              media="(min-width: 1024px)"
-              srcSet={hero.imageDesktop.src}
-              width={hero.imageDesktop.width}
-              height={hero.imageDesktop.height}
-            />
-            <img
-              src={hero.image.src}
-              alt=""
-              width={hero.image.width}
-              height={hero.image.height}
-              fetchPriority="high"
-            />
-          </picture>
+          <ScrollDrift className="hero__drift" yRange={[10, -12]} scaleRange={[1.06, 1.03]}>
+            <picture>
+              <source
+                media="(min-width: 1024px)"
+                srcSet={hero.imageDesktop.src}
+                width={hero.imageDesktop.width}
+                height={hero.imageDesktop.height}
+              />
+              <img
+                src={hero.image.src}
+                alt=""
+                width={hero.image.width}
+                height={hero.image.height}
+                fetchPriority="high"
+              />
+            </picture>
+          </ScrollDrift>
         </motion.div>
         <div className="hero__veil" />
       </div>
@@ -43,7 +46,7 @@ export function Hero() {
         <div className="hero__copy">
           <motion.p
             className="hero__eyebrow"
-            {...softIn(reduce, 0.12, { y: 8, duration: 0.85 })}
+            {...softIn(reduce, 0.12, { y: 8, duration: 1.05 })}
           >
             {t.hero.eyebrow}
           </motion.p>
@@ -67,14 +70,14 @@ export function Hero() {
 
           <motion.p
             className="hero__subhead"
-            {...softIn(reduce, 0.43, { y: 8, duration: 0.9 })}
+            {...softIn(reduce, 0.43, { y: 8, duration: 1.1 })}
           >
             {t.hero.subhead}
           </motion.p>
 
           <motion.div
             className="hero__actions"
-            {...softIn(reduce, 0.52, { y: 8, duration: 0.9 })}
+            {...softIn(reduce, 0.52, { y: 8, duration: 1.1 })}
           >
             <WhatsAppButton variant="hero" label={t.cta.evaluation} />
             <a className="hero__secondary" href="#tratamentos">
@@ -86,7 +89,7 @@ export function Hero() {
 
         <motion.p
           className="hero__caption"
-          {...softIn(reduce, 0.65, { y: 6, duration: 0.8 })}
+          {...softIn(reduce, 0.65, { y: 6, duration: 1 })}
         >
           {t.hero.caption}
         </motion.p>

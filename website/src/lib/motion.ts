@@ -5,14 +5,14 @@ export const softEase = [0.16, 1, 0.28, 1] as const;
 export function fadeUp(
   reduce: boolean | null,
   delay: number,
-  distance = 16,
-  duration = 0.55,
+  distance = 10,
+  duration = 0.95,
 ) {
   return {
-    initial: reduce ? { opacity: 0 } : { opacity: 0, y: distance },
+    initial: reduce ? { opacity: 1 } : { opacity: 0.82, y: distance },
     animate: { opacity: 1, y: 0 },
     transition: {
-      duration: reduce ? 0.28 : duration,
+      duration: reduce ? 0.01 : duration,
       ease: softEase,
       delay: reduce ? 0 : delay,
     },
@@ -25,17 +25,15 @@ export function softIn(
   delay: number,
   options: { y?: number; duration?: number; x?: number } = {},
 ) {
-  const y = options.y ?? 10;
+  const y = options.y ?? 8;
   const x = options.x ?? 0;
-  const duration = options.duration ?? 1.05;
+  const duration = options.duration ?? 1.15;
 
   return {
-    initial: reduce
-      ? { opacity: 0 }
-      : { opacity: 0, y, x, filter: "blur(4px)" },
-    animate: { opacity: 1, y: 0, x: 0, filter: "blur(0px)" },
+    initial: reduce ? { opacity: 1 } : { opacity: 0.78, y, x },
+    animate: { opacity: 1, y: 0, x: 0 },
     transition: {
-      duration: reduce ? 0.3 : duration,
+      duration: reduce ? 0.01 : duration,
       ease: softEase,
       delay: reduce ? 0 : delay,
     },

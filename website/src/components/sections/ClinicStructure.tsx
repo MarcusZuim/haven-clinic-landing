@@ -10,11 +10,11 @@ export function ClinicStructure() {
   return (
     <motion.section
       className="section structure"
-      initial={reduce ? { opacity: 1 } : { opacity: 0, y: 10 }}
+      initial={reduce ? { opacity: 1 } : { opacity: 0.78, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{
-        duration: reduce ? 0.01 : 0.9,
+        duration: reduce ? 0.01 : 1.15,
         ease,
       }}
     >

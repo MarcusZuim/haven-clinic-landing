@@ -33,7 +33,7 @@ export function SectionReveal({
         hidden: {},
         show: {
           transition: {
-            staggerChildren: reduce ? 0 : 0.05,
+            staggerChildren: reduce ? 0 : 0.1,
             delayChildren: 0,
           },
         },
@@ -62,11 +62,11 @@ export function RevealItem({
     <Tag
       className={className}
       variants={{
-        hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 12 },
+        hidden: reduce ? { opacity: 1 } : { opacity: 0.75, y: 10 },
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: reduce ? 0.2 : 0.32, ease },
+          transition: { duration: reduce ? 0.01 : 1.15, ease },
         },
       }}
     >

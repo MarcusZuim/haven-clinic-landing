@@ -245,6 +245,9 @@ export const messages = {
       title: "Quem vive a Haven, conta.",
       googleNote: "Avaliações publicadas no Google.",
       googleCta: "Ver e avaliar no Google",
+      source: "Avaliação no Google",
+      typing: "Digitando",
+      starsLabel: "5 de 5 estrelas",
       items: reviews,
     },
     contact: {
@@ -487,6 +490,9 @@ export const messages = {
       title: "People who experience Haven, share it.",
       googleNote: "Reviews published on Google.",
       googleCta: "View and review on Google",
+      source: "Google review",
+      typing: "Typing",
+      starsLabel: "5 out of 5 stars",
       items: reviews,
     },
     contact: {
@@ -729,6 +735,9 @@ export const messages = {
       title: "Quien vive Haven, lo cuenta.",
       googleNote: "Reseñas publicadas en Google.",
       googleCta: "Ver y evaluar en Google",
+      source: "Reseña de Google",
+      typing: "Escribiendo",
+      starsLabel: "5 de 5 estrellas",
       items: reviews,
     },
     contact: {

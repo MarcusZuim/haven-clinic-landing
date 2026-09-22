@@ -1,13 +1,14 @@
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
+import { ScrollDrift } from "../motion/ScrollDrift";
 
 export function CompleteClinic() {
   const { t } = useLanguage();
 
   return (
     <SectionReveal as="section" className="complete-clinic">
-      <div className="complete-clinic__media" aria-hidden="true">
+      <ScrollDrift className="complete-clinic__media" yRange={[8, -12]} scaleRange={[1.06, 1.03]}>
         <img
           src={site.complete.image.src}
           alt=""
@@ -15,7 +16,7 @@ export function CompleteClinic() {
           height={site.complete.image.height}
           loading="lazy"
         />
-      </div>
+      </ScrollDrift>
       <div className="complete-clinic__veil" />
       <div className="complete-clinic__inner">
         <RevealItem className="complete-clinic__heading">

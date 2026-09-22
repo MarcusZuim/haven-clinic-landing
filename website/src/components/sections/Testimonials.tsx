@@ -1,26 +1,79 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { site } from "../../content/site";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
+import { ReviewConversation, ReviewTyping } from "./ReviewConversation";
 
 const GOOGLE_REVIEW_URL = "https://share.google/PzCsjfkHdW52BNDLy";
+const settleEase = [0.22, 1, 0.36, 1] as const;
+const TYPING_MS = 860;
 
 export function Testimonials() {
   const reduce = useReducedMotion();
-  const [index, setIndex] = useState(0);
   const { t } = useLanguage();
   const copy = t.testimonials;
-  const { testimonials } = site;
-  const review = copy.items[index];
-  const total = copy.items.length;
+  const items = copy.items;
+  const total = items.length;
+  const [index, setIndex] = useState(0);
+  const [shown, setShown] = useState(0);
+  const [phase, setPhase] = useState<"review" | "typing">("review");
+  const [wellHeight, setWellHeight] = useState<number>();
+  const indexRef = useRef(0);
+  const tokenRef = useRef(0);
+  const timeoutRef = useRef<number | null>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
+  const review = items[shown];
+
+  useLayoutEffect(() => {
+    const node = measureRef.current;
+    if (!node) return;
+
+    const update = () => {
+      const heights = [...node.querySelectorAll<HTMLElement>("[data-review-measure]")].map(
+        (item) => item.getBoundingClientRect().height,
+      );
+      if (heights.length === 0) return;
+      const next = Math.ceil(Math.max(...heights));
+      setWellHeight((current) => (current === next ? current : next));
+    };
+
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [items, copy.source, copy.starsLabel]);
+
+  useEffect(
+    () => () => {
+      if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
+    },
+    [],
+  );
 
   const go = (direction: -1 | 1) => {
-    setIndex((current) => (current + direction + total) % total);
+    const next = (indexRef.current + direction + total) % total;
+    indexRef.current = next;
+    setIndex(next);
+
+    if (reduce) {
+      setShown(next);
+      setPhase("review");
+      return;
+    }
+
+    const token = ++tokenRef.current;
+    setPhase("typing");
+    if (timeoutRef.current !== null) window.clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      if (tokenRef.current !== token) return;
+      setShown(indexRef.current);
+      setPhase("review");
+    }, TYPING_MS);
   };
 
   return (
-    <SectionReveal as="section" id={testimonials.id} className="section quotes">
+    <SectionReveal as="section" id={site.testimonials.id} className="section quotes">
       <div className="quotes__header">
         <RevealItem>
           <p className="eyebrow">{copy.eyebrow}</p>
@@ -32,19 +85,55 @@ export function Testimonials() {
       </div>
 
       <RevealItem className="quotes__stage">
-        <AnimatePresence mode="wait">
-          <motion.figure
-            key={review.author}
-            className="quotes__card"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={reduce ? { opacity: 0 } : { opacity: 0, x: -24 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        <div className="quotes__well">
+          <div className="quotes__measure" ref={measureRef} aria-hidden="true">
+            {items.map((item) => (
+              <div data-review-measure key={item.author}>
+                <ReviewConversation
+                  review={item}
+                  source={copy.source}
+                  starsLabel={copy.starsLabel}
+                  animate={false}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="quotes__thread"
+            style={wellHeight ? { height: wellHeight } : undefined}
+            aria-live="polite"
+            aria-atomic="true"
           >
-            <blockquote className="quotes__quote">{review.text}</blockquote>
-            <figcaption className="quotes__author">{review.author}</figcaption>
-          </motion.figure>
-        </AnimatePresence>
+            <AnimatePresence mode="wait">
+              {phase === "review" ? (
+                <motion.div
+                  key={review.author}
+                  initial={false}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduce ? { opacity: 1 } : { opacity: 0.62, y: -4 }}
+                  transition={{ duration: reduce ? 0.01 : 0.4, ease: settleEase }}
+                >
+                  <ReviewConversation
+                    review={review}
+                    source={copy.source}
+                    starsLabel={copy.starsLabel}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="typing"
+                  initial={reduce ? false : { opacity: 0.75 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0.7 }}
+                  transition={{ duration: reduce ? 0.01 : 0.35, ease: settleEase }}
+                >
+                  <ReviewTyping label={copy.typing} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
 
         <div className="quotes__nav">
           <button type="button" onClick={() => go(-1)} aria-label={t.a11y.prevQuote}>
