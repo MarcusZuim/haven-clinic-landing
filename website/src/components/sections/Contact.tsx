@@ -68,20 +68,34 @@ export function Contact() {
           </h2>
           <p className="closing__intro">{copy.intro}</p>
           <WhatsAppButton variant="solid" label={copy.cta} />
+        </RevealItem>
 
-          <div className="closing__details">
-            <dl className="closing__details-col">
-              {renderDetail("address")}
-              {renderDetail("whatsapp")}
-            </dl>
-
-            <dl className="closing__details-col">
-              {renderDetail("hours")}
-              {renderDetail("email")}
-            </dl>
+        <div className="closing__map">
+          <div className="closing__map-frame">
+            <iframe
+              title={copy.mapTitle}
+              src={mapSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
           </div>
+          <p className="closing__map-link">
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+              {copy.mapCta}
+            </a>
+          </p>
+        </div>
 
-          <div className="closing__social" aria-label={copy.social}>
+        <div className="closing__lower">
+          <dl className="closing__details">
+            {renderDetail("address")}
+            {renderDetail("whatsapp")}
+            {renderDetail("hours")}
+            {renderDetail("email")}
+          </dl>
+
+          <div className="closing__social" role="group" aria-label={copy.social}>
             <a
               className="closing__social-link"
               href={buildWhatsAppUrl(t.whatsapp.message)}
@@ -119,24 +133,7 @@ export function Contact() {
               <FacebookIcon />
             </a>
           </div>
-        </RevealItem>
-      </div>
-
-      <div className="closing__map">
-        <div className="closing__map-frame">
-          <iframe
-            title={copy.mapTitle}
-            src={mapSrc}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
         </div>
-        <p className="closing__map-link">
-          <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
-            {copy.mapCta}
-          </a>
-        </p>
       </div>
 
       <RevealItem className="closing__foot">

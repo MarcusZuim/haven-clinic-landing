@@ -6,6 +6,7 @@ export const site = {
   nav: [
     { href: "#clinica", key: "clinic" },
     { href: "#tratamentos", key: "treatments" },
+    { href: "#corpo-clinico", key: "team" },
     { href: "#avaliacoes", key: "reviews" },
     { href: "#contato", key: "contact" },
   ] as const,
@@ -47,7 +48,15 @@ export const site = {
     ],
   },
   team: [
-    { name: "Drª Nayara Melo", cro: "130.317" },
+    {
+      name: "Drª Nayara Melo",
+      cro: "130.317",
+      image: {
+        src: assetUrl("images/team/nayara.jpg"),
+        width: 960,
+        height: 1104,
+      },
+    },
     { name: "Drª Flávia Berton", cro: "98655" },
     { name: "Dr. Leandro Mazer", cro: "112.721" },
     { name: "Drª Isabela Camarim", cro: "130.745" },
@@ -57,9 +66,9 @@ export const site = {
   ] as const,
   complete: {
     image: {
-      src: assetUrl("images/placeholders/why.webp"),
-      width: 1400,
-      height: 1750,
+      src: assetUrl("images/clinic/consult-room.jpg"),
+      width: 1200,
+      height: 1340,
     },
   },
   testimonials: {

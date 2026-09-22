@@ -8,6 +8,7 @@ type SectionRevealProps = {
   className?: string;
   as?: "section" | "div";
   id?: string;
+  "aria-labelledby"?: string;
 };
 
 export function SectionReveal({
@@ -15,6 +16,7 @@ export function SectionReveal({
   className,
   as = "div",
   id,
+  "aria-labelledby": ariaLabelledBy,
 }: SectionRevealProps) {
   const reduce = useReducedMotion();
   const Tag = as === "section" ? motion.section : motion.div;
@@ -23,6 +25,7 @@ export function SectionReveal({
     <Tag
       id={id}
       className={className}
+      aria-labelledby={ariaLabelledBy}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.05, margin: "0px 0px 18% 0px" }}

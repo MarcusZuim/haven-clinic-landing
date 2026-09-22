@@ -55,6 +55,7 @@ export const messages = {
     nav: {
       clinic: "A clínica",
       treatments: "Tratamentos",
+      team: "Corpo Clínico",
       reviews: "Avaliações",
       contact: "Contato",
     },
@@ -226,6 +227,10 @@ export const messages = {
       title: "Corpo Clínico",
       body: "As pessoas que acompanham o atendimento na Haven.",
       credential: "CRO",
+      imageAlt: "Retrato de Drª Nayara Melo",
+      // TODO: replace with approved professional biography from Drª Nayara.
+      featuredBio:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     testimonials: {
       eyebrow: "Avaliações no Google",
@@ -284,6 +289,7 @@ export const messages = {
     nav: {
       clinic: "The clinic",
       treatments: "Treatments",
+      team: "Clinical team",
       reviews: "Reviews",
       contact: "Contact",
     },
@@ -455,6 +461,10 @@ export const messages = {
       title: "Clinical team",
       body: "The people who take part in care at Haven.",
       credential: "CRO",
+      imageAlt: "Portrait of Drª Nayara Melo",
+      // TODO: replace with approved professional biography from Drª Nayara.
+      featuredBio:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     testimonials: {
       eyebrow: "Google reviews",
@@ -513,6 +523,7 @@ export const messages = {
     nav: {
       clinic: "La clínica",
       treatments: "Tratamientos",
+      team: "Cuerpo clínico",
       reviews: "Reseñas",
       contact: "Contacto",
     },
@@ -684,6 +695,10 @@ export const messages = {
       title: "Cuerpo clínico",
       body: "Las personas que acompañan la atención en Haven.",
       credential: "CRO",
+      imageAlt: "Retrato de la Drª Nayara Melo",
+      // TODO: replace with approved professional biography from Drª Nayara.
+      featuredBio:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     testimonials: {
       eyebrow: "Reseñas en Google",
