@@ -950,32 +950,38 @@ blockquote {
   animation: pediatric-star-five 15s ease-in-out -11s infinite;
 }
 
-.pediatric-decoration--comet {
-  top: 2px;
-  left: -34px;
-  font-size: 1.2rem;
+.pediatric-decoration--comet,
+.pediatric-decoration--asteroid {
+  font-size: 1.1rem;
   opacity: 0;
-  animation: pediatric-comet-one 13s linear -4s infinite;
+}
+
+.pediatric-decoration--comet {
+  top: -22px;
+  left: 14%;
+  animation: pediatric-meteor-one 10s linear -3s infinite;
 }
 
 .pediatric-decoration--asteroid {
-  top: 94px;
-  right: -28px;
-  font-size: 1rem;
-  opacity: 0;
-  animation: pediatric-asteroid-two 15s linear -9s infinite;
+  top: -42px;
+  right: 24%;
+  animation: pediatric-meteor-two 12s linear -7s infinite;
+}
+
+.pediatric-decoration--asteroid::after {
+  position: absolute;
+  top: -28px;
+  left: 18%;
+  content: "☄️";
+  font-size: 0.9rem;
+  animation: pediatric-meteor-three 11s linear -1s infinite;
 }
 
 @keyframes pediatric-rocket {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg); }
-  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg); }
-  29% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg); }
-  47% { opacity: 0.84; transform: translate3d(47cqw, 6px, 0) rotate(23deg); }
-  59% { opacity: 0.84; transform: translate3d(59cqw, 10px, 0) rotate(18deg); }
-  69% { opacity: 0.84; transform: translate3d(65cqw, 18px, 0) rotate(12deg); }
-  78% { opacity: 0.84; transform: translate3d(75cqw, 10px, 0) rotate(5deg); }
-  89% { opacity: 0.8; transform: translate3d(92cqw, -56px, 0) rotate(-4deg); }
-  100% { opacity: 0; transform: translate3d(119cqw, -83px, 0) rotate(-8deg); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg); }
+  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg); }
+  92% { opacity: 0.84; transform: translate3d(96cqw, 0, 0) rotate(-45deg); }
+  100% { opacity: 0; transform: translate3d(119cqw, 0, 0) rotate(-45deg); }
 }
 
 .pediatric-decoration--rocket-collision {
@@ -983,14 +989,12 @@ blockquote {
 }
 
 @keyframes pediatric-rocket-collision {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg) scale(1); }
-  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg) scale(1); }
-  30% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg) scale(1); }
-  48% { opacity: 0.84; transform: translate3d(49cqw, 6px, 0) rotate(23deg) scale(1); }
-  62% { opacity: 0.84; transform: translate3d(59cqw, 10px, 0) rotate(18deg) scale(1); }
-  74% { opacity: 0.84; transform: translate3d(64cqw, -8px, 0) rotate(4deg) scale(1); }
-  88% { opacity: 0.88; transform: translate3d(68cqw, -36px, 0) rotate(-11deg) scale(1); }
-  100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-18deg) scale(1); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg) scale(1); }
+  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg) scale(1); }
+  62% { opacity: 0.84; transform: translate3d(59cqw, 0, 0) rotate(-45deg) scale(1); }
+  74% { opacity: 0.84; transform: translate3d(64cqw, -4px, 0) rotate(-43deg) scale(1); }
+  88% { opacity: 0.88; transform: translate3d(68cqw, -30px, 0) rotate(-32deg) scale(1); }
+  100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-20deg) scale(1); }
 }
 
 @keyframes pediatric-planet-orbit {
@@ -1012,18 +1016,22 @@ blockquote {
   70% { opacity: 0.74; transform: translate3d(-8px, 13px, 0) rotate(20deg); }
 }
 
-@keyframes pediatric-comet-one {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg); }
-  10% { opacity: 0.56; transform: translate3d(10cqw, -2px, 0) rotate(3deg); }
-  70% { opacity: 0.54; transform: translate3d(78cqw, 26px, 0) rotate(3deg); }
-  100% { opacity: 0; transform: translate3d(112cqw, 42px, 0) rotate(3deg); }
+@keyframes pediatric-meteor-one {
+  0% { opacity: 0; transform: translate3d(-18cqw, 0, 0) rotate(118deg); }
+  12% { opacity: 0.56; }
+  100% { opacity: 0; transform: translate3d(44cqw, 238px, 0) rotate(142deg); }
 }
 
-@keyframes pediatric-asteroid-two {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0); }
-  12% { opacity: 0.5; transform: translate3d(-10cqw, -2px, 0) rotate(-30deg); }
-  68% { opacity: 0.5; transform: translate3d(-74cqw, -18px, 0) rotate(-135deg); }
-  100% { opacity: 0; transform: translate3d(-112cqw, -28px, 0) rotate(-190deg); }
+@keyframes pediatric-meteor-two {
+  0% { opacity: 0; transform: translate3d(22cqw, 0, 0) rotate(38deg); }
+  12% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate3d(-26cqw, 260px, 0) rotate(78deg); }
+}
+
+@keyframes pediatric-meteor-three {
+  0% { opacity: 0; transform: translate3d(10cqw, 0, 0) rotate(120deg); }
+  14% { opacity: 0.48; }
+  100% { opacity: 0; transform: translate3d(34cqw, 280px, 0) rotate(156deg); }
 }
 
 @keyframes pediatric-star-field-one {
@@ -2307,7 +2315,7 @@ blockquote {
 
   .pediatric-decoration--rocket {
     opacity: 0.8;
-    transform: translate3d(30cqw, -4px, 0) rotate(26deg);
+    transform: translate3d(30cqw, 0, 0) rotate(-45deg);
   }
 
   .pediatric-moon { animation: none; }
@@ -2326,24 +2334,18 @@ blockquote {
   }
 
   @keyframes pediatric-rocket-mobile {
-    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg); }
-    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg); }
-    30% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg); }
-    48% { opacity: 0.84; transform: translate3d(50cqw, 6px, 0) rotate(23deg); }
-    62% { opacity: 0.84; transform: translate3d(62cqw, 12px, 0) rotate(18deg); }
-    74% { opacity: 0.84; transform: translate3d(72cqw, 24px, 0) rotate(10deg); }
-    86% { opacity: 0.82; transform: translate3d(84cqw, -12px, 0) rotate(-4deg); }
-    100% { opacity: 0; transform: translate3d(116cqw, -58px, 0) rotate(-10deg); }
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg); }
+    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg); }
+    92% { opacity: 0.84; transform: translate3d(96cqw, 0, 0) rotate(-45deg); }
+    100% { opacity: 0; transform: translate3d(116cqw, 0, 0) rotate(-45deg); }
   }
 
   @keyframes pediatric-rocket-collision-mobile {
-    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg) scale(1); }
-    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg) scale(1); }
-    30% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg) scale(1); }
-    48% { opacity: 0.84; transform: translate3d(50cqw, 6px, 0) rotate(23deg) scale(1); }
-    62% { opacity: 0.84; transform: translate3d(62cqw, 12px, 0) rotate(18deg) scale(1); }
-    74% { opacity: 0.84; transform: translate3d(76cqw, -8px, 0) rotate(4deg) scale(1); }
-    88% { opacity: 0.88; transform: translate3d(86cqw, -38px, 0) rotate(-11deg) scale(1); }
-    100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-18deg) scale(1); }
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg) scale(1); }
+    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg) scale(1); }
+    62% { opacity: 0.84; transform: translate3d(62cqw, 0, 0) rotate(-45deg) scale(1); }
+    74% { opacity: 0.84; transform: translate3d(76cqw, -6px, 0) rotate(-42deg) scale(1); }
+    88% { opacity: 0.88; transform: translate3d(86cqw, -34px, 0) rotate(-30deg) scale(1); }
+    100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-20deg) scale(1); }
   }
 }
