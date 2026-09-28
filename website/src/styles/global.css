@@ -1165,6 +1165,7 @@ blockquote {
 }
 
 .pediatric__layout {
+  position: relative;
   overflow: hidden;
   color: var(--color-puce-dark);
   background: var(--color-cashmere);
@@ -1172,42 +1173,45 @@ blockquote {
 
 .pediatric__visual {
   position: relative;
-  display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
-  min-height: 360px;
+  display: block;
+  aspect-ratio: 1122 / 1402;
+  min-height: 0;
   overflow: hidden;
   background: color-mix(in srgb, var(--color-cashmere) 75%, var(--color-white));
 }
 
 .pediatric__image {
-  grid-row: 1;
   width: 100%;
   height: 100%;
-  min-height: 0;
+  min-height: auto;
   object-fit: cover;
   object-position: 58% 38%;
 }
 
-.pediatric__visual .brand-mark {
+.pediatric__brand {
   position: absolute;
   top: 24px;
-  right: 24px;
-  z-index: 2;
+  right: 28px;
+  z-index: 4;
   width: 70px;
   height: 70px;
   opacity: 0.9;
 }
 
 .pediatric__visual p {
-  grid-row: 2;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   margin: 0;
-  padding: 18px 24px 22px;
+  padding: 64px 24px 24px;
   z-index: 2;
   max-width: none;
+  color: var(--color-white);
   font-family: var(--font-display);
   font-size: 1.3rem;
   line-height: 1.25;
-  background: var(--color-cashmere);
+  background: linear-gradient(180deg, transparent, rgba(20, 28, 30, 0.72));
 }
 
 .pediatric__orbit {
@@ -1994,11 +1998,11 @@ blockquote {
   .pediatric__layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 600px;
+    min-height: 0;
   }
 
-  .pediatric__visual { min-height: 600px; }
-  .pediatric__copy { display: flex; flex-direction: column; justify-content: center; padding: 64px; }
+  .pediatric__visual { min-height: 0; }
+  .pediatric__copy { display: flex; flex-direction: column; justify-content: center; padding: 24px 42px; }
 
   .complete-clinic__inner { min-height: 820px; }
 
@@ -2167,7 +2171,7 @@ blockquote {
 
   .pediatric { padding-top: 30px; padding-bottom: 150px; }
   .pediatric__layout { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
-  .pediatric__copy { padding: clamp(70px, 8vw, 120px); }
+  .pediatric__copy { padding: 24px clamp(32px, 5vw, 64px); }
 
   .complete-clinic { min-height: 900px; }
   .complete-clinic__media img { object-position: 62% 46%; }
@@ -2288,9 +2292,8 @@ blockquote {
   .hero__title { font-size: clamp(3rem, 14.5vw, 4rem); }
   .hero__actions { align-items: flex-start; flex-direction: column; }
   .hero__caption { margin-top: 26px; }
-  .pediatric__visual { min-height: 320px; }
-  .pediatric__visual .brand-mark { top: 16px; right: 16px; width: 52px; height: 52px; }
-  .pediatric__visual p { padding: 14px 18px 18px; font-size: 1.12rem; }
+  .pediatric__brand { top: calc(100vw * 1.25 + 10px); right: 16px; width: 52px; height: 52px; }
+  .pediatric__visual p { padding: 54px 18px 18px; font-size: 1.12rem; }
   .treatment-group--pediatric .treatment-group__trigger { padding-inline: 14px; }
   .treatment-group--pediatric .treatment-group__title { font-size: clamp(1.5rem, 8vw, 2rem); }
   .treatment-group--pediatric .treatment-group__number { align-self: start; padding-top: 5px; }

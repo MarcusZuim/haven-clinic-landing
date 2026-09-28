@@ -18,11 +18,10 @@ export function PediatricFeature() {
             loading="lazy"
             decoding="async"
           />
-          <span className="pediatric__orbit pediatric__orbit--one" />
-          <span className="pediatric__orbit pediatric__orbit--two" />
-          <BrandLogo variant="isotipo" decorative />
           <p>{t.pediatric.visualNote}</p>
         </RevealItem>
+
+        <BrandLogo variant="isotipo" decorative className="pediatric__brand" />
 
         <RevealItem className="pediatric__copy">
           <p className="eyebrow">{t.pediatric.eyebrow}</p>
