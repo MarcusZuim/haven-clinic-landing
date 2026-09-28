@@ -10,6 +10,12 @@
   --color-text-soft: #746966;
   --color-line: color-mix(in srgb, var(--color-puce-dark) 16%, transparent);
   --color-warm-surface: #e8e1d7;
+  --color-pediatric-ink: #31505b;
+  --color-pediatric-sky: #bde6f3;
+  --color-pediatric-mint: #ccebd9;
+  --color-pediatric-sun: #f5d986;
+  --color-pediatric-coral: #f1a99c;
+  --color-pediatric-lilac: #d6c7ef;
 
   --font-display: "The Seasons", Georgia, "Times New Roman", serif;
   --font-body: "Open Sans", Helvetica, Arial, sans-serif;

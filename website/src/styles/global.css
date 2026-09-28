@@ -613,6 +613,11 @@ blockquote {
   line-height: 1.1;
 }
 
+.treatment-group__label {
+  display: grid;
+  min-width: 0;
+}
+
 .treatment-group__toggle {
   position: relative;
   width: 24px;
@@ -698,6 +703,195 @@ blockquote {
 }
 
 .treatment-row--nested > span { font-size: 0.75rem; }
+
+/* Pediatric treatment directory */
+.treatment-group--pediatric {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-color: color-mix(in srgb, var(--color-pediatric-ink) 22%, transparent);
+  color: var(--color-pediatric-ink);
+  background:
+    radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--color-pediatric-sun) 66%, transparent) 0 12%, transparent 31%),
+    linear-gradient(112deg, var(--color-pediatric-sky), var(--color-pediatric-mint) 46%, var(--color-pediatric-lilac));
+}
+
+.treatment-group--pediatric .treatment-group__heading,
+.treatment-group--pediatric .treatment-group__panel {
+  position: relative;
+  z-index: 1;
+}
+
+.treatment-group--pediatric .treatment-group__trigger {
+  min-height: 112px;
+  padding: 18px 22px;
+}
+
+.treatment-group--pediatric .treatment-group__number,
+.treatment-group--pediatric .treatment-row > span {
+  color: color-mix(in srgb, var(--color-pediatric-ink) 78%, transparent);
+}
+
+.treatment-group--pediatric .treatment-group__title,
+.treatment-group--pediatric .treatment-group__toggle::before,
+.treatment-group--pediatric .treatment-group__toggle::after {
+  color: var(--color-pediatric-ink);
+  background-color: var(--color-pediatric-ink);
+}
+
+.treatment-group__preview {
+  margin-top: 5px;
+  color: color-mix(in srgb, var(--color-pediatric-ink) 82%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.treatment-group__identifier {
+  margin-bottom: 4px;
+  color: color-mix(in srgb, var(--color-pediatric-ink) 72%, transparent);
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.treatment-group__panel--pediatric {
+  background: color-mix(in srgb, var(--color-white) 30%, transparent);
+}
+
+.treatment-group__list--pediatric {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 10px;
+  padding: 0 14px 18px;
+}
+
+.treatment-service {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--color-pediatric-ink) 13%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--color-white) 60%, transparent);
+}
+
+.treatment-service .treatment-row {
+  align-items: flex-start;
+  padding: 14px;
+  border-top: 0;
+}
+
+.treatment-row__copy {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+}
+
+.treatment-service .wa-btn--card {
+  min-height: 34px;
+  color: var(--color-pediatric-ink);
+  font-size: clamp(1.08rem, 2.2vw, 1.3rem);
+}
+
+.treatment-service .wa-btn--card:hover { color: #183943; }
+
+.treatment-row__description {
+  max-width: 42ch;
+  margin-top: 4px;
+  color: color-mix(in srgb, var(--color-pediatric-ink) 82%, transparent);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.pediatric-decorations {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pediatric-decoration {
+  position: absolute;
+  display: block;
+  line-height: 1;
+  opacity: 0.54;
+}
+
+.pediatric-decoration--rocket {
+  top: 14px;
+  right: 5%;
+  font-size: 1.55rem;
+  animation: pediatric-rocket 15s ease-in-out infinite;
+}
+
+.pediatric-decoration--planet-one {
+  top: 48%;
+  right: 11%;
+  font-size: 2.2rem;
+  animation: pediatric-float 18s ease-in-out -5s infinite;
+}
+
+.pediatric-decoration--planet-two {
+  bottom: 12%;
+  left: 2%;
+  font-size: 1.5rem;
+  animation: pediatric-float 20s ease-in-out -9s infinite reverse;
+}
+
+.pediatric-decoration--star-one {
+  top: 24%;
+  left: 16%;
+  color: #fff9da;
+  font-size: 1.25rem;
+  animation: pediatric-twinkle 10s ease-in-out -2s infinite;
+}
+
+.pediatric-decoration--star-two {
+  right: 34%;
+  bottom: 17%;
+  color: #fff7d3;
+  font-size: 1.1rem;
+  animation: pediatric-twinkle 13s ease-in-out -7s infinite;
+}
+
+.pediatric-decoration--cloud {
+  top: 3%;
+  left: 46%;
+  font-size: 1.45rem;
+  animation: pediatric-cloud 22s ease-in-out -8s infinite;
+}
+
+.pediatric-decoration--rainbow {
+  right: 2%;
+  bottom: 7%;
+  font-size: 1.45rem;
+  animation: pediatric-float 17s ease-in-out -4s infinite;
+}
+
+@keyframes pediatric-rocket {
+  0%, 100% { opacity: 0.5; transform: translate3d(0, 8px, 0) rotate(-9deg); }
+  50% { opacity: 0.7; transform: translate3d(-10px, -9px, 0) rotate(-4deg); }
+}
+
+@keyframes pediatric-float {
+  0%, 100% { opacity: 0.43; transform: translate3d(0, 5px, 0); }
+  50% { opacity: 0.68; transform: translate3d(0, -8px, 0); }
+}
+
+@keyframes pediatric-twinkle {
+  0%, 100% { opacity: 0.34; transform: translate3d(0, 0, 0); }
+  50% { opacity: 0.86; transform: translate3d(0, -4px, 0); }
+}
+
+@keyframes pediatric-cloud {
+  0%, 100% { opacity: 0.36; transform: translate3d(-3px, 0, 0); }
+  50% { opacity: 0.62; transform: translate3d(8px, 4px, 0); }
+}
 
 .treatments__foot {
   display: grid;
@@ -1527,6 +1721,14 @@ blockquote {
     padding: 30px 34px;
   }
 
+  .treatment-group__list--pediatric {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 22px 24px 46px;
+  }
+
+  .treatment-service .treatment-row { min-height: 136px; }
+
   .pediatric__layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1820,6 +2022,13 @@ blockquote {
   .hero__actions { align-items: flex-start; flex-direction: column; }
   .hero__caption { margin-top: 26px; }
   .pediatric__visual { min-height: 320px; }
+  .treatment-group--pediatric .treatment-group__trigger { padding-inline: 14px; }
+  .treatment-group--pediatric .treatment-group__title { font-size: clamp(1.5rem, 8vw, 2rem); }
+  .treatment-group--pediatric .treatment-group__number { align-self: start; padding-top: 5px; }
+  .pediatric-decoration--cloud,
+  .pediatric-decoration--planet-one { display: none; }
+  .pediatric-decoration--rocket { right: 3%; opacity: 0.34; }
+  .pediatric-decoration--rainbow { right: -4px; opacity: 0.36; }
   .complete-clinic h2 { font-size: clamp(4rem, 20vw, 5.4rem); }
   .closing__title { font-size: clamp(3.6rem, 18vw, 5rem); }
 }
@@ -1834,4 +2043,6 @@ blockquote {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .pediatric-decoration { animation: none; }
 }

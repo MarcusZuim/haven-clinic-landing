@@ -122,12 +122,12 @@ export const messages = {
         {
           title: "Odontologia",
           items: [
-            { label: "Clínica Geral / Odontologia Preventiva" },
-            { label: "Odontopediatria" },
-            { label: "Ortodontia" },
-            { label: "Endodontia / tratamento de canal" },
-            { label: "Periodontia / gengiva e tecidos de suporte" },
-            { label: "Implantodontia / Implantes" },
+            { label: "Clínica Geral (Odontologia Preventiva)" },
+            { label: "Odontopediatria (crianças)" },
+            { label: "Ortodontia (aparelhos)" },
+            { label: "Endodontia (tratamento de canal)" },
+            { label: "Periodontia (gengiva e tecidos de suporte)" },
+            { label: "Implantodontia (implantes)" },
             {
               label: "Prótese Dentária",
               children: [
@@ -138,21 +138,28 @@ export const messages = {
                 { label: "Prótese protocolo" },
               ],
             },
-            { label: "Dentística Restauradora" },
-            { label: "Restaurações em resina" },
+            {
+              label: "Dentística Restauradora",
+              children: [{ label: "Restaurações em resina" }],
+            },
             { label: "Reabilitação Oral" },
             {
-              label: "Cirurgia Oral / Bucomaxilofacial",
+              label: "Cirurgia Oral (Bucomaxilofacial)",
               children: [
                 { label: "Extrações" },
-                { label: "Siso" },
+                { label: "3º molar (siso)" },
                 { label: "Cirurgias menores" },
               ],
             },
             { label: "Odontologia Digital" },
-            { label: "Disfunção Temporomandibular (DTM) e Dor Orofacial" },
+            {
+              label: "Disfunção Temporomandibular (DTM) e Dor Orofacial",
+              children: [
+                { label: "Toxina botulínica para bruxismo" },
+                { label: "Placa oclusal para bruxismo" },
+              ],
+            },
             { label: "Odontologia para pacientes com necessidades especiais" },
-            { label: "Toxina botulínica para bruxismo" },
           ],
         },
         {
@@ -171,13 +178,51 @@ export const messages = {
           items: [
             { label: "Preenchimento facial" },
             { label: "Preenchimento labial" },
-            { label: "Toxina botulínica / Botox estético" },
+            { label: "Toxina botulínica (Botox estético)" },
             { label: "Bioestimuladores de colágeno" },
             { label: "CO₂ fracionado" },
             { label: "Ultrassom microfocado" },
             { label: "Rinomodelação" },
             { label: "Microagulhamento" },
-            { label: "Tratamentos / protocolos de rejuvenescimento facial" },
+            { label: "Tratamentos (protocolos de rejuvenescimento facial)" },
+          ],
+        },
+        {
+          title: "Atendimento infantil",
+          identifier: "Odontopediatria",
+          preview: "Cuidado para pequenos sorrisos",
+          pediatric: true,
+          items: [
+            {
+              label: "Limpeza",
+              description:
+                "Remoção cuidadosa da placa e orientações para manter o sorriso saudável.",
+            },
+            {
+              label: "Restauração",
+              description:
+                "Tratamento de cáries e pequenas perdas dentárias com atenção ao conforto da criança.",
+            },
+            {
+              label: "Extração",
+              description:
+                "Procedimento realizado quando necessário, com uma abordagem acolhedora e segura.",
+            },
+            {
+              label: "Selante",
+              description:
+                "Proteção aplicada nos sulcos dos dentes para ajudar a prevenir cáries.",
+            },
+            {
+              label: "Flúor",
+              description:
+                "Aplicação para fortalecer o esmalte e auxiliar na prevenção de cáries.",
+            },
+            {
+              label: "Acompanhamento",
+              description:
+                "Consultas periódicas para acompanhar a saúde bucal e o desenvolvimento da criança.",
+            },
           ],
         },
       ],
@@ -260,9 +305,8 @@ export const messages = {
       body: "As pessoas que acompanham o atendimento na Haven.",
       credential: "CRO",
       imageAlt: "Retrato de Drª Nayara Melo",
-      // TODO: replace with approved professional biography from Drª Nayara.
       featuredBio:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Dra. Nayara Melo é cirurgiã-dentista (CRO-SP 130.317), especialista em Prótese Dentária, com foco em Odontologia Digital, reabilitação oral e estética. Iniciou sua trajetória na odontologia em 2013 como protética e formou-se em Odontologia em 2018, reunindo experiência técnica e clínica no planejamento de tratamentos personalizados. Também atuou como cirurgiã-dentista concursada no serviço público e possui MBA em Gestão, Empreendedorismo e Negócios pela PUCRS. Sócia e fundadora da HAVEN Clinic, alia precisão, tecnologia, gestão e atendimento humanizado para oferecer uma experiência segura e individualizada a cada paciente.",
     },
     testimonials: {
       eyebrow: "Avaliações no Google",
@@ -367,12 +411,12 @@ export const messages = {
         {
           title: "Dentistry",
           items: [
-            { label: "General dentistry / Preventive dentistry" },
+            { label: "General dentistry (Preventive dentistry)" },
             { label: "Pediatric dentistry" },
             { label: "Orthodontics" },
-            { label: "Endodontics / root canal treatment" },
-            { label: "Periodontics / gums and supporting tissues" },
-            { label: "Implant dentistry / Implants" },
+            { label: "Endodontics (root canal treatment)" },
+            { label: "Periodontics (gums and supporting tissues)" },
+            { label: "Implant dentistry (implants)" },
             {
               label: "Dental prosthetics",
               children: [
@@ -383,8 +427,10 @@ export const messages = {
                 { label: "Protocol prosthesis" },
               ],
             },
-            { label: "Restorative dentistry" },
-            { label: "Resin restorations" },
+            {
+              label: "Restorative dentistry",
+              children: [{ label: "Resin restorations" }],
+            },
             { label: "Oral rehabilitation" },
             {
               label: "Oral and maxillofacial surgery",
@@ -395,9 +441,14 @@ export const messages = {
               ],
             },
             { label: "Digital dentistry" },
-            { label: "Temporomandibular disorders (TMD) and orofacial pain" },
+            {
+              label: "Temporomandibular disorders (TMD) and orofacial pain",
+              children: [
+                { label: "Botulinum toxin for bruxism" },
+                { label: "Occlusal splint for bruxism" },
+              ],
+            },
             { label: "Dentistry for patients with special needs" },
-            { label: "Botulinum toxin for bruxism" },
           ],
         },
         {
@@ -416,13 +467,51 @@ export const messages = {
           items: [
             { label: "Facial filler" },
             { label: "Lip filler" },
-            { label: "Botulinum toxin / aesthetic Botox" },
+            { label: "Botulinum toxin (aesthetic Botox)" },
             { label: "Collagen biostimulators" },
             { label: "Fractional CO₂" },
             { label: "Microfocused ultrasound" },
             { label: "Rhinomodeling" },
             { label: "Microneedling" },
             { label: "Facial rejuvenation treatments and protocols" },
+          ],
+        },
+        {
+          title: "Children's care",
+          identifier: "Pediatric dentistry",
+          preview: "Care for little smiles",
+          pediatric: true,
+          items: [
+            {
+              label: "Cleaning",
+              description:
+                "Gentle plaque removal and guidance to keep the smile healthy.",
+            },
+            {
+              label: "Restoration",
+              description:
+                "Treatment for cavities and small dental losses, with attention to the child's comfort.",
+            },
+            {
+              label: "Extraction",
+              description:
+                "A procedure performed when needed, with a safe and welcoming approach.",
+            },
+            {
+              label: "Sealant",
+              description:
+                "Protection applied to tooth grooves to help prevent cavities.",
+            },
+            {
+              label: "Fluoride",
+              description:
+                "An application to strengthen enamel and support cavity prevention.",
+            },
+            {
+              label: "Follow-up",
+              description:
+                "Regular visits to follow oral health and the child's development.",
+            },
           ],
         },
       ],
@@ -505,9 +594,8 @@ export const messages = {
       body: "The people who take part in care at Haven.",
       credential: "CRO",
       imageAlt: "Portrait of Drª Nayara Melo",
-      // TODO: replace with approved professional biography from Drª Nayara.
       featuredBio:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Dr. Nayara Melo is a dentist (CRO-SP 130.317) and a specialist in Dental Prosthetics, with a focus on Digital Dentistry, oral rehabilitation and aesthetics. She began her path in dentistry in 2013 as a dental technician and graduated in Dentistry in 2018, bringing together technical and clinical experience in planning personalized treatments. She has also worked as a public-service dentist and holds an MBA in Management, Entrepreneurship and Business from PUCRS. As a partner and founder of HAVEN Clinic, she brings together precision, technology, management and humanized care to offer every patient a safe, individualized experience.",
     },
     testimonials: {
       eyebrow: "Google reviews",
@@ -612,12 +700,12 @@ export const messages = {
         {
           title: "Odontología",
           items: [
-            { label: "Clínica general / Odontología preventiva" },
+            { label: "Clínica general (Odontología preventiva)" },
             { label: "Odontopediatría" },
             { label: "Ortodoncia" },
-            { label: "Endodoncia / tratamiento de conducto" },
-            { label: "Periodoncia / encía y tejidos de soporte" },
-            { label: "Implantología / Implantes" },
+            { label: "Endodoncia (tratamiento de conducto)" },
+            { label: "Periodoncia (encía y tejidos de soporte)" },
+            { label: "Implantología (implantes)" },
             {
               label: "Prótesis dental",
               children: [
@@ -628,8 +716,10 @@ export const messages = {
                 { label: "Prótesis protocolo" },
               ],
             },
-            { label: "Odontología restauradora" },
-            { label: "Restauraciones en resina" },
+            {
+              label: "Odontología restauradora",
+              children: [{ label: "Restauraciones en resina" }],
+            },
             { label: "Rehabilitación oral" },
             {
               label: "Cirugía oral y bucomaxilofacial",
@@ -640,9 +730,14 @@ export const messages = {
               ],
             },
             { label: "Odontología digital" },
-            { label: "Disfunción temporomandibular (DTM) y dolor orofacial" },
+            {
+              label: "Disfunción temporomandibular (DTM) y dolor orofacial",
+              children: [
+                { label: "Toxina botulínica para bruxismo" },
+                { label: "Placa oclusal para bruxismo" },
+              ],
+            },
             { label: "Odontología para pacientes con necesidades especiales" },
-            { label: "Toxina botulínica para bruxismo" },
           ],
         },
         {
@@ -661,13 +756,51 @@ export const messages = {
           items: [
             { label: "Relleno facial" },
             { label: "Relleno labial" },
-            { label: "Toxina botulínica / Botox estético" },
+            { label: "Toxina botulínica (Botox estético)" },
             { label: "Bioestimuladores de colágeno" },
             { label: "CO₂ fraccionado" },
             { label: "Ultrasonido microfocalizado" },
             { label: "Rinomodelación" },
             { label: "Microagujas" },
             { label: "Tratamientos y protocolos de rejuvenecimiento facial" },
+          ],
+        },
+        {
+          title: "Atención infantil",
+          identifier: "Odontopediatría",
+          preview: "Cuidado para pequeñas sonrisas",
+          pediatric: true,
+          items: [
+            {
+              label: "Limpieza",
+              description:
+                "Eliminación cuidadosa de la placa y orientaciones para mantener una sonrisa saludable.",
+            },
+            {
+              label: "Restauración",
+              description:
+                "Tratamiento de caries y pequeñas pérdidas dentales, con atención al confort del niño.",
+            },
+            {
+              label: "Extracción",
+              description:
+                "Procedimiento realizado cuando es necesario, con un enfoque acogedor y seguro.",
+            },
+            {
+              label: "Sellante",
+              description:
+                "Protección aplicada en los surcos de los dientes para ayudar a prevenir caries.",
+            },
+            {
+              label: "Flúor",
+              description:
+                "Aplicación para fortalecer el esmalte y ayudar a prevenir caries.",
+            },
+            {
+              label: "Seguimiento",
+              description:
+                "Consultas periódicas para acompañar la salud bucal y el desarrollo del niño.",
+            },
           ],
         },
       ],
@@ -750,9 +883,8 @@ export const messages = {
       body: "Las personas que acompañan la atención en Haven.",
       credential: "CRO",
       imageAlt: "Retrato de la Drª Nayara Melo",
-      // TODO: replace with approved professional biography from Drª Nayara.
       featuredBio:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "La Dra. Nayara Melo es cirujana dentista (CRO-SP 130.317), especialista en Prótesis Dental, con foco en Odontología Digital, rehabilitación oral y estética. Inició su trayectoria en odontología en 2013 como protésica y se graduó en Odontología en 2018, reuniendo experiencia técnica y clínica en la planificación de tratamientos personalizados. También trabajó como cirujana dentista concursada en el servicio público y cuenta con un MBA en Gestión, Emprendimiento y Negocios por PUCRS. Socia y fundadora de HAVEN Clinic, combina precisión, tecnología, gestión y atención humanizada para ofrecer una experiencia segura e individualizada a cada paciente.",
     },
     testimonials: {
       eyebrow: "Reseñas en Google",

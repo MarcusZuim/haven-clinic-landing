@@ -62,7 +62,7 @@ export const site = {
     { name: "Drª Isabela Camarim", cro: "130.745" },
     { name: "Dr. Henrique Andrade", cro: "173.467" },
     { name: "Dr. Gustavo Sbrolini", cro: "127.859" },
-    { name: "Maria Paniche" },
+    { name: "Maria Laura Paniche" },
   ] as const,
   complete: {
     image: {

@@ -41,7 +41,6 @@ export function ClinicalTeam() {
             <p className="team__cro">
               {copy.credential} {featured.cro}
             </p>
-            {/* TODO: replace with approved professional biography from Drª Nayara. */}
             <p className="team__bio">{copy.featuredBio}</p>
           </div>
         </RevealItem>
