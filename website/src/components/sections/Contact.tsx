@@ -27,7 +27,7 @@ export function Contact() {
     if (!item) return null;
 
     return (
-      <div className="closing__detail" key={item.key}>
+      <div className={`closing__detail closing__detail--${item.key}`} key={item.key}>
         <dt>{item.label}</dt>
         <dd>
           {item.key === "whatsapp" ? (
@@ -39,7 +39,6 @@ export function Contact() {
               >
                 {item.value}
               </a>
-              <span className="closing__urgency">{copy.urgency}</span>
             </>
           ) : item.key === "address" ? (
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer">
@@ -47,10 +46,15 @@ export function Contact() {
                 <span key={line}>{line}</span>
               ))}
             </a>
+          ) : item.key === "hours" ? (
+            <>
+              {item.value.split("\n").map((line) => <span key={line}>{line}</span>)}
+              <span className="closing__urgency">{copy.urgency}</span>
+            </>
           ) : item.key === "email" ? (
             <a href={`mailto:${item.value}`}>{item.value}</a>
           ) : (
-            item.value.split("\n").map((line) => <span key={line}>{line}</span>)
+            null
           )}
         </dd>
       </div>
