@@ -953,39 +953,13 @@ blockquote {
   animation: pediatric-star-five 15s ease-in-out -11s infinite;
 }
 
-.pediatric-meteor {
-  position: absolute;
-  z-index: 3;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.pediatric-decoration--comet {
+  top: -20px;
+  left: -34px;
+  z-index: 1;
+  font-size: 1.2rem;
   opacity: 0;
-  background: #fff4b8;
-  box-shadow: 0 0 8px rgba(255, 174, 74, 0.94);
-}
-
-.pediatric-meteor::before {
-  position: absolute;
-  top: -15px;
-  left: -25px;
-  width: 32px;
-  height: 3px;
-  border-radius: 999px;
-  content: "";
-  transform: rotate(45deg);
-  transform-origin: right center;
-  background: linear-gradient(90deg, transparent, rgba(255, 138, 83, 0.2) 36%, rgba(255, 138, 83, 0.9) 78%, #fff4b8);
-  filter: drop-shadow(0 0 2px rgba(255, 173, 86, 0.7));
-}
-
-.pediatric-meteor--one { top: -16px; left: 8%; animation: pediatric-meteor-one 8.8s linear -1.4s infinite; }
-.pediatric-meteor--two { top: -48px; left: 44%; animation: pediatric-meteor-two 11.4s linear -4.8s infinite; }
-.pediatric-meteor--three { top: -30px; right: 11%; animation: pediatric-meteor-three 9.7s linear -7.2s infinite; }
-.pediatric-meteor--four { top: -70px; right: 39%; animation: pediatric-meteor-four 12.6s linear -9.1s infinite; }
-
-.pediatric-meteor--two::before,
-.pediatric-meteor--four::before {
-  transform: rotate(-45deg);
+  animation: pediatric-comet-fall 10s linear -4s infinite;
 }
 
 @keyframes pediatric-rocket {
@@ -1027,32 +1001,11 @@ blockquote {
   70% { opacity: 0.74; transform: translate3d(-8px, 13px, 0) rotate(20deg); }
 }
 
-@keyframes pediatric-meteor-one {
-  0% { opacity: 0; transform: translate3d(-12cqw, -8px, 0); }
-  12% { opacity: 0.72; }
-  84% { opacity: 0.72; }
-  100% { opacity: 0; transform: translate3d(52cqw, 520px, 0); }
-}
-
-@keyframes pediatric-meteor-two {
-  0% { opacity: 0; transform: translate3d(16cqw, -10px, 0); }
-  12% { opacity: 0.66; }
-  84% { opacity: 0.66; }
-  100% { opacity: 0; transform: translate3d(-34cqw, 540px, 0); }
-}
-
-@keyframes pediatric-meteor-three {
-  0% { opacity: 0; transform: translate3d(12cqw, -10px, 0); }
-  14% { opacity: 0.68; }
-  84% { opacity: 0.68; }
-  100% { opacity: 0; transform: translate3d(-45cqw, 500px, 0); }
-}
-
-@keyframes pediatric-meteor-four {
-  0% { opacity: 0; transform: translate3d(-18cqw, -8px, 0); }
-  14% { opacity: 0.64; }
-  84% { opacity: 0.64; }
-  100% { opacity: 0; transform: translate3d(36cqw, 560px, 0); }
+@keyframes pediatric-comet-fall {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg); }
+  10% { opacity: 0.7; }
+  82% { opacity: 0.7; }
+  100% { opacity: 0; transform: translate3d(112cqw, 520px, 0) rotate(3deg); }
 }
 
 @keyframes pediatric-star-field-one {

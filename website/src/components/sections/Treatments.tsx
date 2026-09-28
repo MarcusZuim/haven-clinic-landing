@@ -270,10 +270,7 @@ function PediatricDecorations({
       <span className="pediatric-decoration pediatric-decoration--star-three">✨</span>
       <span className="pediatric-decoration pediatric-decoration--star-four">✦</span>
       <span className="pediatric-decoration pediatric-decoration--star-five">✧</span>
-      <span className="pediatric-meteor pediatric-meteor--one" />
-      <span className="pediatric-meteor pediatric-meteor--two" />
-      <span className="pediatric-meteor pediatric-meteor--three" />
-      <span className="pediatric-meteor pediatric-meteor--four" />
+      <span className="pediatric-decoration pediatric-decoration--comet">☄️</span>
     </div>
   );
 }
