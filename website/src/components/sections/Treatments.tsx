@@ -270,7 +270,10 @@ function PediatricDecorations({
       <span className="pediatric-decoration pediatric-decoration--star-three">✨</span>
       <span className="pediatric-decoration pediatric-decoration--star-four">✦</span>
       <span className="pediatric-decoration pediatric-decoration--star-five">✧</span>
-      <span className="pediatric-decoration pediatric-decoration--comet">☄️</span>
+      <span className="pediatric-decoration pediatric-decoration--comet pediatric-decoration--comet-one">☄️</span>
+      <span className="pediatric-decoration pediatric-decoration--comet pediatric-decoration--comet-two">☄️</span>
+      <span className="pediatric-decoration pediatric-decoration--comet pediatric-decoration--comet-three">☄️</span>
+      <span className="pediatric-decoration pediatric-decoration--comet pediatric-decoration--comet-four">☄️</span>
     </div>
   );
 }

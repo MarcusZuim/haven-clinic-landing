@@ -954,12 +954,33 @@ blockquote {
 }
 
 .pediatric-decoration--comet {
-  top: -20px;
-  left: -34px;
-  z-index: 1;
+  z-index: 3;
   font-size: 1.2rem;
   opacity: 0;
-  animation: pediatric-comet-fall 10s linear -4s infinite;
+}
+
+.pediatric-decoration--comet-one {
+  top: -20px;
+  left: -34px;
+  animation: pediatric-comet-fall-one 9.6s linear -1.8s infinite;
+}
+
+.pediatric-decoration--comet-two {
+  top: -58px;
+  left: 24%;
+  animation: pediatric-comet-fall-two 11.2s linear -5.2s infinite;
+}
+
+.pediatric-decoration--comet-three {
+  top: -38px;
+  left: 48%;
+  animation: pediatric-comet-fall-three 10.4s linear -2.6s infinite;
+}
+
+.pediatric-decoration--comet-four {
+  top: -74px;
+  left: 70%;
+  animation: pediatric-comet-fall-four 12.1s linear -3.9s infinite;
 }
 
 @keyframes pediatric-rocket {
@@ -1001,11 +1022,28 @@ blockquote {
   70% { opacity: 0.74; transform: translate3d(-8px, 13px, 0) rotate(20deg); }
 }
 
-@keyframes pediatric-comet-fall {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg); }
-  10% { opacity: 0.7; }
-  82% { opacity: 0.7; }
-  100% { opacity: 0; transform: translate3d(112cqw, 520px, 0) rotate(3deg); }
+@keyframes pediatric-comet-fall-one {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg) scaleX(-1); }
+  10%, 82% { opacity: 0.74; }
+  100% { opacity: 0; transform: translate3d(52cqw, 560px, 0) rotate(3deg) scaleX(-1); }
+}
+
+@keyframes pediatric-comet-fall-two {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg) scaleX(-1); }
+  10%, 82% { opacity: 0.68; }
+  100% { opacity: 0; transform: translate3d(40cqw, 540px, 0) rotate(3deg) scaleX(-1); }
+}
+
+@keyframes pediatric-comet-fall-three {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg) scaleX(-1); }
+  10%, 82% { opacity: 0.72; }
+  100% { opacity: 0; transform: translate3d(28cqw, 580px, 0) rotate(3deg) scaleX(-1); }
+}
+
+@keyframes pediatric-comet-fall-four {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg) scaleX(-1); }
+  10%, 82% { opacity: 0.66; }
+  100% { opacity: 0; transform: translate3d(20cqw, 550px, 0) rotate(3deg) scaleX(-1); }
 }
 
 @keyframes pediatric-star-field-one {
