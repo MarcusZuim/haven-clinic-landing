@@ -830,16 +830,18 @@ blockquote {
   background-image:
     radial-gradient(circle, rgba(255, 253, 224, 0.92) 0 1px, transparent 1.8px),
     radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1.4px, transparent 2.1px),
-    radial-gradient(circle, rgba(231, 219, 255, 0.8) 0 1px, transparent 1.7px);
-  background-position: 0 0, 18px 27px, 36px 12px;
-  background-size: 54px 54px, 76px 76px, 91px 91px;
+    radial-gradient(circle, rgba(231, 219, 255, 0.8) 0 1px, transparent 1.7px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.62) 0 0.8px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 250, 208, 0.58) 0 0.8px, transparent 1.5px);
+  background-position: 0 0, 18px 27px, 36px 12px, 8px 19px, 72px 88px;
+  background-size: 54px 54px, 76px 76px, 91px 91px, 43px 43px, 127px 127px;
   animation: pediatric-star-field-one 22s linear -6s infinite;
 }
 
 .pediatric-decorations::after {
   opacity: 0.3;
-  background-position: 12px 33px, 45px 8px, 18px 62px;
-  background-size: 82px 82px, 116px 116px, 143px 143px;
+  background-position: 12px 33px, 45px 8px, 18px 62px, 17px 49px, 72px 9px;
+  background-size: 82px 82px, 116px 116px, 143px 143px, 67px 67px, 157px 157px;
   animation: pediatric-star-field-two 28s linear -14s infinite;
 }
 
@@ -894,6 +896,7 @@ blockquote {
   left: 52%;
   font-size: 1.2rem;
   opacity: 0.7;
+  display: none;
   animation: pediatric-planet-three 15s ease-in-out -4s infinite;
 }
 
@@ -962,6 +965,15 @@ blockquote {
   animation: pediatric-meteor-one 10s linear -3s infinite;
 }
 
+.pediatric-decoration--comet::after {
+  position: absolute;
+  top: 92px;
+  left: 32cqw;
+  content: "☄️";
+  font-size: 0.82rem;
+  animation: pediatric-meteor-four 13s linear -8s infinite;
+}
+
 .pediatric-decoration--asteroid {
   top: -42px;
   right: 24%;
@@ -978,10 +990,10 @@ blockquote {
 }
 
 @keyframes pediatric-rocket {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg); }
-  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg); }
-  92% { opacity: 0.84; transform: translate3d(96cqw, 0, 0) rotate(-45deg); }
-  100% { opacity: 0; transform: translate3d(119cqw, 0, 0) rotate(-45deg); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(90deg); }
+  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(90deg); }
+  92% { opacity: 0.84; transform: translate3d(96cqw, 0, 0) rotate(90deg); }
+  100% { opacity: 0; transform: translate3d(119cqw, 0, 0) rotate(90deg); }
 }
 
 .pediatric-decoration--rocket-collision {
@@ -989,12 +1001,12 @@ blockquote {
 }
 
 @keyframes pediatric-rocket-collision {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg) scale(1); }
-  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg) scale(1); }
-  62% { opacity: 0.84; transform: translate3d(59cqw, 0, 0) rotate(-45deg) scale(1); }
-  74% { opacity: 0.84; transform: translate3d(64cqw, -4px, 0) rotate(-43deg) scale(1); }
-  88% { opacity: 0.88; transform: translate3d(68cqw, -30px, 0) rotate(-32deg) scale(1); }
-  100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-20deg) scale(1); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(90deg) scale(1); }
+  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(90deg) scale(1); }
+  62% { opacity: 0.84; transform: translate3d(59cqw, 0, 0) rotate(90deg) scale(1); }
+  74% { opacity: 0.84; transform: translate3d(64cqw, -4px, 0) rotate(86deg) scale(1); }
+  88% { opacity: 0.88; transform: translate3d(68cqw, -30px, 0) rotate(76deg) scale(1); }
+  100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(65deg) scale(1); }
 }
 
 @keyframes pediatric-planet-orbit {
@@ -1017,21 +1029,27 @@ blockquote {
 }
 
 @keyframes pediatric-meteor-one {
-  0% { opacity: 0; transform: translate3d(-18cqw, 0, 0) rotate(118deg); }
+  0% { opacity: 0; transform: translate3d(-18cqw, 0, 0) rotate(45deg); }
   12% { opacity: 0.56; }
-  100% { opacity: 0; transform: translate3d(44cqw, 238px, 0) rotate(142deg); }
+  100% { opacity: 0; transform: translate3d(44cqw, 238px, 0) rotate(45deg); }
 }
 
 @keyframes pediatric-meteor-two {
-  0% { opacity: 0; transform: translate3d(22cqw, 0, 0) rotate(38deg); }
+  0% { opacity: 0; transform: translate3d(22cqw, 0, 0) rotate(135deg); }
   12% { opacity: 0.5; }
-  100% { opacity: 0; transform: translate3d(-26cqw, 260px, 0) rotate(78deg); }
+  100% { opacity: 0; transform: translate3d(-26cqw, 260px, 0) rotate(135deg); }
 }
 
 @keyframes pediatric-meteor-three {
-  0% { opacity: 0; transform: translate3d(10cqw, 0, 0) rotate(120deg); }
+  0% { opacity: 0; transform: translate3d(10cqw, 0, 0) rotate(45deg); }
   14% { opacity: 0.48; }
-  100% { opacity: 0; transform: translate3d(34cqw, 280px, 0) rotate(156deg); }
+  100% { opacity: 0; transform: translate3d(34cqw, 280px, 0) rotate(45deg); }
+}
+
+@keyframes pediatric-meteor-four {
+  0% { opacity: 0; transform: translate3d(-12cqw, -12px, 0) rotate(135deg); }
+  14% { opacity: 0.46; }
+  100% { opacity: 0; transform: translate3d(30cqw, 292px, 0) rotate(135deg); }
 }
 
 @keyframes pediatric-star-field-one {
@@ -2315,7 +2333,7 @@ blockquote {
 
   .pediatric-decoration--rocket {
     opacity: 0.8;
-    transform: translate3d(30cqw, 0, 0) rotate(-45deg);
+    transform: translate3d(30cqw, 0, 0) rotate(90deg);
   }
 
   .pediatric-moon { animation: none; }
@@ -2334,18 +2352,18 @@ blockquote {
   }
 
   @keyframes pediatric-rocket-mobile {
-    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg); }
-    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg); }
-    92% { opacity: 0.84; transform: translate3d(96cqw, 0, 0) rotate(-45deg); }
-    100% { opacity: 0; transform: translate3d(116cqw, 0, 0) rotate(-45deg); }
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(90deg); }
+    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(90deg); }
+    92% { opacity: 0.84; transform: translate3d(96cqw, 0, 0) rotate(90deg); }
+    100% { opacity: 0; transform: translate3d(116cqw, 0, 0) rotate(90deg); }
   }
 
   @keyframes pediatric-rocket-collision-mobile {
-    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-45deg) scale(1); }
-    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(-45deg) scale(1); }
-    62% { opacity: 0.84; transform: translate3d(62cqw, 0, 0) rotate(-45deg) scale(1); }
-    74% { opacity: 0.84; transform: translate3d(76cqw, -6px, 0) rotate(-42deg) scale(1); }
-    88% { opacity: 0.88; transform: translate3d(86cqw, -34px, 0) rotate(-30deg) scale(1); }
-    100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-20deg) scale(1); }
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(90deg) scale(1); }
+    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(90deg) scale(1); }
+    62% { opacity: 0.84; transform: translate3d(62cqw, 0, 0) rotate(90deg) scale(1); }
+    74% { opacity: 0.84; transform: translate3d(76cqw, -6px, 0) rotate(86deg) scale(1); }
+    88% { opacity: 0.88; transform: translate3d(86cqw, -34px, 0) rotate(76deg) scale(1); }
+    100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(65deg) scale(1); }
   }
 }
