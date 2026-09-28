@@ -708,6 +708,7 @@ blockquote {
 .treatment-group--pediatric {
   position: relative;
   isolation: isolate;
+  container-type: inline-size;
   overflow: hidden;
   border-color: color-mix(in srgb, var(--color-pediatric-ink) 22%, transparent);
   color: var(--color-pediatric-ink);
@@ -719,7 +720,7 @@ blockquote {
 .treatment-group--pediatric .treatment-group__heading,
 .treatment-group--pediatric .treatment-group__panel {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .treatment-group--pediatric .treatment-group__trigger {
@@ -732,10 +733,13 @@ blockquote {
   color: color-mix(in srgb, var(--color-pediatric-ink) 78%, transparent);
 }
 
-.treatment-group--pediatric .treatment-group__title,
+.treatment-group--pediatric .treatment-group__title {
+  color: var(--color-pediatric-ink);
+  background: transparent;
+}
+
 .treatment-group--pediatric .treatment-group__toggle::before,
 .treatment-group--pediatric .treatment-group__toggle::after {
-  color: var(--color-pediatric-ink);
   background-color: var(--color-pediatric-ink);
 }
 
@@ -809,10 +813,32 @@ blockquote {
 .pediatric-decorations {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
   user-select: none;
+}
+
+.pediatric-decorations::before,
+.pediatric-decorations::after {
+  position: absolute;
+  inset: -10%;
+  content: "";
+  opacity: 0.48;
+  background-image:
+    radial-gradient(circle, rgba(255, 253, 224, 0.92) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1.4px, transparent 2.1px),
+    radial-gradient(circle, rgba(231, 219, 255, 0.8) 0 1px, transparent 1.7px);
+  background-position: 0 0, 18px 27px, 36px 12px;
+  background-size: 54px 54px, 76px 76px, 91px 91px;
+  animation: pediatric-star-field-one 22s linear -6s infinite;
+}
+
+.pediatric-decorations::after {
+  opacity: 0.3;
+  background-position: 12px 33px, 45px 8px, 18px 62px;
+  background-size: 82px 82px, 116px 116px, 143px 143px;
+  animation: pediatric-star-field-two 28s linear -14s infinite;
 }
 
 .pediatric-decoration {
@@ -823,24 +849,24 @@ blockquote {
 }
 
 .pediatric-decoration--rocket {
-  top: 14px;
-  right: 5%;
-  font-size: 1.55rem;
-  animation: pediatric-rocket 15s ease-in-out infinite;
+  bottom: -40px;
+  left: -28px;
+  font-size: 1.7rem;
+  animation: pediatric-rocket 10s linear -2s infinite;
 }
 
 .pediatric-decoration--planet-one {
-  top: 48%;
-  right: 11%;
-  font-size: 2.2rem;
-  animation: pediatric-float 18s ease-in-out -5s infinite;
+  top: 12%;
+  right: 6%;
+  font-size: 2rem;
+  animation: pediatric-planet-orbit 16s ease-in-out -7s infinite;
 }
 
 .pediatric-decoration--planet-two {
-  bottom: 12%;
-  left: 2%;
-  font-size: 1.5rem;
-  animation: pediatric-float 20s ease-in-out -9s infinite reverse;
+  bottom: 13%;
+  left: 4%;
+  font-size: 1.55rem;
+  animation: pediatric-planet-float 19s ease-in-out -12s infinite;
 }
 
 .pediatric-decoration--star-one {
@@ -859,28 +885,42 @@ blockquote {
   animation: pediatric-twinkle 13s ease-in-out -7s infinite;
 }
 
-.pediatric-decoration--cloud {
-  top: 3%;
-  left: 46%;
-  font-size: 1.45rem;
-  animation: pediatric-cloud 22s ease-in-out -8s infinite;
+.pediatric-decoration--comet {
+  top: 18%;
+  left: -10%;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  animation: pediatric-comet-one 12s linear -4s infinite;
 }
 
-.pediatric-decoration--rainbow {
-  right: 2%;
-  bottom: 7%;
-  font-size: 1.45rem;
-  animation: pediatric-float 17s ease-in-out -4s infinite;
+.pediatric-decoration--asteroid {
+  right: -9%;
+  bottom: 20%;
+  font-size: 1rem;
+  opacity: 0.48;
+  animation: pediatric-asteroid-two 14s linear -9s infinite;
 }
 
 @keyframes pediatric-rocket {
-  0%, 100% { opacity: 0.5; transform: translate3d(0, 8px, 0) rotate(-9deg); }
-  50% { opacity: 0.7; transform: translate3d(-10px, -9px, 0) rotate(-4deg); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-32deg); }
+  9% { opacity: 0.76; transform: translate3d(10cqw, -4px, 0) rotate(-30deg); }
+  38% { opacity: 0.78; transform: translate3d(43cqw, -18px, 0) rotate(-22deg); }
+  66% { opacity: 0.76; transform: translate3d(76cqw, -72px, 0) rotate(-36deg); }
+  90% { opacity: 0.68; transform: translate3d(106cqw, -144px, 0) rotate(-42deg); }
+  100% { opacity: 0; transform: translate3d(120cqw, -178px, 0) rotate(-42deg); }
 }
 
-@keyframes pediatric-float {
-  0%, 100% { opacity: 0.43; transform: translate3d(0, 5px, 0); }
-  50% { opacity: 0.68; transform: translate3d(0, -8px, 0); }
+@keyframes pediatric-planet-orbit {
+  0%, 100% { opacity: 0.5; transform: translate3d(0, 0, 0) rotate(-8deg); }
+  25% { opacity: 0.68; transform: translate3d(-18px, 14px, 0) rotate(4deg); }
+  50% { opacity: 0.62; transform: translate3d(-28px, -8px, 0) rotate(10deg); }
+  75% { opacity: 0.7; transform: translate3d(-10px, -18px, 0) rotate(2deg); }
+}
+
+@keyframes pediatric-planet-float {
+  0%, 100% { opacity: 0.48; transform: translate3d(0, 0, 0) rotate(0); }
+  30% { opacity: 0.66; transform: translate3d(18px, -22px, 0) rotate(-8deg); }
+  60% { opacity: 0.62; transform: translate3d(28px, 10px, 0) rotate(7deg); }
 }
 
 @keyframes pediatric-twinkle {
@@ -888,9 +928,28 @@ blockquote {
   50% { opacity: 0.86; transform: translate3d(0, -4px, 0); }
 }
 
-@keyframes pediatric-cloud {
-  0%, 100% { opacity: 0.36; transform: translate3d(-3px, 0, 0); }
-  50% { opacity: 0.62; transform: translate3d(8px, 4px, 0); }
+@keyframes pediatric-comet-one {
+  0% { opacity: 0; transform: translate3d(-8cqw, -10px, 0) rotate(22deg); }
+  12% { opacity: 0.52; }
+  72% { opacity: 0.46; transform: translate3d(82cqw, 76px, 0) rotate(22deg); }
+  100% { opacity: 0; transform: translate3d(110cqw, 102px, 0) rotate(22deg); }
+}
+
+@keyframes pediatric-asteroid-two {
+  0% { opacity: 0; transform: translate3d(10cqw, 14px, 0) rotate(0); }
+  14% { opacity: 0.46; }
+  74% { opacity: 0.42; transform: translate3d(-78cqw, -56px, 0) rotate(-135deg); }
+  100% { opacity: 0; transform: translate3d(-105cqw, -72px, 0) rotate(-175deg); }
+}
+
+@keyframes pediatric-star-field-one {
+  0%, 100% { opacity: 0.44; transform: translate3d(-4cqw, -12px, 0); }
+  50% { opacity: 0.66; transform: translate3d(5cqw, 14px, 0); }
+}
+
+@keyframes pediatric-star-field-two {
+  0%, 100% { opacity: 0.26; transform: translate3d(5cqw, 12px, 0); }
+  50% { opacity: 0.46; transform: translate3d(-5cqw, -16px, 0); }
 }
 
 .treatments__foot {
@@ -2025,10 +2084,9 @@ blockquote {
   .treatment-group--pediatric .treatment-group__trigger { padding-inline: 14px; }
   .treatment-group--pediatric .treatment-group__title { font-size: clamp(1.5rem, 8vw, 2rem); }
   .treatment-group--pediatric .treatment-group__number { align-self: start; padding-top: 5px; }
-  .pediatric-decoration--cloud,
-  .pediatric-decoration--planet-one { display: none; }
-  .pediatric-decoration--rocket { right: 3%; opacity: 0.34; }
-  .pediatric-decoration--rainbow { right: -4px; opacity: 0.36; }
+  .pediatric-decoration--star-two { display: none; }
+  .pediatric-decoration--rocket { font-size: 1.45rem; }
+  .pediatric-decoration--asteroid { font-size: 0.85rem; }
   .complete-clinic h2 { font-size: clamp(4rem, 20vw, 5.4rem); }
   .closing__title { font-size: clamp(3.6rem, 18vw, 5rem); }
 }
@@ -2044,5 +2102,7 @@ blockquote {
     transition-duration: 0.01ms !important;
   }
 
-  .pediatric-decoration { animation: none; }
+  .pediatric-decoration,
+  .pediatric-decorations::before,
+  .pediatric-decorations::after { animation: none; }
 }

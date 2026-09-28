@@ -31,3 +31,8 @@ pnpm-debug.log*
 
 # Vercel
 .vercel/
+
+# Local browser QA artifacts
+.chrome-*/
+website/desktop.png
+website/treatments-desktop.png

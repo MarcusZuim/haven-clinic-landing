@@ -185,8 +185,8 @@ function PediatricDecorations() {
       <span className="pediatric-decoration pediatric-decoration--planet-two">🌎</span>
       <span className="pediatric-decoration pediatric-decoration--star-one">✦</span>
       <span className="pediatric-decoration pediatric-decoration--star-two">✧</span>
-      <span className="pediatric-decoration pediatric-decoration--cloud">☁️</span>
-      <span className="pediatric-decoration pediatric-decoration--rainbow">🌈</span>
+      <span className="pediatric-decoration pediatric-decoration--comet">☄️</span>
+      <span className="pediatric-decoration pediatric-decoration--asteroid">🪨</span>
     </div>
   );
 }
