@@ -845,101 +845,177 @@ blockquote {
   position: absolute;
   display: block;
   line-height: 1;
-  opacity: 0.54;
 }
 
 .pediatric-decoration--rocket {
-  bottom: -40px;
-  left: -28px;
+  top: 82px;
+  left: -36px;
   font-size: 1.7rem;
-  animation: pediatric-rocket 10s linear -2s infinite;
+  opacity: 0;
+  animation: pediatric-rocket 12s linear -2s infinite;
 }
 
 .pediatric-decoration--planet-one {
-  top: 12%;
-  right: 6%;
+  top: 14px;
+  right: 5%;
   font-size: 2rem;
-  animation: pediatric-planet-orbit 16s ease-in-out -7s infinite;
+  opacity: 0.72;
+  animation: pediatric-planet-orbit 18s ease-in-out -7s infinite;
 }
 
 .pediatric-decoration--planet-two {
-  bottom: 13%;
-  left: 4%;
+  top: 54%;
+  left: 1.2%;
   font-size: 1.55rem;
-  animation: pediatric-planet-float 19s ease-in-out -12s infinite;
+  opacity: 0.72;
+  animation: pediatric-planet-float 20s ease-in-out -12s infinite;
 }
 
 .pediatric-decoration--star-one {
-  top: 24%;
-  left: 16%;
-  color: #fff9da;
-  font-size: 1.25rem;
-  animation: pediatric-twinkle 10s ease-in-out -2s infinite;
+  top: 10px;
+  left: 7%;
+  font-size: 0.85rem;
+  animation: pediatric-star-one 14s ease-in-out -2s infinite;
 }
 
 .pediatric-decoration--star-two {
-  right: 34%;
-  bottom: 17%;
-  color: #fff7d3;
-  font-size: 1.1rem;
-  animation: pediatric-twinkle 13s ease-in-out -7s infinite;
+  top: 72px;
+  left: 44%;
+  font-size: 0.82rem;
+  animation: pediatric-star-two 16s ease-in-out -7s infinite;
+}
+
+.pediatric-decoration--planet-three {
+  top: 12px;
+  left: 52%;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  animation: pediatric-planet-three 15s ease-in-out -4s infinite;
+}
+
+.pediatric-moon {
+  position: absolute;
+  top: 15px;
+  right: 29%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  color: #fff7c6;
+  font-size: 1.65rem;
+  line-height: 1;
+  opacity: 0.78;
+  animation: pediatric-moon-float 21s ease-in-out -9s infinite;
+}
+
+.pediatric-moon__full,
+.pediatric-moon__waning,
+.pediatric-moon__explosion {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.pediatric-moon__waning,
+.pediatric-moon__explosion { opacity: 0; }
+
+.pediatric-decoration--star-three {
+  top: 22px;
+  left: 65%;
+  font-size: 0.9rem;
+  animation: pediatric-star-three 13s ease-in-out -10s infinite;
+}
+
+.pediatric-decoration--star-four {
+  bottom: 20%;
+  left: 1.4%;
+  font-size: 1rem;
+  animation: pediatric-star-four 17s ease-in-out -5s infinite;
+}
+
+.pediatric-decoration--star-five {
+  right: 1.4%;
+  bottom: 11%;
+  font-size: 0.9rem;
+  animation: pediatric-star-five 15s ease-in-out -11s infinite;
 }
 
 .pediatric-decoration--comet {
-  top: 18%;
-  left: -10%;
+  top: 2px;
+  left: -34px;
   font-size: 1.2rem;
-  opacity: 0.5;
-  animation: pediatric-comet-one 12s linear -4s infinite;
+  opacity: 0;
+  animation: pediatric-comet-one 13s linear -4s infinite;
 }
 
 .pediatric-decoration--asteroid {
-  right: -9%;
-  bottom: 20%;
+  top: 94px;
+  right: -28px;
   font-size: 1rem;
-  opacity: 0.48;
-  animation: pediatric-asteroid-two 14s linear -9s infinite;
+  opacity: 0;
+  animation: pediatric-asteroid-two 15s linear -9s infinite;
 }
 
 @keyframes pediatric-rocket {
-  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-32deg); }
-  9% { opacity: 0.76; transform: translate3d(10cqw, -4px, 0) rotate(-30deg); }
-  38% { opacity: 0.78; transform: translate3d(43cqw, -18px, 0) rotate(-22deg); }
-  66% { opacity: 0.76; transform: translate3d(76cqw, -72px, 0) rotate(-36deg); }
-  90% { opacity: 0.68; transform: translate3d(106cqw, -144px, 0) rotate(-42deg); }
-  100% { opacity: 0; transform: translate3d(120cqw, -178px, 0) rotate(-42deg); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg); }
+  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg); }
+  29% { opacity: 0.84; transform: translate3d(31cqw, -4px, 0) rotate(27deg); }
+  47% { opacity: 0.84; transform: translate3d(49cqw, -8px, 0) rotate(23deg); }
+  59% { opacity: 0.84; transform: translate3d(59cqw, -12px, 0) rotate(18deg); }
+  69% { opacity: 0.84; transform: translate3d(67cqw, -12px, 0) rotate(10deg); }
+  78% { opacity: 0.84; transform: translate3d(75cqw, -26px, 0) rotate(0deg); }
+  89% { opacity: 0.8; transform: translate3d(92cqw, -56px, 0) rotate(-4deg); }
+  100% { opacity: 0; transform: translate3d(119cqw, -83px, 0) rotate(-8deg); }
+}
+
+.pediatric-decoration--rocket-collision {
+  animation-name: pediatric-rocket-collision;
+}
+
+@keyframes pediatric-rocket-collision {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg) scale(1); }
+  8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg) scale(1); }
+  30% { opacity: 0.84; transform: translate3d(31cqw, -4px, 0) rotate(27deg) scale(1); }
+  48% { opacity: 0.84; transform: translate3d(49cqw, -8px, 0) rotate(23deg) scale(1); }
+  62% { opacity: 0.84; transform: translate3d(61cqw, -14px, 0) rotate(17deg) scale(1); }
+  73% { opacity: 0.84; transform: translate3d(71cqw, -38px, 0) rotate(8deg) scale(1); }
+  81% { opacity: 0.88; transform: translate3d(73cqw, -67px, 0) rotate(0deg) scale(1); }
+  84%, 100% { opacity: 0; transform: translate3d(73cqw, -67px, 0) rotate(0deg) scale(0.72); }
 }
 
 @keyframes pediatric-planet-orbit {
-  0%, 100% { opacity: 0.5; transform: translate3d(0, 0, 0) rotate(-8deg); }
-  25% { opacity: 0.68; transform: translate3d(-18px, 14px, 0) rotate(4deg); }
-  50% { opacity: 0.62; transform: translate3d(-28px, -8px, 0) rotate(10deg); }
-  75% { opacity: 0.7; transform: translate3d(-10px, -18px, 0) rotate(2deg); }
+  0%, 100% { opacity: 0.7; transform: translate3d(0, 0, 0) rotate(-8deg); }
+  25% { opacity: 0.82; transform: translate3d(-14px, 10px, 0) rotate(4deg); }
+  50% { opacity: 0.76; transform: translate3d(-20px, -7px, 0) rotate(10deg); }
+  75% { opacity: 0.84; transform: translate3d(-8px, -13px, 0) rotate(2deg); }
 }
 
 @keyframes pediatric-planet-float {
-  0%, 100% { opacity: 0.48; transform: translate3d(0, 0, 0) rotate(0); }
-  30% { opacity: 0.66; transform: translate3d(18px, -22px, 0) rotate(-8deg); }
-  60% { opacity: 0.62; transform: translate3d(28px, 10px, 0) rotate(7deg); }
+  0%, 100% { opacity: 0.7; transform: translate3d(0, 0, 0) rotate(0); }
+  30% { opacity: 0.82; transform: translate3d(12px, -16px, 0) rotate(-8deg); }
+  60% { opacity: 0.76; transform: translate3d(18px, 8px, 0) rotate(7deg); }
 }
 
-@keyframes pediatric-twinkle {
-  0%, 100% { opacity: 0.34; transform: translate3d(0, 0, 0); }
-  50% { opacity: 0.86; transform: translate3d(0, -4px, 0); }
+@keyframes pediatric-planet-three {
+  0%, 100% { opacity: 0.68; transform: translate3d(0, 0, 0) rotate(0); }
+  45% { opacity: 0.8; transform: translate3d(10px, 9px, 0) rotate(12deg); }
+  70% { opacity: 0.74; transform: translate3d(-8px, 13px, 0) rotate(20deg); }
 }
 
 @keyframes pediatric-comet-one {
-  0% { opacity: 0; transform: translate3d(-8cqw, -10px, 0) rotate(22deg); }
-  12% { opacity: 0.52; }
-  72% { opacity: 0.46; transform: translate3d(82cqw, 76px, 0) rotate(22deg); }
-  100% { opacity: 0; transform: translate3d(110cqw, 102px, 0) rotate(22deg); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(3deg); }
+  10% { opacity: 0.56; transform: translate3d(10cqw, -2px, 0) rotate(3deg); }
+  70% { opacity: 0.54; transform: translate3d(78cqw, 26px, 0) rotate(3deg); }
+  100% { opacity: 0; transform: translate3d(112cqw, 42px, 0) rotate(3deg); }
 }
 
 @keyframes pediatric-asteroid-two {
-  0% { opacity: 0; transform: translate3d(10cqw, 14px, 0) rotate(0); }
-  14% { opacity: 0.46; }
-  74% { opacity: 0.42; transform: translate3d(-78cqw, -56px, 0) rotate(-135deg); }
-  100% { opacity: 0; transform: translate3d(-105cqw, -72px, 0) rotate(-175deg); }
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0); }
+  12% { opacity: 0.5; transform: translate3d(-10cqw, -2px, 0) rotate(-30deg); }
+  68% { opacity: 0.5; transform: translate3d(-74cqw, -18px, 0) rotate(-135deg); }
+  100% { opacity: 0; transform: translate3d(-112cqw, -28px, 0) rotate(-190deg); }
 }
 
 @keyframes pediatric-star-field-one {
@@ -950,6 +1026,66 @@ blockquote {
 @keyframes pediatric-star-field-two {
   0%, 100% { opacity: 0.26; transform: translate3d(5cqw, 12px, 0); }
   50% { opacity: 0.46; transform: translate3d(-5cqw, -16px, 0); }
+}
+
+@keyframes pediatric-moon-float {
+  0%, 100% { opacity: 0.74; transform: translate3d(0, 0, 0) rotate(-3deg); }
+  45% { opacity: 0.86; transform: translate3d(10px, 8px, 0) rotate(3deg); }
+  72% { opacity: 0.8; transform: translate3d(-7px, 12px, 0) rotate(0); }
+}
+
+@keyframes pediatric-moon-full-collision {
+  0%, 76% { opacity: 1; transform: scale(1); }
+  82%, 100% { opacity: 0; transform: scale(0.88); }
+}
+
+@keyframes pediatric-moon-waning-collision {
+  0%, 79% { opacity: 0; transform: scale(0.84); }
+  84%, 100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pediatric-moon-explosion {
+  0%, 78% { opacity: 0; transform: scale(0.4); }
+  81% { opacity: 1; transform: scale(0.72); }
+  86% { opacity: 0.9; transform: scale(1.25); }
+  89%, 100% { opacity: 0; transform: scale(1.42); }
+}
+
+@keyframes pediatric-star-one {
+  0%, 100% { opacity: 0.62; transform: translate3d(0, 0, 0) rotate(0); }
+  50% { opacity: 0.96; transform: translate3d(6px, -5px, 0) rotate(12deg); }
+}
+
+@keyframes pediatric-star-two {
+  0%, 100% { opacity: 0.62; transform: translate3d(0, 0, 0) rotate(0); }
+  55% { opacity: 0.96; transform: translate3d(-5px, 5px, 0) rotate(-12deg); }
+}
+
+@keyframes pediatric-star-three {
+  0%, 100% { opacity: 0.64; transform: translate3d(0, 0, 0); }
+  45% { opacity: 0.94; transform: translate3d(4px, 6px, 0); }
+}
+
+@keyframes pediatric-star-four {
+  0%, 100% { opacity: 0.6; transform: translate3d(0, 0, 0) rotate(0); }
+  52% { opacity: 0.94; transform: translate3d(7px, -7px, 0) rotate(15deg); }
+}
+
+@keyframes pediatric-star-five {
+  0%, 100% { opacity: 0.64; transform: translate3d(0, 0, 0); }
+  48% { opacity: 0.96; transform: translate3d(-6px, -5px, 0); }
+}
+
+.pediatric-decorations--collision .pediatric-moon__full {
+  animation: pediatric-moon-full-collision 12s linear both;
+}
+
+.pediatric-decorations--collision .pediatric-moon__waning {
+  animation: pediatric-moon-waning-collision 12s linear both;
+}
+
+.pediatric-decorations--collision .pediatric-moon__explosion {
+  animation: pediatric-moon-explosion 12s linear both;
 }
 
 .treatments__foot {
@@ -2084,8 +2220,17 @@ blockquote {
   .treatment-group--pediatric .treatment-group__trigger { padding-inline: 14px; }
   .treatment-group--pediatric .treatment-group__title { font-size: clamp(1.5rem, 8vw, 2rem); }
   .treatment-group--pediatric .treatment-group__number { align-self: start; padding-top: 5px; }
-  .pediatric-decoration--star-two { display: none; }
-  .pediatric-decoration--rocket { font-size: 1.45rem; }
+  .pediatric-decoration--rocket { top: 86px; font-size: 1.4rem; }
+  .pediatric-decoration--planet-one { top: 58px; right: 3%; font-size: 1.55rem; }
+  .pediatric-decoration--planet-two { top: 58%; font-size: 1.3rem; }
+  .pediatric-decoration--planet-three { top: 14px; left: 57%; font-size: 1rem; }
+  .pediatric-moon { top: 15px; right: 8%; font-size: 1.4rem; }
+  .pediatric-decoration--star-one { left: 10%; }
+  .pediatric-decoration--star-two { top: 78px; left: 46%; }
+  .pediatric-decoration--star-three { top: 48px; left: 70%; }
+  .pediatric-decoration--star-four,
+  .pediatric-decoration--star-five { display: none; }
+  .pediatric-decoration--comet { top: 3px; font-size: 1rem; }
   .pediatric-decoration--asteroid { font-size: 0.85rem; }
   .complete-clinic h2 { font-size: clamp(4rem, 20vw, 5.4rem); }
   .closing__title { font-size: clamp(3.6rem, 18vw, 5rem); }
@@ -2105,4 +2250,31 @@ blockquote {
   .pediatric-decoration,
   .pediatric-decorations::before,
   .pediatric-decorations::after { animation: none; }
+
+  .pediatric-decoration--rocket {
+    opacity: 0.8;
+    transform: translate3d(30cqw, -4px, 0) rotate(26deg);
+  }
+
+  .pediatric-moon { animation: none; }
+  .pediatric-moon__full { opacity: 1; }
+  .pediatric-moon__waning,
+  .pediatric-moon__explosion { opacity: 0; }
+}
+
+@media (max-width: 430px) and (prefers-reduced-motion: no-preference) {
+  .pediatric-decoration--rocket-collision {
+    animation-name: pediatric-rocket-collision-mobile;
+  }
+
+  @keyframes pediatric-rocket-collision-mobile {
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg) scale(1); }
+    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg) scale(1); }
+    30% { opacity: 0.84; transform: translate3d(31cqw, -4px, 0) rotate(27deg) scale(1); }
+    48% { opacity: 0.84; transform: translate3d(49cqw, -8px, 0) rotate(23deg) scale(1); }
+    62% { opacity: 0.84; transform: translate3d(68cqw, -14px, 0) rotate(17deg) scale(1); }
+    73% { opacity: 0.84; transform: translate3d(84cqw, -38px, 0) rotate(8deg) scale(1); }
+    81% { opacity: 0.88; transform: translate3d(91cqw, -71px, 0) rotate(0deg) scale(1); }
+    84%, 100% { opacity: 0; transform: translate3d(91cqw, -71px, 0) rotate(0deg) scale(0.72); }
+  }
 }

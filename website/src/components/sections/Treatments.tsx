@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { ease } from "../../lib/motion";
@@ -12,6 +12,13 @@ export function Treatments() {
   const reduce = useReducedMotion();
   const baseId = useId();
   const [openIndex, setOpenIndex] = useState(0);
+  const completedRocketJourneys = useRef(0);
+  const [isCollisionCycle, setIsCollisionCycle] = useState(false);
+
+  const handleRocketIteration = () => {
+    completedRocketJourneys.current += 1;
+    setIsCollisionCycle(completedRocketJourneys.current % 5 === 4);
+  };
 
   return (
     <SectionReveal
@@ -41,7 +48,12 @@ export function Treatments() {
               className={`treatment-group${isPediatric ? " treatment-group--pediatric" : ""}`}
               key={group.title}
             >
-              {isPediatric ? <PediatricDecorations /> : null}
+              {isPediatric ? (
+                <PediatricDecorations
+                  collision={isCollisionCycle && !reduce}
+                  onRocketIteration={handleRocketIteration}
+                />
+              ) : null}
               <h3 className="treatment-group__heading">
                 <button
                   type="button"
@@ -177,14 +189,37 @@ function TreatmentRow({
   );
 }
 
-function PediatricDecorations() {
+function PediatricDecorations({
+  collision,
+  onRocketIteration,
+}: {
+  collision: boolean;
+  onRocketIteration: () => void;
+}) {
   return (
-    <div className="pediatric-decorations" aria-hidden="true">
-      <span className="pediatric-decoration pediatric-decoration--rocket">🚀</span>
+    <div
+      className={`pediatric-decorations${collision ? " pediatric-decorations--collision" : ""}`}
+      aria-hidden="true"
+    >
+      <span
+        className={`pediatric-decoration pediatric-decoration--rocket${collision ? " pediatric-decoration--rocket-collision" : ""}`}
+        onAnimationIteration={onRocketIteration}
+      >
+        🚀
+      </span>
       <span className="pediatric-decoration pediatric-decoration--planet-one">🪐</span>
       <span className="pediatric-decoration pediatric-decoration--planet-two">🌎</span>
-      <span className="pediatric-decoration pediatric-decoration--star-one">✦</span>
-      <span className="pediatric-decoration pediatric-decoration--star-two">✧</span>
+      <span className="pediatric-decoration pediatric-decoration--planet-three">🟣</span>
+      <span className="pediatric-moon">
+        <span className="pediatric-moon__full">🌕</span>
+        <span className="pediatric-moon__waning">🌘</span>
+        <span className="pediatric-moon__explosion">💥</span>
+      </span>
+      <span className="pediatric-decoration pediatric-decoration--star-one">⭐</span>
+      <span className="pediatric-decoration pediatric-decoration--star-two">🌟</span>
+      <span className="pediatric-decoration pediatric-decoration--star-three">✨</span>
+      <span className="pediatric-decoration pediatric-decoration--star-four">✦</span>
+      <span className="pediatric-decoration pediatric-decoration--star-five">✧</span>
       <span className="pediatric-decoration pediatric-decoration--comet">☄️</span>
       <span className="pediatric-decoration pediatric-decoration--asteroid">🪨</span>
     </div>
