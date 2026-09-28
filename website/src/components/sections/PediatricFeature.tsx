@@ -1,4 +1,5 @@
 import { useLanguage } from "../../i18n/LanguageProvider";
+import { assetUrl } from "../../lib/assets";
 import { BrandLogo } from "../brand/BrandLogo";
 import { WhatsAppButton } from "../cta/WhatsAppButton";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
@@ -10,6 +11,13 @@ export function PediatricFeature() {
     <SectionReveal as="section" className="section pediatric">
       <div className="pediatric__layout">
         <RevealItem className="pediatric__visual">
+          <img
+            className="pediatric__image"
+            src={assetUrl("images/team/kid.png")}
+            alt="Criança sorrindo durante atendimento odontopediátrico"
+            loading="lazy"
+            decoding="async"
+          />
           <span className="pediatric__orbit pediatric__orbit--one" />
           <span className="pediatric__orbit pediatric__orbit--two" />
           <BrandLogo variant="isotipo" decorative />

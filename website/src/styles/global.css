@@ -706,6 +706,8 @@ blockquote {
 
 /* Pediatric treatment directory */
 .treatment-group--pediatric {
+  --pediatric-rocket-impact-x: calc(71cqw + 7px);
+  --pediatric-rocket-impact-y: -65px;
   position: relative;
   isolation: isolate;
   container-type: inline-size;
@@ -845,14 +847,16 @@ blockquote {
   position: absolute;
   display: block;
   line-height: 1;
+  z-index: 1;
 }
 
 .pediatric-decoration--rocket {
   top: 82px;
   left: -36px;
+  z-index: 2;
   font-size: 1.7rem;
   opacity: 0;
-  animation: pediatric-rocket 12s linear -2s infinite;
+  animation: pediatric-rocket 12s linear infinite;
 }
 
 .pediatric-decoration--planet-one {
@@ -918,8 +922,12 @@ blockquote {
   place-items: center;
 }
 
+.pediatric-moon__full { opacity: 1; }
+
 .pediatric-moon__waning,
 .pediatric-moon__explosion { opacity: 0; }
+
+.pediatric-moon__explosion { z-index: 3; }
 
 .pediatric-decoration--star-three {
   top: 22px;
@@ -961,28 +969,28 @@ blockquote {
 @keyframes pediatric-rocket {
   0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg); }
   8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg); }
-  29% { opacity: 0.84; transform: translate3d(31cqw, -4px, 0) rotate(27deg); }
-  47% { opacity: 0.84; transform: translate3d(49cqw, -8px, 0) rotate(23deg); }
-  59% { opacity: 0.84; transform: translate3d(59cqw, -12px, 0) rotate(18deg); }
-  69% { opacity: 0.84; transform: translate3d(67cqw, -12px, 0) rotate(10deg); }
-  78% { opacity: 0.84; transform: translate3d(75cqw, -26px, 0) rotate(0deg); }
+  29% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg); }
+  47% { opacity: 0.84; transform: translate3d(47cqw, 6px, 0) rotate(23deg); }
+  59% { opacity: 0.84; transform: translate3d(59cqw, 10px, 0) rotate(18deg); }
+  69% { opacity: 0.84; transform: translate3d(65cqw, 18px, 0) rotate(12deg); }
+  78% { opacity: 0.84; transform: translate3d(75cqw, 10px, 0) rotate(5deg); }
   89% { opacity: 0.8; transform: translate3d(92cqw, -56px, 0) rotate(-4deg); }
   100% { opacity: 0; transform: translate3d(119cqw, -83px, 0) rotate(-8deg); }
 }
 
 .pediatric-decoration--rocket-collision {
-  animation-name: pediatric-rocket-collision;
+  animation: pediatric-rocket-collision 12s linear 1 forwards;
 }
 
 @keyframes pediatric-rocket-collision {
   0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg) scale(1); }
   8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg) scale(1); }
-  30% { opacity: 0.84; transform: translate3d(31cqw, -4px, 0) rotate(27deg) scale(1); }
-  48% { opacity: 0.84; transform: translate3d(49cqw, -8px, 0) rotate(23deg) scale(1); }
-  62% { opacity: 0.84; transform: translate3d(61cqw, -14px, 0) rotate(17deg) scale(1); }
-  73% { opacity: 0.84; transform: translate3d(71cqw, -38px, 0) rotate(8deg) scale(1); }
-  81% { opacity: 0.88; transform: translate3d(73cqw, -67px, 0) rotate(0deg) scale(1); }
-  84%, 100% { opacity: 0; transform: translate3d(73cqw, -67px, 0) rotate(0deg) scale(0.72); }
+  30% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg) scale(1); }
+  48% { opacity: 0.84; transform: translate3d(49cqw, 6px, 0) rotate(23deg) scale(1); }
+  62% { opacity: 0.84; transform: translate3d(59cqw, 10px, 0) rotate(18deg) scale(1); }
+  74% { opacity: 0.84; transform: translate3d(64cqw, -8px, 0) rotate(4deg) scale(1); }
+  88% { opacity: 0.88; transform: translate3d(68cqw, -36px, 0) rotate(-11deg) scale(1); }
+  100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-18deg) scale(1); }
 }
 
 @keyframes pediatric-planet-orbit {
@@ -1034,21 +1042,10 @@ blockquote {
   72% { opacity: 0.8; transform: translate3d(-7px, 12px, 0) rotate(0); }
 }
 
-@keyframes pediatric-moon-full-collision {
-  0%, 76% { opacity: 1; transform: scale(1); }
-  82%, 100% { opacity: 0; transform: scale(0.88); }
-}
-
-@keyframes pediatric-moon-waning-collision {
-  0%, 79% { opacity: 0; transform: scale(0.84); }
-  84%, 100% { opacity: 1; transform: scale(1); }
-}
-
 @keyframes pediatric-moon-explosion {
-  0%, 78% { opacity: 0; transform: scale(0.4); }
-  81% { opacity: 1; transform: scale(0.72); }
-  86% { opacity: 0.9; transform: scale(1.25); }
-  89%, 100% { opacity: 0; transform: scale(1.42); }
+  0% { opacity: 1; transform: scale(0.7); }
+  58% { opacity: 0.96; transform: scale(1.26); }
+  100% { opacity: 0; transform: scale(1.34); }
 }
 
 @keyframes pediatric-star-one {
@@ -1076,16 +1073,53 @@ blockquote {
   48% { opacity: 0.96; transform: translate3d(-6px, -5px, 0); }
 }
 
-.pediatric-decorations--collision .pediatric-moon__full {
-  animation: pediatric-moon-full-collision 12s linear both;
+.pediatric-decorations[data-galaxy-phase="collision-flight"] .pediatric-moon {
+  animation: none;
 }
 
-.pediatric-decorations--collision .pediatric-moon__waning {
-  animation: pediatric-moon-waning-collision 12s linear both;
+.pediatric-decorations[data-galaxy-phase="explosion"] .pediatric-decoration--rocket,
+.pediatric-decorations[data-galaxy-phase="waning-hold"] .pediatric-decoration--rocket,
+.pediatric-decorations[data-galaxy-phase="restoring"] .pediatric-decoration--rocket {
+  visibility: hidden;
+  opacity: 0;
+  animation: none;
 }
 
-.pediatric-decorations--collision .pediatric-moon__explosion {
-  animation: pediatric-moon-explosion 12s linear both;
+.pediatric-decorations[data-galaxy-phase="explosion"] .pediatric-moon {
+  animation: none;
+}
+
+.pediatric-decorations[data-galaxy-phase="explosion"] .pediatric-moon__full {
+  opacity: 1;
+}
+
+.pediatric-decorations[data-galaxy-phase="explosion"] .pediatric-moon__explosion {
+  opacity: 1;
+  animation: pediatric-moon-explosion 800ms ease-out both;
+}
+
+.pediatric-decorations[data-galaxy-phase="waning-hold"] .pediatric-moon,
+.pediatric-decorations[data-galaxy-phase="restoring"] .pediatric-moon {
+  animation: none;
+}
+
+.pediatric-decorations[data-galaxy-phase="waning-hold"] .pediatric-moon__full {
+  opacity: 0;
+}
+
+.pediatric-decorations[data-galaxy-phase="waning-hold"] .pediatric-moon__waning {
+  opacity: 1;
+}
+
+.pediatric-decorations[data-galaxy-phase="restoring"] .pediatric-moon__full {
+  opacity: 1;
+}
+
+.pediatric-decorations[data-galaxy-phase="restoring"] .pediatric-moon__waning,
+.pediatric-decorations[data-galaxy-phase="restoring"] .pediatric-moon__explosion,
+.pediatric-decorations[data-galaxy-phase="waning-hold"] .pediatric-moon__explosion {
+  opacity: 0;
+  animation: none;
 }
 
 .treatments__foot {
@@ -1119,13 +1153,25 @@ blockquote {
 .pediatric__visual {
   position: relative;
   display: grid;
-  place-items: center;
+  grid-template-rows: minmax(0, 1fr) auto;
   min-height: 360px;
   overflow: hidden;
   background: color-mix(in srgb, var(--color-cashmere) 75%, var(--color-white));
 }
 
+.pediatric__image {
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: 58% 38%;
+}
+
 .pediatric__visual .brand-mark {
+  position: absolute;
+  top: 24px;
+  right: 24px;
   z-index: 2;
   width: 70px;
   height: 70px;
@@ -1133,19 +1179,20 @@ blockquote {
 }
 
 .pediatric__visual p {
-  position: absolute;
-  right: 24px;
-  bottom: 22px;
-  left: 24px;
+  grid-row: 2;
+  margin: 0;
+  padding: 18px 24px 22px;
   z-index: 2;
-  max-width: 21ch;
+  max-width: none;
   font-family: var(--font-display);
   font-size: 1.3rem;
   line-height: 1.25;
+  background: var(--color-cashmere);
 }
 
 .pediatric__orbit {
   position: absolute;
+  z-index: 1;
   display: block;
   border: 1px solid color-mix(in srgb, var(--color-puce) 44%, transparent);
   border-radius: 50%;
@@ -2210,6 +2257,11 @@ blockquote {
 }
 
 @media (max-width: 430px) {
+  .treatment-group--pediatric {
+    --pediatric-rocket-impact-x: calc(92cqw + 7px);
+    --pediatric-rocket-impact-y: -67px;
+  }
+
   .brand-mark--isotipo { width: 36px; height: 36px; }
   .brand-lockup { gap: 8px; }
   .brand-lockup__name { font-size: 0.94rem; }
@@ -2217,6 +2269,8 @@ blockquote {
   .hero__actions { align-items: flex-start; flex-direction: column; }
   .hero__caption { margin-top: 26px; }
   .pediatric__visual { min-height: 320px; }
+  .pediatric__visual .brand-mark { top: 16px; right: 16px; width: 52px; height: 52px; }
+  .pediatric__visual p { padding: 14px 18px 18px; font-size: 1.12rem; }
   .treatment-group--pediatric .treatment-group__trigger { padding-inline: 14px; }
   .treatment-group--pediatric .treatment-group__title { font-size: clamp(1.5rem, 8vw, 2rem); }
   .treatment-group--pediatric .treatment-group__number { align-self: start; padding-top: 5px; }
@@ -2263,18 +2317,33 @@ blockquote {
 }
 
 @media (max-width: 430px) and (prefers-reduced-motion: no-preference) {
+  .pediatric-decoration--rocket {
+    animation-name: pediatric-rocket-mobile;
+  }
+
   .pediatric-decoration--rocket-collision {
     animation-name: pediatric-rocket-collision-mobile;
+  }
+
+  @keyframes pediatric-rocket-mobile {
+    0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg); }
+    8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg); }
+    30% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg); }
+    48% { opacity: 0.84; transform: translate3d(50cqw, 6px, 0) rotate(23deg); }
+    62% { opacity: 0.84; transform: translate3d(62cqw, 12px, 0) rotate(18deg); }
+    74% { opacity: 0.84; transform: translate3d(72cqw, 24px, 0) rotate(10deg); }
+    86% { opacity: 0.82; transform: translate3d(84cqw, -12px, 0) rotate(-4deg); }
+    100% { opacity: 0; transform: translate3d(116cqw, -58px, 0) rotate(-10deg); }
   }
 
   @keyframes pediatric-rocket-collision-mobile {
     0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(32deg) scale(1); }
     8% { opacity: 0.82; transform: translate3d(10cqw, 0, 0) rotate(30deg) scale(1); }
-    30% { opacity: 0.84; transform: translate3d(31cqw, -4px, 0) rotate(27deg) scale(1); }
-    48% { opacity: 0.84; transform: translate3d(49cqw, -8px, 0) rotate(23deg) scale(1); }
-    62% { opacity: 0.84; transform: translate3d(68cqw, -14px, 0) rotate(17deg) scale(1); }
-    73% { opacity: 0.84; transform: translate3d(84cqw, -38px, 0) rotate(8deg) scale(1); }
-    81% { opacity: 0.88; transform: translate3d(91cqw, -71px, 0) rotate(0deg) scale(1); }
-    84%, 100% { opacity: 0; transform: translate3d(91cqw, -71px, 0) rotate(0deg) scale(0.72); }
+    30% { opacity: 0.84; transform: translate3d(31cqw, 2px, 0) rotate(27deg) scale(1); }
+    48% { opacity: 0.84; transform: translate3d(50cqw, 6px, 0) rotate(23deg) scale(1); }
+    62% { opacity: 0.84; transform: translate3d(62cqw, 12px, 0) rotate(18deg) scale(1); }
+    74% { opacity: 0.84; transform: translate3d(76cqw, -8px, 0) rotate(4deg) scale(1); }
+    88% { opacity: 0.88; transform: translate3d(86cqw, -38px, 0) rotate(-11deg) scale(1); }
+    100% { opacity: 0.88; transform: translate3d(var(--pediatric-rocket-impact-x), var(--pediatric-rocket-impact-y), 0) rotate(-18deg) scale(1); }
   }
 }

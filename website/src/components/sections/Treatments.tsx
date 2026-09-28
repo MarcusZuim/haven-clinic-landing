@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "../../i18n/LanguageProvider";
 import { ease } from "../../lib/motion";
@@ -6,6 +6,7 @@ import { WhatsAppButton } from "../cta/WhatsAppButton";
 import { RevealItem, SectionReveal } from "../motion/SectionReveal";
 
 const PANEL_EASE = ease;
+type GalaxyPhase = "normal-flight" | "collision-flight" | "explosion" | "waning-hold" | "restoring";
 
 export function Treatments() {
   const { t } = useLanguage();
@@ -13,12 +14,54 @@ export function Treatments() {
   const baseId = useId();
   const [openIndex, setOpenIndex] = useState(0);
   const completedRocketJourneys = useRef(0);
-  const [isCollisionCycle, setIsCollisionCycle] = useState(false);
+  const phaseTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [galaxyPhase, setGalaxyPhase] = useState<GalaxyPhase>("normal-flight");
 
-  const handleRocketIteration = () => {
+  const handleNormalRocketIteration = () => {
+    if (reduce || galaxyPhase !== "normal-flight") return;
+
     completedRocketJourneys.current += 1;
-    setIsCollisionCycle(completedRocketJourneys.current % 5 === 4);
+    if (completedRocketJourneys.current === 4) {
+      setGalaxyPhase("collision-flight");
+    }
   };
+
+  const handleCollisionRocketEnd = () => {
+    if (!reduce && galaxyPhase === "collision-flight") {
+      setGalaxyPhase("explosion");
+    }
+  };
+
+  useEffect(() => {
+    if (phaseTimeout.current !== null) {
+      clearTimeout(phaseTimeout.current);
+      phaseTimeout.current = null;
+    }
+
+    if (reduce) {
+      completedRocketJourneys.current = 0;
+      if (galaxyPhase !== "normal-flight") setGalaxyPhase("normal-flight");
+      return undefined;
+    }
+
+    if (galaxyPhase === "explosion") {
+      phaseTimeout.current = setTimeout(() => setGalaxyPhase("waning-hold"), 800);
+    } else if (galaxyPhase === "waning-hold") {
+      phaseTimeout.current = setTimeout(() => setGalaxyPhase("restoring"), 10_000);
+    } else if (galaxyPhase === "restoring") {
+      phaseTimeout.current = setTimeout(() => {
+        completedRocketJourneys.current = 0;
+        setGalaxyPhase("normal-flight");
+      }, 250);
+    }
+
+    return () => {
+      if (phaseTimeout.current !== null) {
+        clearTimeout(phaseTimeout.current);
+        phaseTimeout.current = null;
+      }
+    };
+  }, [galaxyPhase, reduce]);
 
   return (
     <SectionReveal
@@ -50,8 +93,9 @@ export function Treatments() {
             >
               {isPediatric ? (
                 <PediatricDecorations
-                  collision={isCollisionCycle && !reduce}
-                  onRocketIteration={handleRocketIteration}
+                  phase={reduce ? "normal-flight" : galaxyPhase}
+                  onNormalRocketIteration={handleNormalRocketIteration}
+                  onCollisionRocketEnd={handleCollisionRocketEnd}
                 />
               ) : null}
               <h3 className="treatment-group__heading">
@@ -190,20 +234,26 @@ function TreatmentRow({
 }
 
 function PediatricDecorations({
-  collision,
-  onRocketIteration,
+  phase,
+  onNormalRocketIteration,
+  onCollisionRocketEnd,
 }: {
-  collision: boolean;
-  onRocketIteration: () => void;
+  phase: GalaxyPhase;
+  onNormalRocketIteration: () => void;
+  onCollisionRocketEnd: () => void;
 }) {
+  const isCollisionFlight = phase === "collision-flight";
+
   return (
     <div
-      className={`pediatric-decorations${collision ? " pediatric-decorations--collision" : ""}`}
+      className="pediatric-decorations"
+      data-galaxy-phase={phase}
       aria-hidden="true"
     >
       <span
-        className={`pediatric-decoration pediatric-decoration--rocket${collision ? " pediatric-decoration--rocket-collision" : ""}`}
-        onAnimationIteration={onRocketIteration}
+        className={`pediatric-decoration pediatric-decoration--rocket${isCollisionFlight ? " pediatric-decoration--rocket-collision" : ""}`}
+        onAnimationIteration={isCollisionFlight ? undefined : onNormalRocketIteration}
+        onAnimationEnd={isCollisionFlight ? onCollisionRocketEnd : undefined}
       >
         🚀
       </span>
