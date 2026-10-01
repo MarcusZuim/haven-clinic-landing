@@ -13,7 +13,7 @@ export function PediatricFeature() {
         <RevealItem className="pediatric__visual">
           <img
             className="pediatric__image"
-            src={assetUrl("images/team/kid.png")}
+            src={assetUrl("images/brand/kid.png")}
             alt="Criança sorrindo durante atendimento odontopediátrico"
             loading="lazy"
             decoding="async"

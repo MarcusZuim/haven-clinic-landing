@@ -28,13 +28,13 @@ export function SectionReveal({
       aria-labelledby={ariaLabelledBy}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.05, margin: "0px 0px 18% 0px" }}
+      viewport={{ once: true, amount: 0.16, margin: "0px 0px -7% 0px" }}
       variants={{
         hidden: {},
         show: {
           transition: {
-            staggerChildren: reduce ? 0 : 0.1,
-            delayChildren: 0,
+            staggerChildren: reduce ? 0 : 0.14,
+            delayChildren: reduce ? 0 : 0.06,
           },
         },
       }}
@@ -62,11 +62,11 @@ export function RevealItem({
     <Tag
       className={className}
       variants={{
-        hidden: reduce ? { opacity: 1 } : { opacity: 0.75, y: 10 },
+        hidden: reduce ? { opacity: 1 } : { opacity: 0, y: 20 },
         show: {
           opacity: 1,
           y: 0,
-          transition: { duration: reduce ? 0.01 : 1.15, ease },
+          transition: { duration: reduce ? 0.01 : 0.82, ease },
         },
       }}
     >

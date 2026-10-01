@@ -17,7 +17,7 @@ export function Hero() {
           className="hero__frame"
           initial={reduce ? { opacity: 1 } : { opacity: 0.86 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: reduce ? 0.01 : 1.25, ease: softEase }}
+          transition={{ duration: reduce ? 0.01 : 1.45, ease: softEase }}
         >
           <ScrollDrift className="hero__drift" yRange={[10, -12]} scaleRange={[1.06, 1.03]}>
             <picture>
@@ -46,23 +46,23 @@ export function Hero() {
         <div className="hero__copy">
           <motion.p
             className="hero__eyebrow"
-            {...softIn(reduce, 0.12, { y: 8, duration: 1.05 })}
+            {...softIn(reduce, 0.18, { y: 10, duration: 1.1 })}
           >
             {t.hero.eyebrow}
           </motion.p>
           <h1 id="hero-title" className="hero__title">
-            <motion.span {...softIn(reduce, 0.18, { y: 12 })}>
+            <motion.span {...softIn(reduce, 0.3, { y: 16, duration: 1.2 })}>
               {t.hero.headlineLine1}
             </motion.span>
             <motion.span
               className="hero__title-strong"
-              {...softIn(reduce, 0.26, { y: 12 })}
+              {...softIn(reduce, 0.42, { y: 16, duration: 1.2 })}
             >
               {t.hero.headlineLine2}
             </motion.span>
             <motion.span
               className="hero__title-accent"
-              {...softIn(reduce, 0.34, { y: 12 })}
+              {...softIn(reduce, 0.54, { y: 16, duration: 1.2 })}
             >
               {t.hero.headlineLine3}
             </motion.span>
@@ -70,14 +70,14 @@ export function Hero() {
 
           <motion.p
             className="hero__subhead"
-            {...softIn(reduce, 0.43, { y: 8, duration: 1.1 })}
+            {...softIn(reduce, 0.68, { y: 10, duration: 1.15 })}
           >
             {t.hero.subhead}
           </motion.p>
 
           <motion.div
             className="hero__actions"
-            {...softIn(reduce, 0.52, { y: 8, duration: 1.1 })}
+            {...softIn(reduce, 0.82, { y: 10, duration: 1.1 })}
           >
             <WhatsAppButton variant="hero" label={t.cta.evaluation} />
             <a className="hero__secondary" href="#tratamentos">
@@ -89,7 +89,7 @@ export function Hero() {
 
         <motion.p
           className="hero__caption"
-          {...softIn(reduce, 0.65, { y: 6, duration: 1 })}
+          {...softIn(reduce, 0.96, { y: 8, duration: 1.05 })}
         >
           {t.hero.caption}
         </motion.p>

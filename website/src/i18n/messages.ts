@@ -188,9 +188,9 @@ export const messages = {
           ],
         },
         {
-          title: "Atendimento infantil",
+          title: "Conheça nosso plano infantil",
           identifier: "Odontopediatria",
-          preview: "Cuidado para pequenos sorrisos",
+          preview: "Plano mensal com tudo incluso",
           pediatric: true,
           items: [
             {
@@ -301,9 +301,10 @@ export const messages = {
     },
     team: {
       eyebrow: "Quem cuida",
-      title: "Corpo Clínico",
+      title: "Corpo clínico",
       body: "As pessoas que acompanham o atendimento na Haven.",
       credential: "CRO",
+      portraitAlt: "Retrato de",
       imageAlt: "Retrato de Drª Nayara Melo",
       featuredBio:
         "Dra. Nayara Melo é cirurgiã-dentista (CRO-SP 130.317), especialista em Prótese Dentária, com foco em Odontologia Digital, reabilitação oral e estética. Iniciou sua trajetória na odontologia em 2013 como protética e formou-se em Odontologia em 2018, reunindo experiência técnica e clínica no planejamento de tratamentos personalizados. Também atuou como cirurgiã-dentista concursada no serviço público e possui MBA em Gestão, Empreendedorismo e Negócios pela PUCRS. Sócia e fundadora da HAVEN Clinic, alia precisão, tecnologia, gestão e atendimento humanizado para oferecer uma experiência segura e individualizada a cada paciente.",
@@ -477,9 +478,9 @@ export const messages = {
           ],
         },
         {
-          title: "Children's care",
+          title: "Discover our children's plan",
           identifier: "Pediatric dentistry",
-          preview: "Care for little smiles",
+          preview: "Monthly plan with everything included",
           pediatric: true,
           items: [
             {
@@ -593,6 +594,7 @@ export const messages = {
       title: "Clinical team",
       body: "The people who take part in care at Haven.",
       credential: "CRO",
+      portraitAlt: "Portrait of",
       imageAlt: "Portrait of Drª Nayara Melo",
       featuredBio:
         "Dr. Nayara Melo is a dentist (CRO-SP 130.317) and a specialist in Dental Prosthetics, with a focus on Digital Dentistry, oral rehabilitation and aesthetics. She began her path in dentistry in 2013 as a dental technician and graduated in Dentistry in 2018, bringing together technical and clinical experience in planning personalized treatments. She has also worked as a public-service dentist and holds an MBA in Management, Entrepreneurship and Business from PUCRS. As a partner and founder of HAVEN Clinic, she brings together precision, technology, management and humanized care to offer every patient a safe, individualized experience.",
@@ -766,9 +768,9 @@ export const messages = {
           ],
         },
         {
-          title: "Atención infantil",
+          title: "Conoce nuestro plan infantil",
           identifier: "Odontopediatría",
-          preview: "Cuidado para pequeñas sonrisas",
+          preview: "Plan mensual con todo incluido",
           pediatric: true,
           items: [
             {
@@ -882,6 +884,7 @@ export const messages = {
       title: "Cuerpo clínico",
       body: "Las personas que acompañan la atención en Haven.",
       credential: "CRO",
+      portraitAlt: "Retrato de",
       imageAlt: "Retrato de la Drª Nayara Melo",
       featuredBio:
         "La Dra. Nayara Melo es cirujana dentista (CRO-SP 130.317), especialista en Prótesis Dental, con foco en Odontología Digital, rehabilitación oral y estética. Inició su trayectoria en odontología en 2013 como protésica y se graduó en Odontología en 2018, reuniendo experiencia técnica y clínica en la planificación de tratamientos personalizados. También trabajó como cirujana dentista concursada en el servicio público y cuenta con un MBA en Gestión, Emprendimiento y Negocios por PUCRS. Socia y fundadora de HAVEN Clinic, combina precisión, tecnología, gestión y atención humanizada para ofrecer una experiencia segura e individualizada a cada paciente.",

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haven Clinic — Ultrassom Microfocado</title>
+    <style>
+      :root {
+        /* Official Haven Clinic token palette and type stack. */
+        --white-rock: #f1eee7;
+        --puce: #79564d;
+        --cashmere: #dec4ac;
+        --puce-dark: #392824;
+        --text-soft: #746966;
+        --display: "The Seasons", Georgia, "Times New Roman", serif;
+        --body: "Open Sans", Helvetica, Arial, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { width: 1080px; height: 1350px; margin: 0; overflow: hidden; }
+      body { background: var(--white-rock); }
+
+      .creative {
+        position: relative;
+        width: 1080px;
+        height: 1350px;
+        overflow: hidden;
+        isolation: isolate;
+        background: var(--white-rock);
+      }
+      .portrait {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        filter: saturate(1.14) contrast(1.04);
+      }
+      .veil {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(241,238,231,.82) 0%, rgba(241,238,231,.63) 30%, rgba(241,238,231,.13) 55%, rgba(241,238,231,0) 72%),
+          linear-gradient(180deg, rgba(57,40,36,.04) 0%, transparent 18%, transparent 80%, rgba(57,40,36,.08) 100%);
+        pointer-events: none;
+      }
+      .isotipo-layer {
+        position: absolute;
+        z-index: 1;
+        top: 270px;
+        left: -52px;
+        width: 650px;
+        height: 650px;
+        object-fit: contain;
+        opacity: .42;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+      .topline {
+        position: absolute;
+        z-index: 3;
+        top: 62px; left: 70px; right: 70px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 17px 0 0;
+        color: var(--puce);
+        font: 700 20px/1.1 var(--body);
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+      .eyebrow::before { width: 32px; height: 1px; content: ""; background: var(--cashmere); }
+      .brand-mark { width: 240px; height: 240px; object-fit: contain; }
+      .copy {
+        position: absolute;
+        z-index: 3;
+        left: 70px;
+        bottom: 67px;
+        width: 522px;
+      }
+      h1 {
+        max-width: 470px;
+        margin: 0;
+        color: var(--puce-dark);
+        font: 400 86px/1.02 var(--display);
+        letter-spacing: .02em;
+      }
+      .divider { width: 56px; height: 1px; margin: 31px 0 25px; background: var(--puce); }
+      .description {
+        width: 490px;
+        margin: 0;
+        color: var(--puce-dark);
+        font: 400 28px/1.42 var(--body);
+        letter-spacing: -.01em;
+      }
+      .support {
+        width: 520px;
+        margin: 22px 0 31px;
+        color: #5f4e49;
+        font: 400 24px/1.45 var(--body);
+        letter-spacing: 0;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        padding: 0 0 10px;
+        border-bottom: 1px solid rgba(121,86,77,.74);
+        color: var(--puce);
+        font: 700 16px/1.1 var(--body);
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+      .cta::after { content: "→"; font: 400 21px/10px var(--display); }
+      .brand-lockup {
+        position: absolute;
+        z-index: 3;
+        right: -35px;
+        bottom: 10px;
+        opacity: .82;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="creative" aria-label="Anúncio Haven Clinic para ultrassom microfocado">
+      <img class="portrait" src="./haven-ultrassom-microfocado-editorial-v1.png" alt="Mulher adulta em retrato editorial com expressão tranquila e sofisticada" />
+      <img class="isotipo-layer" src="../../brand/isotipo01-web.png" alt="" aria-hidden="true" />
+      <div class="veil" aria-hidden="true"></div>
+      <header class="topline">
+        <p class="eyebrow">Estética avançada</p>
+      </header>
+      <section class="copy">
+        <h1>Sua pele perdeu firmeza?</h1>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="description">Estimule colágeno e redefina o contorno facial com ultrassom microfocado.</p>
+        <p class="support">Entenda como a tecnologia microfocada ajuda a recuperar firmeza e definição — com resultados elegantes e naturais.</p>
+        <span class="cta">Descubra como funciona</span>
+      </section>
+      <footer class="brand-lockup"><img class="brand-mark" src="../../brand/isologo01-web.png" alt="Haven Clinic — Clínica Integrada" /></footer>
+    </main>
+  </body>
+</html>

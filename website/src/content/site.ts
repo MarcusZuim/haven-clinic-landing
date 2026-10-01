@@ -52,17 +52,41 @@ export const site = {
       name: "Drª Nayara Melo",
       cro: "130.317",
       image: {
-        src: assetUrl("images/team/nayara.jpg"),
+        src: assetUrl("images/team/final/nayara/01.jpg"),
         width: 960,
         height: 1104,
+        position: "50% 0%",
       },
     },
-    { name: "Drª Flávia Berton", cro: "98655" },
-    { name: "Dr. Leandro Mazer", cro: "112.721" },
-    { name: "Drª Isabela Camarim", cro: "130.745" },
-    { name: "Dr. Henrique Andrade", cro: "173.467" },
-    { name: "Dr. Gustavo Sbrolini", cro: "127.859" },
-    { name: "Maria Laura Paniche" },
+    {
+      name: "Maria Laura Paniche",
+      image: { src: assetUrl("images/team/final/maria%20laura/02.webp"), width: 1122, height: 1402, position: "50% 33%" },
+    },
+    {
+      name: "Dr. Leandro Mazer",
+      cro: "112.721",
+      image: { src: assetUrl("images/team/final/leandro/01.webp"), width: 1122, height: 1402, position: "50% 31%" },
+    },
+    {
+      name: "Drª Isabela Camarim",
+      cro: "130.745",
+      image: { src: assetUrl("images/team/final/isabela/03.webp"), width: 1122, height: 1402, position: "50% 35%" },
+    },
+    {
+      name: "Dr. Henrique Andrade",
+      cro: "173.467",
+      image: { src: assetUrl("images/team/final/henrique/01.webp"), width: 1122, height: 1402, position: "50% 29%" },
+    },
+    {
+      name: "Dr. Gustavo Sbrolini",
+      cro: "127.859",
+      image: { src: assetUrl("images/team/final/gustavo/01.webp"), width: 1122, height: 1402, position: "50% 33%" },
+    },
+    {
+      name: "Drª Flávia Berton",
+      cro: "98655",
+      image: { src: assetUrl("images/team/final/flavia/01.webp"), width: 1122, height: 1402, position: "50% 32%" },
+    },
   ] as const,
   complete: {
     image: {

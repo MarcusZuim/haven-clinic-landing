@@ -141,7 +141,6 @@ export function Contact() {
       </div>
 
       <RevealItem className="closing__foot">
-        <p className="closing__brand">Haven Clinic</p>
         <p className="closing__legal">{t.footer.legalNote}</p>
       </RevealItem>
     </SectionReveal>
