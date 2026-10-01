@@ -307,7 +307,7 @@ export const messages = {
       portraitAlt: "Retrato de",
       imageAlt: "Retrato de Drª Nayara Melo",
       featuredBio:
-        "Dra. Nayara Melo é cirurgiã-dentista (CRO-SP 130.317), especialista em Prótese Dentária, com foco em Odontologia Digital, reabilitação oral e estética. Iniciou sua trajetória na odontologia em 2013 como protética e formou-se em Odontologia em 2018, reunindo experiência técnica e clínica no planejamento de tratamentos personalizados. Também atuou como cirurgiã-dentista concursada no serviço público e possui MBA em Gestão, Empreendedorismo e Negócios pela PUCRS. Sócia e fundadora da HAVEN Clinic, alia precisão, tecnologia, gestão e atendimento humanizado para oferecer uma experiência segura e individualizada a cada paciente.",
+        "Dra. Nayara Melo é Cirurgiã-Dentista (CRO-SP 130.317), especialista em Prótese Dentária, com foco em Odontologia Digital, Reabilitação Oral e Estética. Iniciou sua trajetória na Odontologia em 2013 como protética e formou-se em Odontologia em 2018, reunindo experiência técnica e clínica no planejamento de tratamentos personalizados. Também atuou como Cirurgiã-Dentista concursada no serviço público e possui MBA em Gestão, Empreendedorismo e Negócios pela PUCRS. Sócia e fundadora da HAVEN CLINIC, alia precisão, tecnologia, gestão e atendimento humanizado para oferecer uma experiência segura e individualizada a cada paciente.",
     },
     testimonials: {
       eyebrow: "Avaliações no Google",

@@ -11,7 +11,6 @@ html {
 
 body {
   margin: 0;
-  overflow-x: hidden;
   color: var(--color-text);
   background: var(--color-white-rock);
   font-family: var(--font-body);
@@ -221,7 +220,7 @@ blockquote {
   display: grid;
   place-items: center;
   min-width: 44px;
-  height: 40px;
+  min-height: 44px;
   padding: 0 12px;
   border: 1px solid color-mix(in srgb, currentColor 42%, transparent);
   border-radius: 100px;
@@ -263,8 +262,8 @@ blockquote {
 .menu-toggle {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
 }
 
 .menu-toggle__bar,
@@ -293,7 +292,8 @@ blockquote {
 
 .mobile-drawer {
   display: none;
-  height: calc(100dvh - var(--header-height));
+  height: calc(100dvh - var(--header-height) - var(--banner-offset));
+  overflow-y: auto;
   padding: 28px var(--page-gutter) 40px;
   color: var(--color-puce-dark);
   background: var(--color-white);
@@ -302,6 +302,7 @@ blockquote {
 .mobile-drawer.is-open {
   display: flex;
   flex-direction: column;
+  gap: 32px;
   justify-content: space-between;
 }
 
@@ -458,7 +459,7 @@ blockquote {
   font-family: var(--font-display);
   font-size: clamp(3.2rem, 14vw, 6.5rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   line-height: 0.86;
   text-shadow: 0 2px 30px rgba(24, 15, 12, 0.2);
 }
@@ -1276,8 +1277,8 @@ blockquote {
   font-family: var(--font-display);
   font-size: clamp(4.5rem, 18vw, 11rem);
   font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.76;
+  letter-spacing: -0.035em;
+  line-height: 0.88;
   text-wrap: balance;
 }
 
@@ -1817,8 +1818,8 @@ blockquote {
   font-family: var(--font-display);
   font-size: clamp(3.9rem, 16vw, 9rem);
   font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.83;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
 }
 
 .closing__title span {
@@ -1885,8 +1886,8 @@ blockquote {
 .closing__social-link {
   display: grid;
   place-items: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border: 1px solid color-mix(in srgb, var(--color-white) 26%, transparent);
   border-radius: 50%;
   transition: background 0.25s var(--ease);
@@ -1969,6 +1970,12 @@ blockquote {
   font-size: 0.68rem;
 }
 
+@media (min-width: 600px) {
+  .team__directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 768px) {
   .section { padding-top: 128px; padding-bottom: 128px; }
 
@@ -1995,13 +2002,6 @@ blockquote {
 
   .trust-item:nth-of-type(odd) { border-left: 0; }
 
-  .treatments__intro,
-  .structure__intro,
-  .team__intro {
-    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-    align-items: end;
-  }
-
   .treatments__foot {
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -2016,28 +2016,12 @@ blockquote {
 
   .treatment-service .treatment-row { min-height: 136px; }
 
-  .pediatric__layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 0;
-  }
-
-  .pediatric__visual { min-height: 0; }
-  .pediatric__copy { display: flex; flex-direction: column; justify-content: center; padding: 24px 42px; }
-
   .complete-clinic__inner { min-height: 820px; }
 
   .complete-clinic__statement {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 0.6fr);
     align-items: end;
   }
-
-  .philosophy__layout {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
-    gap: 60px;
-  }
-
-  .philosophy__principles { grid-column: 1 / -1; }
 
   .philosophy__principles article {
     grid-template-columns: 45px minmax(180px, 0.7fr) 1fr;
@@ -2073,10 +2057,6 @@ blockquote {
   .structure__image--reception img { object-position: 58% 42%; }
   .structure__principles { padding-top: 0; }
 
-  .team__directory {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .team__portrait {
     max-height: 560px;
     aspect-ratio: auto;
@@ -2093,6 +2073,34 @@ blockquote {
   }
 
   .closing__social { width: min(100%, 28rem); margin-inline: auto; }
+}
+
+@media (min-width: 900px) {
+  .treatments__intro,
+  .structure__intro,
+  .team__intro {
+    grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+    align-items: end;
+  }
+
+  .pediatric__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .pediatric__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px clamp(28px, 4vw, 42px);
+  }
+
+  .philosophy__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.75fr);
+    gap: 60px;
+  }
+
+  .philosophy__principles { grid-column: 1 / -1; }
 }
 
 @media (min-width: 1024px) {
@@ -2261,50 +2269,40 @@ blockquote {
   .closing__lower {
     grid-area: lower;
     grid-template-columns: minmax(0, 1fr) auto;
-    column-gap: 28px;
-    align-items: center;
+    column-gap: clamp(28px, 4vw, 56px);
+    align-items: start;
     margin-top: 40px;
     padding-top: 28px;
   }
 
   .closing__details {
-    position: relative;
-    grid-template-columns: minmax(0, 1.7fr) minmax(180px, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: stretch;
     align-items: start;
-    gap: 20px 28px;
+    gap: 28px clamp(28px, 4vw, 56px);
   }
 
   .closing__detail--address a {
-    white-space: nowrap;
-    font-size: 0.7rem;
+    white-space: normal;
+    font-size: inherit;
   }
 
   .closing__detail--address a span {
-    display: inline;
-  }
-
-  .closing__detail--address a span + span::before {
-    content: ", ";
+    display: block;
   }
 
   .closing__detail--address { grid-column: 1; }
   .closing__detail--whatsapp { grid-column: 2; }
-  .closing__detail--hours { grid-column: 3; }
-  .closing__detail--email {
-    position: absolute;
-    top: 58px;
-    left: 0;
-  }
+  .closing__detail--hours { grid-column: 1; }
+  .closing__detail--email { grid-column: 2; }
 
   .closing__social {
-    display: grid;
-    grid-template-columns: repeat(2, 42px);
-    gap: 12px 14px;
+    display: flex;
+    gap: 14px;
     align-self: center;
     width: auto;
     margin: 0;
-    padding: 2px 2px 2px 28px;
+    padding: 0 0 0 clamp(28px, 4vw, 56px);
     border-left: 1px solid color-mix(in srgb, var(--color-white) 22%, transparent);
   }
 
@@ -2318,12 +2316,66 @@ blockquote {
   }
 }
 
+/* Larger tablets need their own composition: the desktop footer proportions
+   make the title overpower the map before there is enough horizontal space. */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .quotes { padding-bottom: 64px; }
+
+  .closing.section { padding-top: 104px; }
+
+  .closing__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+    column-gap: 40px;
+    align-items: start;
+  }
+
+  .closing__title {
+    max-width: 7.4ch;
+    font-size: clamp(4.6rem, 10.4vw, 6.8rem);
+    line-height: 0.88;
+  }
+
+  .closing__map {
+    align-self: start;
+    margin-top: 38px;
+  }
+
+  .closing__map-frame { height: clamp(340px, 39vw, 400px); }
+
+  .closing__lower {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 28px;
+    margin-top: 48px;
+  }
+
+  .closing__social {
+    justify-self: start;
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
 @media (min-width: 1200px) {
   .section { padding-top: 150px; padding-bottom: 150px; }
   .treatments { padding-top: 150px; }
   .section.pediatric { padding-top: 48px; padding-bottom: 150px; }
   .philosophy { padding-top: 160px; padding-bottom: 160px; }
   .quotes { padding-top: 160px; padding-bottom: 160px; }
+
+  .closing__layout { align-items: start; }
+
+  .closing__title {
+    max-width: 8ch;
+    font-size: clamp(5rem, 9vw, 8rem);
+    line-height: 0.86;
+  }
+
+  .closing__map {
+    align-self: start;
+    margin-top: 38px;
+  }
+
+  .closing__map-frame { height: clamp(360px, 31vw, 460px); }
 }
 
 @media (max-width: 430px) {
@@ -2338,7 +2390,7 @@ blockquote {
   .hero__title { font-size: clamp(3rem, 14.5vw, 4rem); }
   .hero__actions { align-items: flex-start; flex-direction: column; }
   .hero__caption { margin-top: 26px; }
-  .pediatric__brand { top: calc(100vw * 1.25 + 10px); right: 16px; width: 52px; height: 52px; }
+  .pediatric__brand { top: 16px; right: 16px; width: 52px; height: 52px; }
   .pediatric__visual p { padding: 54px 18px 18px; font-size: 1.12rem; }
   .treatment-group--pediatric .treatment-group__trigger { padding-inline: 14px; }
   .treatment-group--pediatric .treatment-group__title { font-size: clamp(1.5rem, 8vw, 2rem); }

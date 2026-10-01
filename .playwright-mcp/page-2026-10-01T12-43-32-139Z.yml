@@ -1,0 +1,416 @@
+- generic [ref=e3]:
+  - link "Ir para o conteúdo" [ref=e4] [cursor=pointer]:
+    - /url: "#topo"
+  - banner [ref=e5]:
+    - generic [ref=e6]:
+      - link "Haven Clinic" [ref=e7] [cursor=pointer]:
+        - /url: "#topo"
+      - 'button "Idioma: PT, Português" [ref=e11] [cursor=pointer]': PT
+      - button "Abrir menu" [ref=e12] [cursor=pointer]
+  - main [ref=e15]:
+    - region [ref=e16]:
+      - generic [ref=e22]: Imagem ilustrativa de uma mulher sorrindo, na paleta quente da Haven Clinic
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - paragraph [ref=e25]: Odontologia & estética facial
+          - heading "Sorrisos com equilíbrio e presença" [level=1] [ref=e26]:
+            - generic [ref=e27]: Sorrisos
+            - generic [ref=e28]: com equilíbrio
+            - generic [ref=e29]: e presença
+          - paragraph [ref=e30]: Odontologia completa e estética facial em São José do Rio Preto.
+          - generic [ref=e31]:
+            - link "Agendar uma consulta" [ref=e33] [cursor=pointer]:
+              - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.
+              - generic [aria-hidden]:
+                - generic: Agendar uma consulta
+            - link "Conhecer tratamentos" [ref=e36] [cursor=pointer]:
+              - /url: "#tratamentos"
+              - text: Conhecer tratamentos
+              - generic [aria-hidden] [ref=e37]: ↓
+        - paragraph [ref=e38]: Haven Clinic · São José do Rio Preto
+    - generic [ref=e39]:
+      - heading "Informações de confiança" [level=2] [ref=e40]
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [aria-hidden] [ref=e43]: "01"
+          - generic [ref=e44]:
+            - strong [ref=e45]: Clínica completa
+            - generic [ref=e46]: Cuidado em diferentes fases
+        - generic [ref=e47]:
+          - generic [aria-hidden] [ref=e48]: "02"
+          - generic [ref=e49]:
+            - strong [ref=e50]: São José do Rio Preto
+            - generic [ref=e51]: Atendimento local
+        - generic [ref=e52]:
+          - generic [aria-hidden] [ref=e53]: "03"
+          - generic [ref=e54]:
+            - strong [ref=e55]: Atendimento personalizado
+            - generic [ref=e56]: Escuta antes de cada plano
+        - generic [ref=e57]:
+          - generic [aria-hidden] [ref=e58]: "04"
+          - generic [ref=e59]:
+            - strong [ref=e60]: Urgência 24h
+            - generic [ref=e61]: Para necessidades urgentes
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - paragraph [ref=e65]: Tratamentos
+          - heading "Encontre o cuidado que faz sentido para você." [level=2] [ref=e66]
+        - paragraph [ref=e67]: Uma visão clara das áreas atendidas pela Haven, para começar a conversa pelo que você procura.
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - heading [level=3] [ref=e70]:
+            - button "Odontologia" [expanded] [ref=e71] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e72]: "01"
+          - region "Odontologia" [ref=e76]:
+            - list [ref=e77]:
+              - listitem [ref=e78]:
+                - generic [ref=e79]:
+                  - link "Clínica Geral (Odontologia Preventiva)" [ref=e81] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Cl%C3%ADnica%20Geral%20(Odontologia%20Preventiva).
+                  - generic [aria-hidden] [ref=e82]: ↗
+              - listitem [ref=e83]:
+                - generic [ref=e84]:
+                  - link "Odontopediatria (crianças)" [ref=e86] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Odontopediatria%20(crian%C3%A7as).
+                  - generic [aria-hidden] [ref=e87]: ↗
+              - listitem [ref=e88]:
+                - generic [ref=e89]:
+                  - link "Ortodontia (aparelhos)" [ref=e91] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Ortodontia%20(aparelhos).
+                  - generic [aria-hidden] [ref=e92]: ↗
+              - listitem [ref=e93]:
+                - generic [ref=e94]:
+                  - link "Endodontia (tratamento de canal)" [ref=e96] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Endodontia%20(tratamento%20de%20canal).
+                  - generic [aria-hidden] [ref=e97]: ↗
+              - listitem [ref=e98]:
+                - generic [ref=e99]:
+                  - link "Periodontia (gengiva e tecidos de suporte)" [ref=e101] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Periodontia%20(gengiva%20e%20tecidos%20de%20suporte).
+                  - generic [aria-hidden] [ref=e102]: ↗
+              - listitem [ref=e103]:
+                - generic [ref=e104]:
+                  - link "Implantodontia (implantes)" [ref=e106] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Implantodontia%20(implantes).
+                  - generic [aria-hidden] [ref=e107]: ↗
+              - listitem [ref=e108]:
+                - generic [ref=e109]:
+                  - link "Prótese Dentária" [ref=e111] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Pr%C3%B3tese%20Dent%C3%A1ria.
+                  - generic [aria-hidden] [ref=e112]: ↗
+                - list [ref=e113]:
+                  - listitem [ref=e114]:
+                    - generic [ref=e115]:
+                      - link "Prótese fixa" [ref=e117] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Pr%C3%B3tese%20fixa.
+                      - generic [aria-hidden] [ref=e118]: ↗
+                  - listitem [ref=e119]:
+                    - generic [ref=e120]:
+                      - link "Prótese removível" [ref=e122] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Pr%C3%B3tese%20remov%C3%ADvel.
+                      - generic [aria-hidden] [ref=e123]: ↗
+                  - listitem [ref=e124]:
+                    - generic [ref=e125]:
+                      - link "Prótese total" [ref=e127] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Pr%C3%B3tese%20total.
+                      - generic [aria-hidden] [ref=e128]: ↗
+                  - listitem [ref=e129]:
+                    - generic [ref=e130]:
+                      - link "Prótese sobre implantes" [ref=e132] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Pr%C3%B3tese%20sobre%20implantes.
+                      - generic [aria-hidden] [ref=e133]: ↗
+                  - listitem [ref=e134]:
+                    - generic [ref=e135]:
+                      - link "Prótese protocolo" [ref=e137] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Pr%C3%B3tese%20protocolo.
+                      - generic [aria-hidden] [ref=e138]: ↗
+              - listitem [ref=e139]:
+                - generic [ref=e140]:
+                  - link "Dentística Restauradora" [ref=e142] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Dent%C3%ADstica%20Restauradora.
+                  - generic [aria-hidden] [ref=e143]: ↗
+                - list [ref=e144]:
+                  - listitem [ref=e145]:
+                    - generic [ref=e146]:
+                      - link "Restaurações em resina" [ref=e148] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Restaura%C3%A7%C3%B5es%20em%20resina.
+                      - generic [aria-hidden] [ref=e149]: ↗
+              - listitem [ref=e150]:
+                - generic [ref=e151]:
+                  - link "Reabilitação Oral" [ref=e153] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Reabilita%C3%A7%C3%A3o%20Oral.
+                  - generic [aria-hidden] [ref=e154]: ↗
+              - listitem [ref=e155]:
+                - generic [ref=e156]:
+                  - link "Cirurgia Oral (Bucomaxilofacial)" [ref=e158] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Cirurgia%20Oral%20(Bucomaxilofacial).
+                  - generic [aria-hidden] [ref=e159]: ↗
+                - list [ref=e160]:
+                  - listitem [ref=e161]:
+                    - generic [ref=e162]:
+                      - link "Extrações" [ref=e164] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Extra%C3%A7%C3%B5es.
+                      - generic [aria-hidden] [ref=e165]: ↗
+                  - listitem [ref=e166]:
+                    - generic [ref=e167]:
+                      - link "3º molar (siso)" [ref=e169] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%203%C2%BA%20molar%20(siso).
+                      - generic [aria-hidden] [ref=e170]: ↗
+                  - listitem [ref=e171]:
+                    - generic [ref=e172]:
+                      - link "Cirurgias menores" [ref=e174] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Cirurgias%20menores.
+                      - generic [aria-hidden] [ref=e175]: ↗
+              - listitem [ref=e176]:
+                - generic [ref=e177]:
+                  - link "Odontologia Digital" [ref=e179] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Odontologia%20Digital.
+                  - generic [aria-hidden] [ref=e180]: ↗
+              - listitem [ref=e181]:
+                - generic [ref=e182]:
+                  - link "Disfunção Temporomandibular (DTM) e Dor Orofacial" [ref=e184] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Disfun%C3%A7%C3%A3o%20Temporomandibular%20(DTM)%20e%20Dor%20Orofacial.
+                  - generic [aria-hidden] [ref=e185]: ↗
+                - list [ref=e186]:
+                  - listitem [ref=e187]:
+                    - generic [ref=e188]:
+                      - link "Toxina botulínica para bruxismo" [ref=e190] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Toxina%20botul%C3%ADnica%20para%20bruxismo.
+                      - generic [aria-hidden] [ref=e191]: ↗
+                  - listitem [ref=e192]:
+                    - generic [ref=e193]:
+                      - link "Placa oclusal para bruxismo" [ref=e195] [cursor=pointer]:
+                        - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Placa%20oclusal%20para%20bruxismo.
+                      - generic [aria-hidden] [ref=e196]: ↗
+              - listitem [ref=e197]:
+                - generic [ref=e198]:
+                  - link "Odontologia para pacientes com necessidades especiais" [ref=e200] [cursor=pointer]:
+                    - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20Odontologia%20para%20pacientes%20com%20necessidades%20especiais.
+                  - generic [aria-hidden] [ref=e201]: ↗
+        - heading [level=3] [ref=e203]:
+          - button "Estética odontológica" [ref=e204] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e205]: "02"
+        - heading [level=3] [ref=e210]:
+          - button "Harmonização orofacial" [ref=e211] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e212]: "03"
+        - generic [ref=e216]:
+          - generic [aria-hidden]:
+            - generic: 🚀
+            - generic: 🪐
+            - generic: 🌎
+            - generic:
+              - generic: 🌕
+              - generic: 🌘
+              - generic: 💥
+            - generic: ⭐
+            - generic: 🌟
+            - generic: ✨
+            - generic: ✦
+            - generic: ✧
+            - generic: ☄️
+            - generic: ☄️
+            - generic: ☄️
+            - generic: ☄️
+          - heading [level=3] [ref=e217]:
+            - button "Odontopediatria Conheça nosso plano infantil Plano mensal com tudo incluso" [ref=e218] [cursor=pointer]:
+              - generic [aria-hidden] [ref=e219]: "04"
+              - generic [ref=e220]:
+                - generic [ref=e221]: Odontopediatria
+                - generic [ref=e222]: Conheça nosso plano infantil
+                - generic [ref=e223]: Plano mensal com tudo incluso
+      - generic [ref=e225]:
+        - paragraph [ref=e226]: Não sabe qual caminho escolher? A consulta começa pela sua necessidade.
+        - link "Conversar sobre meu caso" [ref=e227] [cursor=pointer]:
+          - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20uma%20consulta%20para%20entender%20qual%20tratamento%20%C3%A9%20indicado.
+    - generic [ref=e229]:
+      - generic [ref=e230]:
+        - img "Criança sorrindo durante atendimento odontopediátrico" [ref=e231]
+        - paragraph [ref=e232]: Pequenos começos. Cuidado que acompanha.
+      - generic [ref=e233]:
+        - paragraph [ref=e234]: Odontopediatria
+        - heading "Cuidado desde os primeiros sorrisos." [level=2] [ref=e235]
+        - paragraph [ref=e236]: Uma experiência acolhedora para crianças e famílias, com atenção ao tempo e às necessidades de cada fase.
+        - link "Agendar atendimento infantil" [ref=e237] [cursor=pointer]:
+          - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.%20Gostaria%20de%20saber%20mais%20sobre%3A%20odontopediatria.
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - paragraph [ref=e243]: Um só endereço. Diferentes necessidades.
+        - heading "Clínica completa" [level=2] [ref=e244]
+      - generic [ref=e245]:
+        - paragraph [ref=e246]: Tudo o que o seu cuidado precisa, reunido em uma experiência clara, integrada e próxima.
+        - list [ref=e247]:
+          - listitem [ref=e248]: Odontologia
+          - listitem [ref=e249]: Estética odontológica
+          - listitem [ref=e250]: Harmonização orofacial
+    - generic [ref=e252]:
+      - generic [ref=e253]:
+        - paragraph [ref=e254]: A experiência Haven
+        - heading "Precisão clínica, com espaço para escutar." [level=2] [ref=e255]
+      - generic [ref=e256]:
+        - paragraph [ref=e257]: Na Haven, cada jornada começa pela compreensão do que você busca. O atendimento conecta planejamento, clareza e conforto — sem excessos e sem fórmulas prontas.
+        - link "Agendar uma conversa" [ref=e258] [cursor=pointer]:
+          - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.
+      - generic [ref=e259]:
+        - article [ref=e260]:
+          - generic [ref=e261]: "01"
+          - heading "Escuta individual" [level=3] [ref=e262]
+          - paragraph [ref=e263]: A conversa orienta o começo de cada atendimento.
+        - article [ref=e264]:
+          - generic [ref=e265]: "02"
+          - heading "Planejamento claro" [level=3] [ref=e266]
+          - paragraph [ref=e267]: Etapas e possibilidades apresentadas de forma compreensível.
+        - article [ref=e268]:
+          - generic [ref=e269]: "03"
+          - heading "Experiência integrada" [level=3] [ref=e270]
+          - paragraph [ref=e271]: Diferentes necessidades reunidas em uma mesma clínica.
+    - generic [ref=e272]:
+      - generic [ref=e273]:
+        - generic [ref=e274]:
+          - paragraph [ref=e275]: Estrutura e confiança clínica
+          - heading "Um ambiente pensado para receber bem." [level=2] [ref=e276]
+        - paragraph [ref=e277]: Conforto, privacidade e organização fazem parte de uma experiência de cuidado mais tranquila — do primeiro contato ao acompanhamento.
+      - generic [ref=e278]:
+        - img "Recepção da Haven Clinic, com o nome da clínica, sofá e iluminação pendente" [ref=e280]
+        - img "Consultório da Haven Clinic, com cadeira odontológica e bancada" [ref=e282]
+        - list [ref=e284]:
+          - listitem [ref=e285]:
+            - generic [ref=e286]: "01"
+            - generic [ref=e287]:
+              - heading "Atendimento personalizado" [level=3] [ref=e288]
+              - paragraph [ref=e289]: Uma jornada que considera necessidades e expectativas individuais.
+          - listitem [ref=e290]:
+            - generic [ref=e291]: "02"
+            - generic [ref=e292]:
+              - heading "Ambiente confortável" [level=3] [ref=e293]
+              - paragraph [ref=e294]: Espaços acolhedores para uma experiência mais tranquila.
+          - listitem [ref=e295]:
+            - generic [ref=e296]: "03"
+            - generic [ref=e297]:
+              - heading "Cuidado integrado" [level=3] [ref=e298]
+              - paragraph [ref=e299]: Continuidade entre descoberta, planejamento e acompanhamento.
+          - listitem [ref=e300]:
+            - generic [ref=e301]: "04"
+            - generic [ref=e302]:
+              - heading "Privacidade no atendimento" [level=3] [ref=e303]
+              - paragraph [ref=e304]: Ambientes pensados para oferecer mais tranquilidade e discrição durante o cuidado.
+          - listitem [ref=e305]:
+            - generic [ref=e306]: "05"
+            - generic [ref=e307]:
+              - heading "Organização em cada etapa" [level=3] [ref=e308]
+              - paragraph [ref=e309]: Uma experiência conduzida com clareza do primeiro contato ao acompanhamento.
+    - region [ref=e310]:
+      - generic [ref=e311]:
+        - generic [ref=e312]:
+          - paragraph [ref=e313]: Quem cuida
+          - heading "Corpo clínico" [level=2] [ref=e314]
+        - paragraph [ref=e315]: As pessoas que acompanham o atendimento na Haven.
+      - generic [ref=e316]:
+        - img "Retrato de Drª Nayara Melo" [ref=e318]
+        - generic [ref=e319]:
+          - heading "Drª Nayara Melo" [level=3] [ref=e320]
+          - paragraph [ref=e321]: CRO 130.317
+          - paragraph [ref=e322]: Dra. Nayara Melo é cirurgiã-dentista (CRO-SP 130.317), especialista em Prótese Dentária, com foco em Odontologia Digital, reabilitação oral e estética. Iniciou sua trajetória na odontologia em 2013 como protética e formou-se em Odontologia em 2018, reunindo experiência técnica e clínica no planejamento de tratamentos personalizados. Também atuou como cirurgiã-dentista concursada no serviço público e possui MBA em Gestão, Empreendedorismo e Negócios pela PUCRS. Sócia e fundadora da HAVEN Clinic, alia precisão, tecnologia, gestão e atendimento humanizado para oferecer uma experiência segura e individualizada a cada paciente.
+      - list [ref=e323]:
+        - listitem [ref=e324]:
+          - img "Retrato de Maria Laura Paniche" [ref=e326]
+          - heading "Maria Laura Paniche" [level=3] [ref=e328]
+        - listitem [ref=e329]:
+          - img "Retrato de Dr. Leandro Mazer" [ref=e331]
+          - generic [ref=e332]:
+            - heading "Dr. Leandro Mazer" [level=3] [ref=e333]
+            - paragraph [ref=e334]: CRO 112.721
+        - listitem [ref=e335]:
+          - img "Retrato de Drª Isabela Camarim" [ref=e337]
+          - generic [ref=e338]:
+            - heading "Drª Isabela Camarim" [level=3] [ref=e339]
+            - paragraph [ref=e340]: CRO 130.745
+        - listitem [ref=e341]:
+          - img "Retrato de Dr. Henrique Andrade" [ref=e343]
+          - generic [ref=e344]:
+            - heading "Dr. Henrique Andrade" [level=3] [ref=e345]
+            - paragraph [ref=e346]: CRO 173.467
+        - listitem [ref=e347]:
+          - img "Retrato de Dr. Gustavo Sbrolini" [ref=e349]
+          - generic [ref=e350]:
+            - heading "Dr. Gustavo Sbrolini" [level=3] [ref=e351]
+            - paragraph [ref=e352]: CRO 127.859
+        - listitem [ref=e353]:
+          - img "Retrato de Drª Flávia Berton" [ref=e355]
+          - generic [ref=e356]:
+            - heading "Drª Flávia Berton" [level=3] [ref=e357]
+            - paragraph [ref=e358]: CRO 98655
+    - generic [ref=e359]:
+      - generic [ref=e361]:
+        - paragraph [ref=e362]: Avaliações no Google
+        - heading "Quem vive a Haven, conta." [level=2] [ref=e363]
+      - generic [ref=e370]:
+        - generic [ref=e372]:
+          - paragraph [ref=e373]: Bruno Splendori. Avaliação no Google. Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.. 5 de 5 estrelas
+          - generic [ref=e376]:
+            - generic [ref=e377]:
+              - paragraph [ref=e378]: Bruno Splendori
+              - generic [ref=e379]:
+                - paragraph [ref=e380]: Avaliação no Google
+                - paragraph [ref=e381]: ★★★★★
+            - blockquote [ref=e382]:
+              - paragraph [ref=e383]: Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.
+        - generic [ref=e384]:
+          - button "Avaliação anterior" [ref=e385] [cursor=pointer]: ←
+          - generic [ref=e386]: 1 / 10
+          - button "Próxima avaliação" [ref=e387] [cursor=pointer]: →
+        - paragraph [ref=e388]:
+          - text: Avaliações publicadas no Google.
+          - link "Ver e avaliar no Google" [ref=e389] [cursor=pointer]:
+            - /url: https://share.google/PzCsjfkHdW52BNDLy
+    - generic [ref=e390]:
+      - generic [ref=e391]:
+        - generic [ref=e392]:
+          - paragraph [ref=e393]: Próximo passo
+          - heading "O seu sorriso começa aqui." [level=2] [ref=e394]:
+            - text: O seu sorriso
+            - generic [ref=e395]: começa aqui.
+          - paragraph [ref=e396]: Fale com a Haven e encontre o melhor ponto de partida para você.
+          - link "Agendar pelo WhatsApp" [ref=e397] [cursor=pointer]:
+            - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.
+        - generic [ref=e398]:
+          - iframe [ref=e400]
+          - paragraph [ref=e401]:
+            - link "Abrir no Google Maps" [ref=e402] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=R.%20Luiz%20Ant%C3%B4nio%20da%20Silveira%2C%20334%2C%20Boa%20Vista%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%2C%20SP%2C%2015025-020
+        - generic [ref=e403]:
+          - generic [ref=e404]:
+            - generic [ref=e405]:
+              - term [ref=e406]: Endereço
+              - definition [ref=e407]:
+                - link "R. Luiz Antônio da Silveira, 334, Boa Vista São José do Rio Preto, SP, 15025-020" [ref=e408] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/?api=1&query=R.%20Luiz%20Ant%C3%B4nio%20da%20Silveira%2C%20334%2C%20Boa%20Vista%2C%20S%C3%A3o%20Jos%C3%A9%20do%20Rio%20Preto%2C%20SP%2C%2015025-020
+                  - generic [ref=e409]: R. Luiz Antônio da Silveira, 334, Boa Vista
+                  - generic [ref=e410]: São José do Rio Preto, SP, 15025-020
+            - generic [ref=e411]:
+              - term [ref=e412]: WhatsApp
+              - definition [ref=e413]:
+                - link "+55 17 99629-3081" [ref=e414] [cursor=pointer]:
+                  - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.
+            - generic [ref=e415]:
+              - term [ref=e416]: Horário
+              - definition [ref=e417]:
+                - generic [ref=e418]: Seg a Sex · 08h às 18h
+                - generic [ref=e419]: Sáb · 08h às 12h
+                - generic [ref=e420]: Dom · fechado
+                - generic [ref=e421]: Urgência 24h
+            - generic [ref=e422]:
+              - term [ref=e423]: E-mail
+              - definition [ref=e424]:
+                - link "Havenclinic8@gmail.com" [ref=e425] [cursor=pointer]:
+                  - /url: mailto:Havenclinic8@gmail.com
+          - group "Redes sociais" [ref=e426]:
+            - link "WhatsApp" [ref=e427] [cursor=pointer]:
+              - /url: https://wa.me/5517996293081?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20na%20Haven%20Clinic.
+            - link "Instagram" [ref=e430] [cursor=pointer]:
+              - /url: https://www.instagram.com/havenclinicoficial/
+            - link "TikTok" [ref=e435] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@havenclinicoficial
+            - link "Facebook" [ref=e438] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61575883315598
+      - paragraph [ref=e442]: © 2026 Haven Clinic. Todos os direitos reservados.

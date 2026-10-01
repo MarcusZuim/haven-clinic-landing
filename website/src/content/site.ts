@@ -52,10 +52,10 @@ export const site = {
       name: "Drª Nayara Melo",
       cro: "130.317",
       image: {
-        src: assetUrl("images/team/final/nayara/01.jpg"),
-        width: 960,
-        height: 1104,
-        position: "50% 0%",
+        src: assetUrl("images/team/final/nayara/02.png"),
+        width: 1122,
+        height: 1402,
+        position: "50% 50%",
       },
     },
     {
@@ -78,14 +78,14 @@ export const site = {
       image: { src: assetUrl("images/team/final/henrique/01.webp"), width: 1122, height: 1402, position: "50% 29%" },
     },
     {
+      name: "Drª Flávia Berton",
+      cro: "98.655",
+      image: { src: assetUrl("images/team/final/flavia/01.webp"), width: 1122, height: 1402, position: "50% 32%" },
+    },
+    {
       name: "Dr. Gustavo Sbrolini",
       cro: "127.859",
       image: { src: assetUrl("images/team/final/gustavo/01.webp"), width: 1122, height: 1402, position: "50% 33%" },
-    },
-    {
-      name: "Drª Flávia Berton",
-      cro: "98655",
-      image: { src: assetUrl("images/team/final/flavia/01.webp"), width: 1122, height: 1402, position: "50% 32%" },
     },
   ] as const,
   complete: {
