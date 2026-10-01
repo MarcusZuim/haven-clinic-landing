@@ -17,10 +17,6 @@ export function isLocale(value: string | null): value is Locale {
 
 const reviews = [
   {
-    author: "Bruno Splendori",
-    text: "Trabalho lindo Dra Nayara uma grande profissional, extraordinário, sem palavras.",
-  },
-  {
     author: "Brunna Calafati",
     text: "Eu estou fazendo meu tratamento na clínica, o atendimento é sensacional, humanizado e com muita dedicação! Devido ao trabalho excepcional eu trouxe minha família toda para ser atendido aqui! Recomendo de olhos fechados!!!",
   },
