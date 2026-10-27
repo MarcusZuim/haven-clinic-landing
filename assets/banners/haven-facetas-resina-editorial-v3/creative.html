@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>HAVEN · Facetas de resina · Criativo comercial</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="review-note">
+      <strong>HAVEN · PROPOSTA COMERCIAL</strong>
+      <span>1080 × 1350 · Imagem ilustrativa gerada por IA. Não é resultado clínico.</span>
+    </header>
+    <main class="stage" aria-label="Proposta de criativo da HAVEN Clinic">
+      <article class="creative" aria-labelledby="headline">
+        <img class="photograph" src="media/smile-editorial-generated.png" width="1254" height="1254" alt="Close ilustrativo de um sorriso, gerado por IA. Não representa paciente ou resultado clínico." />
+        <header class="campaign-heading">
+          <h1 id="headline"><span class="headline-intro">FACETAS PRECISAM</span><span class="headline-emphasis">PARECER ARTIFICIAIS?</span></h1>
+          <p class="hook-support">Tire suas dúvidas antes de decidir.</p>
+        </header>
+        <p class="cta"><span>FALE COM A NOSSA EQUIPE</span><span aria-hidden="true" class="cta-arrow">↗</span></p>
+        <img class="signature" src="media/haven-isologo-official-white.png" width="340" height="340" alt="HAVEN Clinic — Clínica Integrada" />
+      </article>
+    </main>
+    <script>
+      const stage = document.querySelector('.stage');
+      if (new URLSearchParams(location.search).has('export')) document.body.classList.add('export');
+      const fit = () => stage.style.setProperty('--scale', stage.clientWidth / 1080);
+      new ResizeObserver(fit).observe(stage);
+      fit();
+    </script>
+  </body>
+</html>
