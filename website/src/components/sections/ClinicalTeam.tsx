@@ -66,6 +66,13 @@ export function ClinicalTeam() {
               {"cro" in member ? (
                 <p className="team__cro">{copy.credential} {member.cro}</p>
               ) : null}
+              {"qualificationKey" in member ? (
+                <ul className="team__qualifications">
+                  {copy.qualifications[member.qualificationKey].map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
           </li>
         ))}

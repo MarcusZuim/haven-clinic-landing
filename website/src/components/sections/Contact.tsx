@@ -52,7 +52,12 @@ export function Contact() {
               <span className="closing__urgency">{copy.urgency}</span>
             </>
           ) : item.key === "email" ? (
-            <a href={`mailto:${item.value}`}>{item.value}</a>
+            <>
+              <a href={`mailto:${item.value}`}>{item.value}</a>
+              <p className="closing__registration">
+                {copy.registration.map((line) => <span key={line}>{line}</span>)}
+              </p>
+            </>
           ) : (
             null
           )}

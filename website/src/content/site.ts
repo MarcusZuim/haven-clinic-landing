@@ -59,31 +59,32 @@ export const site = {
       },
     },
     {
-      name: "Maria Laura Paniche",
-      image: { src: assetUrl("images/team/final/maria%20laura/02.webp"), width: 1122, height: 1402, position: "50% 33%" },
-    },
-    {
       name: "Dr. Leandro Mazer",
+      qualificationKey: "leandro",
       cro: "112.721",
       image: { src: assetUrl("images/team/final/leandro/01.webp"), width: 1122, height: 1402, position: "50% 31%" },
     },
     {
       name: "Drª Isabela Camarim",
+      qualificationKey: "isabela",
       cro: "130.745",
       image: { src: assetUrl("images/team/final/isabela/03.webp"), width: 1122, height: 1402, position: "50% 35%" },
     },
     {
       name: "Dr. Henrique Andrade",
+      qualificationKey: "henrique",
       cro: "173.467",
       image: { src: assetUrl("images/team/final/henrique/01.webp"), width: 1122, height: 1402, position: "50% 29%" },
     },
     {
       name: "Drª Flávia Berton",
+      qualificationKey: "flavia",
       cro: "98.655",
       image: { src: assetUrl("images/team/final/flavia/01.webp"), width: 1122, height: 1402, position: "50% 32%" },
     },
     {
       name: "Dr. Gustavo Sbrolini",
+      qualificationKey: "gustavo",
       cro: "127.859",
       image: { src: assetUrl("images/team/final/gustavo/01.webp"), width: 1122, height: 1402, position: "50% 33%" },
     },

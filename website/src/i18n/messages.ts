@@ -296,6 +296,13 @@ export const messages = {
       ],
     },
     team: {
+      qualifications: {
+        leandro: ["Cirurgião-Dentista","Especialista em Implantodontia"],
+        isabela: ["Cirurgiã-Dentista","Clínico Geral","Atuação em Endodontia"],
+        henrique: ["Cirurgião-Dentista","Clínico Geral","Atuação em Harmonização Orofacial"],
+        flavia: ["Cirurgiã-Dentista","Clínico Geral","Atuação em Ortodontia e Ortopedia"],
+        gustavo: ["Cirurgião-Dentista","Clínico Geral","Atuação em Lentes e Harmonização Orofacial"],
+      },
       eyebrow: "Quem cuida",
       title: "Corpo clínico",
       body: "As pessoas que acompanham o atendimento na Haven.",
@@ -316,6 +323,7 @@ export const messages = {
       items: reviews,
     },
     contact: {
+      registration: ["RT NAYARA MELO", "CRO/SP 130.317", "CRO/SP CL 036.169"],
       eyebrow: "Próximo passo",
       titleLead: "O seu sorriso",
       titleAccent: "começa aqui.",
@@ -586,6 +594,13 @@ export const messages = {
       ],
     },
     team: {
+      qualifications: {
+        leandro: ["Dentist","Specialist in Implant Dentistry"],
+        isabela: ["Dentist","General Dentistry","Practice in Endodontics"],
+        henrique: ["Dentist","General Dentistry","Practice in Orofacial Harmonization"],
+        flavia: ["Dentist","General Dentistry","Practice in Orthodontics and Orthopedics"],
+        gustavo: ["Dentist","General Dentistry","Practice in Dental Veneers and Orofacial Harmonization"],
+      },
       eyebrow: "Who provides care",
       title: "Clinical team",
       body: "The people who take part in care at Haven.",
@@ -606,6 +621,7 @@ export const messages = {
       items: reviews,
     },
     contact: {
+      registration: ["RT NAYARA MELO", "CRO/SP 130.317", "CRO/SP CL 036.169"],
       eyebrow: "Next step",
       titleLead: "Your smile",
       titleAccent: "starts here.",
@@ -876,6 +892,13 @@ export const messages = {
       ],
     },
     team: {
+      qualifications: {
+        leandro: ["Cirujano-Dentista","Especialista en Implantología"],
+        isabela: ["Cirujana-Dentista","Odontología General","Práctica en Endodoncia"],
+        henrique: ["Cirujano-Dentista","Odontología General","Práctica en Armonización Orofacial"],
+        flavia: ["Cirujana-Dentista","Odontología General","Práctica en Ortodoncia y Ortopedia"],
+        gustavo: ["Cirujano-Dentista","Odontología General","Práctica en Carillas y Armonización Orofacial"],
+      },
       eyebrow: "Quién cuida",
       title: "Cuerpo clínico",
       body: "Las personas que acompañan la atención en Haven.",
@@ -896,6 +919,7 @@ export const messages = {
       items: reviews,
     },
     contact: {
+      registration: ["RT NAYARA MELO", "CRO/SP 130.317", "CRO/SP CL 036.169"],
       eyebrow: "Siguiente paso",
       titleLead: "Tu sonrisa",
       titleAccent: "empieza aquí.",
